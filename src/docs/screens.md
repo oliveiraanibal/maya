@@ -1,17 +1,17 @@
-# Screen Plan and Strip Specification
+# Screen Specs and Mood Board
 
-Twenty tablet screens in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive LED strip: the tablet holds everything interactive, the strip only lets people glance.
+Twenty screens on the central display in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive Panoramic Vision band: the central display holds everything interactive, Panoramic Vision only lets people glance.
 
 ## The two screens
 
-| | Tablet | Strip |
+| | Central display | Panoramic Vision |
 |---|---|---|
-| Hardware | Large touchscreen, like today's infotainment | LED strip at the base of the windscreen, like BMW Panoramic Vision |
+| Hardware | Large touchscreen, like today's infotainment | A band at the base of the windscreen, as in BMW Panoramic Vision |
 | Role | All detail and interaction | Passive, glanceable, secondary information |
 | Input | Touch | None (not touchable) |
-| Content rule | Everything | Nothing unique: a copy of what is on the tablet |
+| Content rule | Everything | Nothing unique: a copy of what is on the central display |
 
-The strip is split in half: one half is automotive data (speed, temperature, range), the other half belongs to Maya. A third surface, Michael's phone, appears only in courier mode, when nobody is in the car.
+Panoramic Vision is split in half: one half is automotive data (speed, temperature, range), the other half belongs to Maya. A third surface, Michael's phone, appears only in courier mode, when nobody is in the car.
 
 ## Screen inventory
 
@@ -36,19 +36,19 @@ Priority **H** = needed for the hero scenario; *branch* = reached through a touc
 | **S15** | Edit plan | 6 | Drag to reorder or move a stop, add or remove, ripple preview, Apply or Cancel | **H** (central, branch) |
 | **S16** | Incoming call | 7 | Incoming-call overlay over the active trip | **H** |
 | **S17** | Plan change: ambient | 7 | Heard phrase, cancelled stop crossed out, new stop marked, Undo | **H** |
-| **S18** | Errand suggestion | 8 | The dry cleaner's message and Maya's offer to collect the suit after the drop-off and be back at 21:30; Yes or No thanks | **H** |
+| **S18** | Errand suggestion | 8 | The dry cleaner's message and Maya's offer to collect the suit after the drop-off, then wait nearby for his call; Yes or No thanks | **H** |
 | **S19** | Errand booked | 8 | The call to the dry cleaner (live transcript), payment, the agreed handover (19:20, rear right door, on a hanger, code sent) and a new plan row after the restaurant | **H** |
-| **S20** | Arrival report | 9 | Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, back for you at 21:30) | **H** |
+| **S20** | Arrival report | 9 | Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, then the car waits for his call) | **H** |
 | **C1** | Leaving in courier mode | 9, 10 | "Please take your belongings", the cabin check (empty, nothing left behind), where the car is going and when it will be back | **H** |
-| **C2** | Phone: courier run | 10 | View only: live map and steps (to the dry cleaner, handover, back at 21:30), the door being used | **H** |
+| **C2** | Phone: courier run | 10 | View only: live map and steps (to the dry cleaner, handover, then charging until he calls), in the My BMW app, the door being used | **H** |
 | **C3** | Phone: errand report | 10 | View only: photo of the suit on the hanger, receipt, times, what the camera saw | **H** |
 | **C4** | Errands | any time | Opened by the box icon beside Settings: upcoming, running and done errands; New errand | **H** (branch) |
-| **C5** | New errand | any time | What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (return time), report | **H** (branch) |
+| **C5** | New errand | any time | What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (what the car does next), report | **H** (branch) |
 | **V1** | Takeover request | variant | Level 3 or 4 only, outside the Level 5 scope: countdown to take over; Maya pauses every task | Variant |
 | **V2** | Running late | edge case 2 | Fixes, cheapest first: ask the restaurant to hold the table, take a faster road, ask the wife to wait at the corner | Variant |
-| **F1** | Maya presence | all | Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on the strip | **H** (system layer) |
+| **F1** | Maya presence | all | Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on Panoramic Vision | **H** (system layer) |
 
-**Errands entry:** a box icon left of the settings cog on every tablet screen. **The phone** is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). **Charging** is not an errand and never appears in the plan list.
+**Errands entry:** a box icon left of the settings cog on every central display screen. **The phone** is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). **Charging** is not an errand and never appears in the plan list.
 
 **Supportive (later):** Maya settings beyond access, notifications tray, error and offline states.
 
@@ -56,7 +56,7 @@ Priority **H** = needed for the hero scenario; *branch* = reached through a touc
 
 **Prototype path:** about 25 frames in story order: S01, S02 (S03 from Adjust); S04, S06, S07 (S05 when typing); S08, S09; S10, S11; S12; S13, S14 (S15 from Edit plan); S16, S17; S18, S19; S20; C1, C2, C3; then C4 and C5 from the box icon.
 
-## Strip: Maya's half
+## Panoramic Vision: Maya's half
 
 ```
 [ 62 km/h · 21° · 312 km ]  |  [ ◉ Kindergarten 17:55 · ●●○○○ · +5 min ]
@@ -73,13 +73,13 @@ Short text only (about 25 characters), always with text so colour is never the o
 | 4. Progress (optional) | Squares for done, current, upcoming stops | Static |
 | Events | "Plan updated", "Pharmacy changed", "Flowers confirmed", "Flowers delivered", "Pickup moved: hair salon", "Errand booked: dry cleaner" | 4-second takeover of slots 2 and 3 |
 
-**Never on the strip:** transcripts, maps, editing, anything interactive or long, medication names, personal data.
+**Never on Panoramic Vision:** transcripts, maps, editing, anything interactive or long, medication names, personal data.
 
-**When the cabin is empty** (courier mode), the strip is off.
+**When the cabin is empty** (courier mode), Panoramic Vision is off.
 
-## Strip through the story
+## Panoramic Vision through the story
 
-| Scene | Screen | Strip (Maya's half) |
+| Scene | Screen | Panoramic Vision (Maya's half) |
 |---|---|---|
 | 1 | S01, S02 | ◉ Home 17:48, once signed in |
 | 2 | S04 to S07 | ◉ listening · Home 17:48 |
@@ -89,13 +89,19 @@ Short text only (about 25 characters), always with text so colour is never the o
 | 6 | S13, S14 | Next stop updates: School 17:35, Kindergarten 17:55, Pharmacy 2 18:10 |
 | 7 | S16, S17 | "Pickup moved: hair salon · +5 min", then Hair salon 18:30 |
 | 8 | S18, S19 | ◉ speaking, then ◉ Calling the dry cleaner, then "Errand booked: dry cleaner" |
-| 9 | S20, C1 | Arrived 18:55 · +5 min, then "Courier · back 21:30" |
+| 9 | S20, C1 | Arrived 18:55 · +5 min, then "Courier · waits for you" |
 | 10 | C1 to C3 | Off (cabin empty) |
 
 ## Principles these screens follow
 
-1. The tablet is for interaction, the strip is for glances.
+1. The central display is for interaction, Panoramic Vision is for glances.
 2. The screen is the confirmation, so Maya does not read plans back.
 3. Spare time is always visible.
 4. Every change (world, conversation, user) shows what was removed and what is new: cancelled stops are crossed out, new stops are marked.
 5. The phone is view only and appears only when the car is alone.
+
+## Mood board
+
+The final visual direction, **Deep ocean**: dark first, a deep blue-green ground with cobalt and lumen glows, inspired by The Abyss. In a dark cabin at night, light can carry meaning. Panoramic Vision is always dark.
+
+![Mood board: Deep ocean](../../mood/mood-board.png)

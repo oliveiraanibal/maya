@@ -1,41 +1,32 @@
 <!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maya · UX challenge entry page</title><meta name="description" content="Maya, an AI trip concierge for a Level 5 car. UX challenge by Aníbal Oliveira.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
+<title>Maya · AI trip concierge</title><meta name="description" content="Maya, an AI trip concierge for any Level 5 car. A UX challenge by Aníbal Oliveira.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 :root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
-.hero{background:#020812;color:#E6F1F8;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:56px max(16px,env(safe-area-inset-left)) 48px}
-.w{max-width:960px;margin:0 auto}
+.hero{background:#020812;color:#E6F1F8;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:56px max(16px,env(safe-area-inset-left)) 52px}
+.w{max-width:1040px;margin:0 auto}
 .kicker{color:#5CD6F2;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
-h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;margin:12px 0;letter-spacing:-.03em}
-.hero p{color:#8DA6BA;max-width:60ch;margin:0 0 24px}
-.btn{display:inline-block;background:#5CD6F2;color:#020812;padding:14px 22px;font-weight:600;text-decoration:none;min-height:48px}
-.btn.o{background:none;color:#5CD6F2;border:1px solid #5CD6F2;margin-left:8px}
-h2{font-size:1.3rem;margin:44px 0 12px}
-.list{display:grid;gap:12px}
-.item{display:grid;grid-template-columns:40px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);padding:16px 18px;text-decoration:none;color:inherit}
+h1{font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin:12px 0 6px;letter-spacing:-.03em;font-weight:300}
+.sub{font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:300;margin:0 0 20px;color:#E6F1F8}
+.hero p.intro{color:#9DB2C4;max-width:68ch;margin:0 0 14px;font-size:16.5px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;background:#5CD6F2;color:#020812;padding:12px 20px;font-weight:600;text-decoration:none;min-height:48px}
+.btn.o{background:none;color:#5CD6F2;border:1px solid #5CD6F2}
+h2{font-size:1.3rem;margin:44px 0 14px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:12px}
+.item{display:grid;grid-template-columns:36px 1fr;gap:12px;background:var(--card);border:1px solid var(--line);padding:16px 18px;text-decoration:none;color:inherit}
 .item:hover{border-color:var(--teal)}.n{font-weight:700;color:var(--teal)}.item b{display:block}.item span{color:var(--mute);font-size:.92rem}
-.soon{opacity:.65}
-footer{margin-top:48px;color:var(--mute);font-size:.88rem}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
 </style></head><body>
 <div class="hero"><div class="w"><div class="kicker">UX challenge · New AI assistant for infotainment</div>
-<h1>Maya</h1><p>An AI trip concierge for a Level 5 car. One evening, ten scenes, three reroutes and one courier errand. By Aníbal Oliveira.</p>
-<a class="btn" href="Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf" data-goatcounter-click="pdf-download" data-goatcounter-title="PDF download">Read the PDF (30 pages)</a><a class="btn o" href="prototype/">Open the prototype</a><a class="btn o" href="screens/">Hi-fi screens</a></div></div>
+<h1>Maya</h1><p class="sub">An AI trip concierge for any Level 5 car</p>
+<p class="intro">A self-driving car frees your hands, not your evening. Navigation handles routes, not commitments, so passengers still sequence the stops, phone businesses and replan by hand whenever something changes.</p>
+<p class="intro">With Maya, you share your needs and goals; she plans the stops, phones the shops, pays from her wallet and adapts when the world or a conversation changes the plan. Everything shows on the central display and Panoramic Vision, and everything can be undone. When the car is free, she sends it to run your errands.</p>
+<p class="intro">The story follows Michael, a father of two, from work to a 19:00 family birthday dinner: three pickups, a prescription, flowers on the table, and a suit the empty car collects while the family eats.</p>
+<div class="btns"><a class="btn" href="Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf" data-goatcounter-click="pdf-download" data-goatcounter-title="PDF download">Get the PDF</a><a class="btn o" href="prototype/">Open the prototype</a><a class="btn o" href="screens/">UI design artboard</a></div></div></div>
 <div class="w">
-<p style="margin-top:32px;max-width:64ch;color:var(--mute)">Start with the PDF: it is self-sufficient, and everything needed to judge the work is inside it. The pages below are the working process behind it, listed in the order it was made, with nothing to sign in to.</p>
 <h2>The working process</h2>
-<div class="list">
-<a class="item" href="docs/brief/"><span class="n">01</span><div><b>Hypothesis and Assumptions</b><span>Problem, vision, hypothesis, scope, success metrics, assumptions A1 to A15, design principles.</span></div></a>
-<a class="item" href="docs/hero/"><span class="n">02</span><div><b>Hero Scenario and Conversation Script</b><span>Ten scenes, the day in numbers, the full script and the conversation rules.</span></div></a>
-<a class="item" href="journey/"><span class="n">03</span><div><b>Journey Map and Task Flow</b><span>Ten beats from sign-in to the empty car charging, plus the decision flow.</span></div></a>
-<a class="item" href="docs/screens/"><span class="n">04</span><div><b>Screen Plan and Strip Specification</b><span>S01 to S20, C1 to C5, variants, and the LED strip through the story.</span></div></a>
-<a class="item" href="docs/matrix/"><span class="n">05</span><div><b>Multimodal Matrix</b><span>Voice, touch, strip, chime, phone: parity, outputs and stress tests.</span></div></a>
-<a class="item" href="docs/edge/"><span class="n">06</span><div><b>Edge Cases and Validation Plan</b><span>Seventeen edge cases and six tests tied to the assumptions.</span></div></a>
-<a class="item" href="docs/decisions/"><span class="n">07</span><div><b>Decision Log and Trade-offs</b><span>What was decided, what each choice costs, and what is still open.</span></div></a>
-<a class="item" href="mood/"><span class="n">08</span><div><b>Mood Board</b><span>Deep ocean: the final visual direction.</span></div></a>
-<a class="item" href="wireframes/"><span class="n">09</span><div><b>Tablet Wireframes</b><span>Greyscale iteration 1: layout, patterns and components.</span></div></a>
-<a class="item" href="screens/"><span class="n">10</span><div><b>Hi-fi Screens</b><span>Every screen at 1920 × 1200, with live HTML pages.</span></div></a>
-<a class="item" href="prototype/"><span class="n">11</span><div><b>Clickable Prototype</b><span>The whole evening, by touch or by voice, with edge cases 1 to 4 as “what if” branches.</span></div></a>
-</div>
-<footer>Aníbal Oliveira · Porto · Written in UK English.</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<div class="list"><a class="item" href="docs/brief/"><span class="n">01</span><div><b>Concept Foundations</b><span>Problem, vision, hypothesis, scope, success metrics, assumptions, design principles and trade-offs.</span></div></a><a class="item" href="docs/hero/"><span class="n">02</span><div><b>Hero Scenario and Conversation Script</b><span>Ten scenes, the day in numbers, the full script and the conversation rules.</span></div></a><a class="item" href="journey/"><span class="n">03</span><div><b>Journey Map</b><span>Ten beats from sign-in to the empty car charging, with what Maya does backstage.</span></div></a><a class="item" href="flow/"><span class="n">04</span><div><b>Task Flow</b><span>Every decision behind the evening: replans, ambient intent and the courier hand-off.</span></div></a><a class="item" href="docs/screens/"><span class="n">05</span><div><b>Screen Specs and Mood Board</b><span>S01 to S20, C1 to C5 and variants, Panoramic Vision through the story, and the Deep ocean mood board.</span></div></a><a class="item" href="docs/matrix/"><span class="n">06</span><div><b>Multimodal Matrix</b><span>Voice, touch, Panoramic Vision, chime and phone: parity, outputs and stress tests.</span></div></a><a class="item" href="docs/edge/"><span class="n">07</span><div><b>Edge Cases and Validation Plan</b><span>Seventeen edge cases and six tests tied to the assumptions.</span></div></a><a class="item" href="wireframes/"><span class="n">08</span><div><b>Central Display Wireframes</b><span>Greyscale iteration 1: layout, patterns and components.</span></div></a><a class="item" href="screens/"><span class="n">09</span><div><b>Hi-fi Screens and Components</b><span>Every screen at 1920 × 1200, with live HTML pages and the component inventory.</span></div></a><a class="item" href="prototype/"><span class="n">10</span><div><b>Clickable Prototype</b><span>The whole evening by touch or voice, with edge cases 1 to 4 as what-if branches.</span></div></a></div>
+<footer>Aníbal Oliveira · Maya, AI trip concierge</footer></div>
+<script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body></html>

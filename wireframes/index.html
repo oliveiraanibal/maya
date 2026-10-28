@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · entry page</a></p>
-<title>Maya Wireframes, Iteration 1</title>
+<title>Central Display Wireframes · Maya</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: strategy and pattern tables first, then one annotated landscape frame per screen state. Greyscale only. */
@@ -138,7 +138,7 @@ tr:last-child td{border-bottom:0}
 .pres .p1{border:1px solid var(--line);border-radius:6px;padding:10px 14px;background:var(--frame);min-width:150px}
 .pres .p1 small{color:var(--mute)}
 
-/* LED strip: ultrawide, passive, no touch */
+/* Panoramic Vision: ultrawide, passive, no touch */
 .sfw{container-type:inline-size;min-width:900px}
 .sframe{width:100%;aspect-ratio:14/1;background:#0f1112;color:#f0f2f3;display:grid;grid-template-columns:1fr 1fr;font-size:1.45cqw;line-height:1.2;position:relative;border-radius:.6em}
 .sframe .half{display:flex;align-items:center;gap:1.4em;padding:0 1.6em;position:relative}
@@ -165,14 +165,15 @@ tr:last-child td{border-bottom:0}
 .sbadge{display:inline-block;font-size:.7em;border:1px solid var(--line);border-radius:3px;padding:0 .5em;margin-right:.4em;color:var(--mute)}
 </style>
 <div class="wrap">
-  <h1>Maya Tablet Wireframes <span style="font-weight:400;color:var(--mute)">· iteration 1</span></h1>
-  <p class="lede">Greyscale wireframes for the main screen: a large landscape tablet, 16:10 (drawn as 1280 x 800). Screen IDs follow the order of the story. No colour or type decisions yet; this page decides layout, interaction patterns and components.</p>
+  <h1>Maya Central Display Wireframes <span style="font-weight:400;color:var(--mute)">· iteration 1</span></h1>
+  <p class="lede">Greyscale wireframes for the main screen: a large landscape central display, 16:10 (drawn as 1280 x 800). Screen IDs follow the order of the story. No colour or type decisions yet; this page decides layout, interaction patterns and components.</p>
 
   <div class="box" style="border-width:2px;border-color:var(--ink);max-width:none">
     <p style="margin:0 0 8px"><strong>Iteration 1 · 27 October 2026.</strong> These greyscale wireframes came first and are kept as a record. The hi-fi screens replaced them, and these things changed:</p>
     <ul class="list" style="margin-top:0">
       <li><strong>Size:</strong> 1920 × 1200 instead of 1280 × 800.</li>
-      <li><strong>Screen IDs:</strong> renumbered in story order, S01 to S20 and C1 to C5. The old S1 to S9 below map to them in the Decision Log.</li>
+      <li><strong>Names:</strong> the screens are now called the central display and Panoramic Vision.</li>
+      <li><strong>Screen IDs:</strong> renumbered in story order, S01 to S20 and C1 to C5. The old S1 to S9 below are the earlier names of the same screens.</li>
       <li><strong>No mic and no top status bar:</strong> Maya's bar at the bottom shows her status and opens the keyboard when tapped. The bento icon and "Maya" sit top left; the time, Errands and Settings sit top right.</li>
       <li><strong>Sign-in</strong> (S01) now comes before the welcome screen.</li>
       <li><strong>The briefing card</strong> is called "New plan", and its last slot is "To do".</li>
@@ -191,7 +192,7 @@ tr:last-child td{border-bottom:0}
     <li><strong>Spare time pill pinned to the plan panel.</strong> It is the promise, so it never scrolls away.</li>
     <li><strong>No modal dialogs.</strong> Changes appear as banners inside the panel. The only overlay is the incoming phone call, and it stays small.</li>
     <li><strong>Large targets, short text.</strong> Controls are sized for arm's length on a console: aim for about 64 to 76 px high at 1280 x 800 (check against Android Automotive guidance at hi-fi). Two lines of text at most per card.</li>
-    <li><strong>Nothing duplicates the strip.</strong> Speed, temperature and range stay on the LED strip; the tablet shows no automotive data.</li>
+    <li><strong>Nothing duplicates Panoramic Vision.</strong> Speed, temperature and range stay on the Panoramic Vision; the central display shows no automotive data.</li>
     <li><strong>Arrival is a different screen.</strong> The trip ends in a full-width report, not in the working layout.</li>
   </ol>
 
@@ -243,7 +244,7 @@ tr:last-child td{border-bottom:0}
     <tr><td>Map pin</td><td>Past (grey), next, pending (dotted), cancelled (crossed), new</td><td>S1 to S8</td></tr>
     <tr><td>Map route</td><td>Past (grey), ahead (solid), previous plan (dashed)</td><td>S1 to S8</td></tr>
     <tr><td>Buttons</td><td>Primary, secondary, text</td><td>All</td></tr>
-    <tr><td>Strip slots (presence, next stop, spare time, beads, event)</td><td>See section 6</td><td>LED strip</td></tr>
+    <tr><td>Panoramic Vision slots (presence, next stop, spare time, beads, event)</td><td>See section 6</td><td>Panoramic Vision</td></tr>
     <tr><td>Arrival report</td><td>Headline, spare time, ledger, next step</td><td>S9</td></tr>
   </table></div>
   <div class="pres">
@@ -256,15 +257,15 @@ tr:last-child td{border-bottom:0}
 
   <h2>4. Design system</h2>
   <div class="box">
-    <p style="margin:0"><strong>Recommendation: decide at the hi-fi step, not now.</strong> The wireframes use a small kit of plain components, so the layout stays independent of any library. At hi-fi, use a free public system as a reference for sizes and behaviour, and build the brand layer (Maya, the strip) on your own tokens. Candidates are Material 3 with the Android Automotive OS guidelines (free and public, includes in-car touch target and layout guidance). Adopting one whole would hide the decisions this exercise is meant to show.</p>
+    <p style="margin:0"><strong>Recommendation: decide at the hi-fi step, not now.</strong> The wireframes use a small kit of plain components, so the layout stays independent of any library. At hi-fi, use a free public system as a reference for sizes and behaviour, and build the brand layer (Maya, Panoramic Vision) on your own tokens. Candidates are Material 3 with the Android Automotive OS guidelines (free and public, includes in-car touch target and layout guidance). Adopting one whole would hide the decisions this exercise is meant to show.</p>
   </div>
 
   <h2>5. Screens</h2>
   <div id="screens"></div>
 
 
-  <h2>6. Secondary screen: LED strip</h2>
-  <p>A passive, non-touchable LED strip at the base of the windscreen, ultrawide (drawn at 14:1). It carries nothing unique: everything here is also on the tablet. The left half is automotive data, the right half is Maya's. Short text only, about 20 characters, and colour is never the only signal.</p>
+  <h2>6. Secondary screen: Panoramic Vision</h2>
+  <p>A passive, non-touchable Panoramic Vision at the base of the windscreen, ultrawide (drawn at 14:1). It carries nothing unique: everything here is also on the central display. The left half is automotive data, the right half is Maya's. Short text only, about 20 characters, and colour is never the only signal.</p>
   <div class="scr">
     <div class="sh"><h3>Strip layout</h3><span class="tag">Master</span></div>
     <div class="scroller"><div class="sfw"><div class="sframe">
@@ -278,7 +279,7 @@ tr:last-child td{border-bottom:0}
       <li>Spare time: green above 4 min (solid), amber 0 to 4 (striped), red below 0 (double outline), always with the number.</li>
       <li>Progress beads: done (grey), current (filled), upcoming (outlined). Optional.</li>
     </ol>
-    <p class="lede">Events (4 seconds) take over slots 2 and 3 and then return. Never on the strip: transcripts, maps, editing, anything long, medication names, personal data.</p>
+    <p class="lede">Events (4 seconds) take over slots 2 and 3 and then return. Never on Panoramic Vision: transcripts, maps, editing, anything long, medication names, personal data.</p>
   </div>
   <div id="strips"></div>
 
@@ -436,22 +437,23 @@ function stripFrame(o){
   var right='<div class="half maya"><span class="s-slot">'+sp(o.pres)+'<span>'+o.state+'</span>'+A2(an.pres)+'</span>'+mid+beads+'</div>';
   return '<div class="sframe">'+left+right+'</div>'}
 var SS=[
- {id:'F1-1',t:'Boarding',n:'Scene 1, tablet S1',o:{kmh:'12',state:'idle',pres:'',next:'Home 17:48',spare:'--',sc:'g',an:{pres:1,next:2}},notes:['Idle presence: outlined dot.','The provisional default route. No spare time yet, so the pill shows a dash.']},
- {id:'F1-2',t:'Briefing',n:'Scene 2, tablet S2',o:{kmh:'38',state:'listening',pres:'on pulse',next:'Home 17:48',spare:'--',an:{pres:1}},notes:['Listening: filled, pulsing dot. The text mirrors the tablet presence pill.']},
- {id:'F1-3',t:'Pharmacy call',n:'Scene 3, tablet S3',o:{kmh:'41',state:'on a call',pres:'on pulse',next:'Pharmacy 18:10',spare:'+5 min',sc:'g',an:{pres:1,next:2,spare:3}},notes:['On a call: filled, pulsing dot with the label.','Next stop is the pharmacy being confirmed.','Spare time is green above 4 minutes.']},
- {id:'F1-3b',t:'Event: plan changed',n:'Scene 3, tablet S7 (automatic)',o:{kmh:'41',state:'idle',pres:'',evt:'Pharmacy changed &middot; +5 min',an:{evt:1}},notes:['Event takeover of slots 2 and 3 for 4 seconds, then the strip returns to normal. No chime for world changes.']},
- {id:'F1-4',t:'Florist call',n:'Scene 4, tablet S4',o:{kmh:'44',state:'on a call',pres:'on pulse',next:'Florist',spare:'+5 min',an:{next:1}},notes:['The call target replaces the next stop while the call lasts. Afterwards, the event is &ldquo;Flowers confirmed&rdquo;.']},
- {id:'F1-5',t:'Plan running',n:'Scene 5, tablet S5',o:{kmh:'52',state:'idle',pres:'',next:'School 17:35',spare:'+5 min',beads:'dcuuuu',an:{beads:1}},notes:['Beads show 1 stop done (work), the current one filled, and the rest ahead. Six stops in total.']},
- {id:'F1-6',t:'Pickup',n:'Scene 6, tablet S6',o:{kmh:'0',state:'idle',pres:'',next:'Kindergarten 17:55',spare:'+5 min',beads:'ddcuuu',an:{next:1}},notes:['A short state chip such as &ldquo;Son on board&rdquo; appears as a 4-second event, then the next stop returns.']},
- {id:'F1-6b',t:'Event: son on board',n:'Scene 6, tablet S6',o:{kmh:'0',state:'idle',pres:'',evt:'Son on board',an:{evt:1}},notes:['Pickup states are shown as events, never as a permanent slot.']},
- {id:'F1-7',t:'Event: ambient change',n:'Scene 7, tablet S7 (ambient)',o:{kmh:'46',state:'listening',pres:'on pulse',evt:'Pickup moved: hair salon &middot; +5 min',an:{evt:1}},notes:['The same wording as the tablet banner. A chime sounds with it; the strip stays silent. Afterwards the next stop reads &ldquo;Hair salon 18:30&rdquo;.']},
+ {id:'F1-1',t:'Boarding',n:'Scene 1, central display S1',o:{kmh:'12',state:'idle',pres:'',next:'Home 17:48',spare:'--',sc:'g',an:{pres:1,next:2}},notes:['Idle presence: outlined dot.','The provisional default route. No spare time yet, so the pill shows a dash.']},
+ {id:'F1-2',t:'Briefing',n:'Scene 2, central display S2',o:{kmh:'38',state:'listening',pres:'on pulse',next:'Home 17:48',spare:'--',an:{pres:1}},notes:['Listening: filled, pulsing dot. The text mirrors the central display presence pill.']},
+ {id:'F1-3',t:'Pharmacy call',n:'Scene 3, central display S3',o:{kmh:'41',state:'on a call',pres:'on pulse',next:'Pharmacy 18:10',spare:'+5 min',sc:'g',an:{pres:1,next:2,spare:3}},notes:['On a call: filled, pulsing dot with the label.','Next stop is the pharmacy being confirmed.','Spare time is green above 4 minutes.']},
+ {id:'F1-3b',t:'Event: plan changed',n:'Scene 3, central display S7 (automatic)',o:{kmh:'41',state:'idle',pres:'',evt:'Pharmacy changed &middot; +5 min',an:{evt:1}},notes:['Event takeover of slots 2 and 3 for 4 seconds, then Panoramic Vision returns to normal. No chime for world changes.']},
+ {id:'F1-4',t:'Florist call',n:'Scene 4, central display S4',o:{kmh:'44',state:'on a call',pres:'on pulse',next:'Florist',spare:'+5 min',an:{next:1}},notes:['The call target replaces the next stop while the call lasts. Afterwards, the event is &ldquo;Flowers confirmed&rdquo;.']},
+ {id:'F1-5',t:'Plan running',n:'Scene 5, central display S5',o:{kmh:'52',state:'idle',pres:'',next:'School 17:35',spare:'+5 min',beads:'dcuuuu',an:{beads:1}},notes:['Beads show 1 stop done (work), the current one filled, and the rest ahead. Six stops in total.']},
+ {id:'F1-6',t:'Pickup',n:'Scene 6, central display S6',o:{kmh:'0',state:'idle',pres:'',next:'Kindergarten 17:55',spare:'+5 min',beads:'ddcuuu',an:{next:1}},notes:['A short state chip such as &ldquo;Son on board&rdquo; appears as a 4-second event, then the next stop returns.']},
+ {id:'F1-6b',t:'Event: son on board',n:'Scene 6, central display S6',o:{kmh:'0',state:'idle',pres:'',evt:'Son on board',an:{evt:1}},notes:['Pickup states are shown as events, never as a permanent slot.']},
+ {id:'F1-7',t:'Event: ambient change',n:'Scene 7, central display S7 (ambient)',o:{kmh:'46',state:'listening',pres:'on pulse',evt:'Pickup moved: hair salon &middot; +5 min',an:{evt:1}},notes:['The same wording as the central display banner. A chime sounds with it; Panoramic Vision stays silent. Afterwards the next stop reads &ldquo;Hair salon 18:30&rdquo;.']},
  {id:'F1-8',t:'Spare time shrinking',n:'Edge case: running late',o:{kmh:'58',state:'idle',pres:'',next:'Hair salon 18:30',spare:'+2 min',sc:'a',beads:'ddddcu',an:{spare:1}},notes:['Amber from 0 to 4 minutes: striped fill plus the number. Below 0 it becomes a red double outline, e.g. &ldquo;-3 min&rdquo;.']},
- {id:'F1-9',t:'Arrival',n:'Scene 8, tablet S9',o:{kmh:'0',state:'idle',pres:'',next:'Arrived 18:55',spare:'+5 min',beads:'dddddd',an:{next:1}},notes:['Shows the arrival time and the spare time earned. After a few seconds the next stop reads &ldquo;Charging&rdquo;.']},
+ {id:'F1-9',t:'Arrival',n:'Scene 8, central display S9',o:{kmh:'0',state:'idle',pres:'',next:'Arrived 18:55',spare:'+5 min',beads:'dddddd',an:{next:1}},notes:['Shows the arrival time and the spare time earned. After a few seconds the next stop reads &ldquo;Charging&rdquo;.']},
  {id:'F1-10',t:'Offline',n:'Edge case: connectivity loss',o:{kmh:'62',state:'idle',pres:'',evt:'Offline &middot; plan kept',an:{evt:1}},notes:['Stays until the connection returns. Shown as text only, never as colour alone.']}
 ];
 document.getElementById('strips').innerHTML=SS.map(function(x){
  return '<section class="scr"><div class="sh"><h3>'+x.id+' &middot; '+x.t+'</h3><span class="tag">'+x.n+'</span></div><div class="scroller"><div class="sfw">'+stripFrame(x.o)+'</div></div><ol class="notes">'+x.notes.map(function(n){return '<li>'+n+'</li>'}).join('')+'</ol></section>'}).join('');
 </script>
 
+<footer style="max-width:1180px;margin:40px auto 0;padding:16px 20px 40px;border-top:1px solid #D3DCE5;color:#4D6074;font:14px Inter,system-ui,sans-serif">Aníbal Oliveira · Maya, AI trip concierge</footer>
 <script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body></html>

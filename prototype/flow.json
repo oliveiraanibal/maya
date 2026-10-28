@@ -65,6 +65,10 @@
         [
           "<i>18:10</i>Pharmacy 2<span class=\"nw\">CHANGED</span>",
           "<i>18:10</i>Pharmacy 3<span class=\"nw\">PROPOSED</span>"
+        ],
+        [
+          "</svg></span><time>17:20</time></div>",
+          "</svg></span><time>17:21</time></div>"
         ]
       ]
     },
@@ -131,7 +135,28 @@
       "cta": {
         "label": "Look at the camera",
         "go": "S02"
-      }
+      },
+      "hotspots": [
+        {
+          "id": "pin",
+          "label": "Use PIN or password",
+          "find": {
+            "text": "Use PIN or password",
+            "exact": true
+          },
+          "go": "S02",
+          "toast": "Signed in with PIN."
+        },
+        {
+          "id": "switch",
+          "label": "Not Michael? Switch profile",
+          "find": {
+            "text": "Not Michael? Switch profile",
+            "exact": true
+          },
+          "toast": "Another profile would sign in here. Not drawn in this prototype."
+        }
+      ]
     },
     "S02": {
       "mock": "S02-Welcome.html",
@@ -614,7 +639,7 @@
       "time": "18:32",
       "title": "Errand suggestion",
       "note": "The dry cleaner’s message arrives; Maya doesn’t read it aloud. She offers to collect the suit with the empty car after the drop-off.",
-      "maya": "Your suit is ready at the dry cleaner. After I drop you at the restaurant, I can collect it on my own and be back for you at 21:30. Shall I?",
+      "maya": "Your suit is ready at the dry cleaner. After I drop you at the restaurant, I can collect it on my own and wait nearby until you call. Shall I?",
       "cta": {
         "label": "Say yes",
         "say": "Yes, please.",
@@ -657,8 +682,8 @@
       "scene": 9,
       "time": "18:55",
       "title": "Arrival report",
-      "note": "Arrived on time with 5 minutes to spare, and the full list of what was done. The next step is the courier run.",
-      "maya": "We’re here, five minutes early. I’ll collect your suit and be back for you at 21:30.",
+      "note": "Arrived on time with 5 minutes to spare, and the full list of what was done. Next is the courier run; then the car waits nearby until Michael calls it.",
+      "maya": "We’re here, five minutes early. I’ll collect your suit and wait nearby until you call.",
       "cta": {
         "label": "Leave in courier mode",
         "go": "C1"
@@ -694,7 +719,7 @@
       "scene": 10,
       "time": "19:21",
       "title": "Phone: courier run",
-      "note": "Nobody is in the cabin, so the tablet and the strip are off and there is no voice. Michael follows the run on his phone, view only.",
+      "note": "Nobody is in the cabin, so the central display and Panoramic Vision are off and there is no voice. Michael follows the run on his phone, in the My BMW app, view only.",
       "cta": {
         "label": "19:24 · the report arrives",
         "go": "C3"
@@ -705,7 +730,7 @@
       "scene": 10,
       "time": "19:24",
       "title": "Phone: errand report",
-      "note": "A notification, no voice: a photo of the suit on the hanger, the receipt and the times. The car then charges near the restaurant until Michael calls it. The story ends here.",
+      "note": "A notification, no voice: a photo of the suit on the hanger, the receipt and the times. The car then charges near the restaurant and waits until Michael calls it. The story ends here.",
       "cta": {
         "label": "Start again",
         "go": "S01"
@@ -779,7 +804,7 @@
       "scene": 0,
       "time": "18:15",
       "title": "Edge case 2 · Running late",
-      "note": "Spare time has gone negative. Maya offers fixes, cheapest first. The strip turns red.",
+      "note": "Spare time has gone negative. Maya offers fixes, cheapest first. Panoramic Vision turns red.",
       "cta": {
         "label": "Back to the trip",
         "go": "back"
@@ -891,7 +916,7 @@
       "scene": 0,
       "time": "18:09",
       "title": "Edge case 4 · The chime is missed",
-      "note": "Michael didn’t notice the chime. The change stays on screen until he dismisses it, and the strip repeats it once.",
+      "note": "Michael didn’t notice the chime. The change stays on screen until he dismisses it, it stays in the ledger, and Panoramic Vision repeats it once.",
       "cta": {
         "label": "Back to the story",
         "go": "back"

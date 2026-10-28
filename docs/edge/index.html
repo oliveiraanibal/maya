@@ -11,6 +11,7 @@ nav.top span{color:var(--mute)}
 h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
 h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
 p,li{max-width:74ch}
+img{max-width:100%;height:auto}
 a{color:var(--teal)}
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
 table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
@@ -19,10 +20,10 @@ th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mu
 tr:last-child td{border-bottom:0}
 code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
 pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
-footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;font-family:Inter,system-ui,sans-serif}
 </style></head>
 <body><div class="wrap"><nav class="top"><a href="../../">Maya · entry page</a><span>/</span><span>Edge Cases and Validation Plan</span></nav><h1>Edge Cases and Validation Plan</h1>
-<p>Seventeen edge cases and six tests, each tied to the assumptions (A1 to A15) in the Hypothesis and Assumptions document. Cases 11 to 17 and the courier trust test cover courier mode.</p>
+<p>Seventeen edge cases and six tests, each tied to the assumptions (A1 to A16) in Concept Foundations. Cases 11 to 17 and the courier trust test cover courier mode.</p>
 <h2>Edge-case list</h2>
 <div class="tw"><table>
 <thead>
@@ -46,7 +47,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>2</td>
 <td>Spare time goes negative</td>
 <td>On-time arrival is the main promise</td>
-<td>Show the fixes, cheapest first, such as asking the restaurant to hold the table (V2); the strip turns red</td>
+<td>Show the fixes, cheapest first, such as asking the restaurant to hold the table (V2); Panoramic Vision turns red</td>
 <td>A8, A12</td>
 </tr>
 <tr>
@@ -60,7 +61,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>4</td>
 <td>The chime is missed</td>
 <td>Michael does not know the plan changed</td>
-<td>The change stays in the ledger, and the strip repeats it once</td>
+<td>The change stays on screen until dismissed, and in the ledger; Panoramic Vision repeats it once</td>
 <td>A9</td>
 </tr>
 <tr>
@@ -81,14 +82,14 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>7</td>
 <td>Child not at the pickup point</td>
 <td>Safety and delay</td>
-<td>Alert on the tablet, wait window, school call</td>
+<td>Alert on the central display, wait window, school call</td>
 <td></td>
 </tr>
 <tr>
 <td>8</td>
 <td>Connectivity loss</td>
 <td>Everything backstage runs in the cloud</td>
-<td>Keep the current plan, strip shows "Offline", edits queue</td>
+<td>Keep the current plan, Panoramic Vision shows "Offline", edits queue</td>
 <td></td>
 </tr>
 <tr>
@@ -108,8 +109,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td>11</td>
 <td>Shop not ready, or nobody comes to the car</td>
-<td>The car can't wait for ever, and the return time is the promise</td>
-<td>Wait within a set window, then leave so the car is back on time; the report (C3) says what happened, and the errand goes back to Errands (C4) to try again</td>
+<td>The car can't wait for ever, and Michael may need it</td>
+<td>Wait within a set window, then leave; the report (C3) says what happened, and the errand goes back to Errands (C4) to try again</td>
 <td>A13</td>
 </tr>
 <tr>
@@ -128,16 +129,16 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </tr>
 <tr>
 <td>14</td>
-<td>Car needed earlier</td>
+<td>Car needed before the errand is done</td>
 <td>Plans change during dinner</td>
-<td>Michael calls the car, as he did at 17:15. It is the same car, because his suit is inside: it comes from the charging station near the restaurant, or finishes the handover first if it is still mid-errand, and the phone says when it will arrive</td>
+<td>Michael calls the car. It is the same car, because his suit is inside: it comes from the charging station near the restaurant, or finishes the handover first if it is still mid-errand, and the phone says when it will arrive</td>
 <td>A14</td>
 </tr>
 <tr>
 <td>15</td>
-<td>Return time at risk (traffic, a slow handover)</td>
-<td>Being back on time is the courier promise</td>
-<td>Tell Michael early on the phone, with the new time; never late in silence</td>
+<td>The errand runs late (traffic, a slow handover)</td>
+<td>Michael may need the car</td>
+<td>Tell Michael early on the phone; if he calls the car, it shows when it can reach him</td>
 <td>A14</td>
 </tr>
 <tr>
@@ -172,7 +173,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td>Wizard of Oz briefing (if I had a month)</td>
 <td>Questions needed, natural language</td>
-<td>A person plays Maya's voice with a prototype tablet, 5 participants</td>
+<td>A person plays Maya's voice with a prototype central display, 5 participants</td>
 <td>Completion without confusion; count of questions</td>
 <td>A1, A6</td>
 </tr>
@@ -185,7 +186,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </tr>
 <tr>
 <td>Glance test</td>
-<td>Strip and tablet readability</td>
+<td>Panoramic Vision and central display readability</td>
 <td>5-second exposure: "What's next? How much spare time?"</td>
 <td>80% or more correct</td>
 <td>A8, A10</td>
@@ -213,5 +214,4 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </tr>
 </tbody>
 </table></div>
-<p><strong>Solo-friendly:</strong> the glance, legibility, touch-only and courier trust tests can run remotely on a clickable prototype. The Wizard of Oz briefing moves to the one-month list. Retailer cooperation (A4, and A13 for courier handovers) would be tested with scripted calls to a few local shops if I had a month.</p><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-</body></html>
+<p><strong>Solo-friendly:</strong> the glance, legibility, touch-only and courier trust tests can run remotely on a clickable prototype. The Wizard of Oz briefing moves to the one-month list. Retailer cooperation (A4, and A13 for courier handovers) would be tested with scripted calls to a few local shops if I had a month.</p><footer>Aníbal Oliveira · Maya, AI trip concierge</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script></body></html>

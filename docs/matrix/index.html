@@ -11,6 +11,7 @@ nav.top span{color:var(--mute)}
 h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
 h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
 p,li{max-width:74ch}
+img{max-width:100%;height:auto}
 a{color:var(--teal)}
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
 table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
@@ -19,7 +20,7 @@ th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mu
 tr:last-child td{border-bottom:0}
 code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
 pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
-footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;font-family:Inter,system-ui,sans-serif}
 </style></head>
 <body><div class="wrap"><nav class="top"><a href="../../">Maya · entry page</a><span>/</span><span>Multimodal Matrix</span></nav><h1>Multimodal Matrix</h1>
 <p>Every task can be done by voice alone or touch alone; Maya's speech always has captions, and every chime has a visual twin.</p>
@@ -27,11 +28,11 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <ol>
 <li><strong>Parity:</strong> every task can be completed by voice alone or by touch alone. A single-mode step is a bug.</li>
 <li><strong>Mirroring:</strong> everything Maya says appears as a caption, and every chime has a visual twin.</li>
-<li><strong>The strip carries nothing unique.</strong> Anything shown there is also on the tablet, and it cannot be touched.</li>
+<li><strong>Panoramic Vision carries nothing unique.</strong> Anything shown there is also on the central display, and it cannot be touched.</li>
 <li><strong>Voice is for intent, touch is for precision</strong> (drag, pick, correct), but each can do the other's job.</li>
 <li><strong>No time pressure on undo or correction,</strong> so people who are slower to speak or tap are not penalised.</li>
-<li><strong>Only the signed-in user commands Maya.</strong> Other occupants' speech is context only, and edits on the tablet are tied to the signed-in user.</li>
-<li><strong>Without you, the phone is the window.</strong> When the car runs an errand alone, nobody is in the cabin to see the tablet or hear Maya, so the run is followed and reported on Michael's phone: view only, through notifications, never by voice.</li>
+<li><strong>Only the signed-in user commands Maya.</strong> Other occupants' speech is context only, and edits on the central display are tied to the signed-in user.</li>
+<li><strong>Without you, the phone is the window.</strong> When the car runs an errand alone, nobody is in the cabin to see the central display or hear Maya, so the run is followed and reported on Michael's phone: view only, through notifications, never by voice.</li>
 </ol>
 <h2>Channels</h2>
 <div class="tw"><table>
@@ -50,16 +51,16 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </tr>
 <tr>
 <td>Touch</td>
-<td>Tablet: tap, drag, type, pick</td>
-<td>Tablet: all detail and interaction</td>
+<td>Central display: tap, drag, type, pick</td>
+<td>Central display: all detail and interaction</td>
 </tr>
 <tr>
 <td>Cabin camera</td>
 <td>Face at sign-in (S01); in courier mode, the empty-cabin and item checks</td>
-<td>none (results appear on the tablet or the phone)</td>
+<td>none (results appear on the central display or the phone)</td>
 </tr>
 <tr>
-<td>Strip</td>
+<td>Panoramic Vision</td>
 <td>none (not touchable)</td>
 <td>Glance: presence, next stop, spare time, events; off when the cabin is empty</td>
 </tr>
@@ -71,7 +72,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td>Captions</td>
 <td>none</td>
-<td>Text of anything Maya says, on the tablet</td>
+<td>Text of anything Maya says, on the central display</td>
 </tr>
 <tr>
 <td>Phone (courier mode only)</td>
@@ -93,8 +94,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <th>Task</th>
 <th>Voice</th>
 <th>Touch</th>
-<th>Tablet shows</th>
-<th>Strip shows</th>
+<th>Central display shows</th>
+<th>Panoramic Vision shows</th>
 </tr>
 </thead>
 <tbody>
@@ -149,8 +150,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <th>Task</th>
 <th>Voice</th>
 <th>Touch</th>
-<th>Tablet shows</th>
-<th>Strip shows</th>
+<th>Central display shows</th>
+<th>Panoramic Vision shows</th>
 </tr>
 </thead>
 <tbody>
@@ -191,8 +192,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <th>Task</th>
 <th>Voice</th>
 <th>Touch</th>
-<th>Tablet shows</th>
-<th>Strip shows</th>
+<th>Central display shows</th>
+<th>Panoramic Vision shows</th>
 </tr>
 </thead>
 <tbody>
@@ -240,8 +241,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <th>Task</th>
 <th>Voice</th>
 <th>Touch</th>
-<th>Tablet or phone shows</th>
-<th>Strip shows</th>
+<th>Central display or phone shows</th>
+<th>Panoramic Vision shows</th>
 </tr>
 </thead>
 <tbody>
@@ -287,8 +288,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <thead>
 <tr>
 <th>Event</th>
-<th>Tablet</th>
-<th>Strip</th>
+<th>Central display</th>
+<th>Panoramic Vision</th>
 <th>Voice</th>
 <th>Chime</th>
 <th>Caption</th>
@@ -378,7 +379,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td>Courier hand-off</td>
 <td>"Leaving in courier mode. Please take your belongings." (C1)</td>
-<td>"Courier · back 21:30"</td>
+<td>"Courier · waits for you"</td>
 <td>Yes, in the arrival line</td>
 <td>No</td>
 <td>Yes</td>
@@ -395,7 +396,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </table></div>
 <p>Only ambient changes use the chime. Every other alert, including low spare time and offline, is visual; Maya speaks only when she needs an answer or has a result.</p>
 <p><strong>Courier mode outputs</strong></p>
-<p>Nobody is in the cabin, so during the run there is no voice and no chime, and the tablet and the strip are off. Everything goes to Michael's phone, and the car speaks to the shop staff only through one flashing door.</p>
+<p>Nobody is in the cabin, so during the run there is no voice and no chime, and the central display and Panoramic Vision are off. Everything goes to Michael's phone, and the car speaks to the shop staff only through one flashing door.</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -410,13 +411,13 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>Something left in the cabin (before leaving)</td>
 <td>Notification: courier on hold until it is removed</td>
 <td>none</td>
-<td>Tablet shows what and where; Maya says it once, with a caption</td>
+<td>Central display shows what and where; Maya says it once, with a caption</td>
 </tr>
 <tr>
 <td>Car leaves (18:58)</td>
 <td>Live run starts (C2)</td>
 <td>none</td>
-<td>Tablet and strip off</td>
+<td>Central display and Panoramic Vision off</td>
 </tr>
 <tr>
 <td>At the shop (19:20)</td>
@@ -431,7 +432,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>none</td>
 </tr>
 <tr>
-<td>Return time at risk</td>
+<td>The errand runs late</td>
 <td>Notification with the new time</td>
 <td>none</td>
 <td>none</td>
@@ -461,15 +462,15 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td><strong>Noisy cabin</strong></td>
 <td>Voice misses or errors</td>
-<td>After one failed attempt, Maya shows the touch path on the tablet instead of asking again</td>
+<td>After one failed attempt, Maya shows the touch path on the central display instead of asking again</td>
 </tr>
 <tr>
 <td><strong>Hard of hearing</strong></td>
 <td>The chime is missed</td>
-<td>Visual twin on both the tablet and the strip, and optional haptics</td>
+<td>Visual twin on both the central display and Panoramic Vision, and optional haptics</td>
 </tr>
 <tr>
-<td><strong>Children tapping the tablet</strong></td>
+<td><strong>Children tapping the central display</strong></td>
 <td>Accidental edits</td>
 <td>Edit actions tied to the signed-in user's profile</td>
 </tr>
@@ -480,17 +481,16 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </tr>
 <tr>
 <td><strong>Nobody in the car</strong> (courier mode)</td>
-<td>No one sees the tablet or hears Maya, and the shop staff are not users</td>
+<td>No one sees the central display or hears Maya, and the shop staff are not users</td>
 <td>The phone is the window, view only; the staff get a code by text and one flashing door, and nothing else in the car responds to them</td>
 </tr>
 </tbody>
 </table></div>
 <h2>Decisions this adds to the plan</h2>
 <ul>
-<li>Maya's lines always have captions on the tablet.</li>
+<li>Maya's lines always have captions on the central display.</li>
 <li>Undo has no countdown.</li>
-<li>The strip is read-only and a copy of the tablet, and it is off when the cabin is empty.</li>
+<li>Panoramic Vision is read-only and a copy of the central display, and it is off when the cabin is empty.</li>
 <li>Voice and touch both stay available at every moment, with no mode switch. There is no mic button: tapping Maya's bar opens the keyboard.</li>
-<li>In courier mode the phone, view only, replaces the tablet, and the shop staff only ever get a code and one door.</li>
-</ul><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-</body></html>
+<li>In courier mode the phone, view only, replaces the central display, and the shop staff only ever get a code and one door.</li>
+</ul><footer>Aníbal Oliveira · Maya, AI trip concierge</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script></body></html>

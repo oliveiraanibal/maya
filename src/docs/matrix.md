@@ -6,22 +6,22 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 
 1. **Parity:** every task can be completed by voice alone or by touch alone. A single-mode step is a bug.
 2. **Mirroring:** everything Maya says appears as a caption, and every chime has a visual twin.
-3. **The strip carries nothing unique.** Anything shown there is also on the tablet, and it cannot be touched.
+3. **Panoramic Vision carries nothing unique.** Anything shown there is also on the central display, and it cannot be touched.
 4. **Voice is for intent, touch is for precision** (drag, pick, correct), but each can do the other's job.
 5. **No time pressure on undo or correction,** so people who are slower to speak or tap are not penalised.
-6. **Only the signed-in user commands Maya.** Other occupants' speech is context only, and edits on the tablet are tied to the signed-in user.
-7. **Without you, the phone is the window.** When the car runs an errand alone, nobody is in the cabin to see the tablet or hear Maya, so the run is followed and reported on Michael's phone: view only, through notifications, never by voice.
+6. **Only the signed-in user commands Maya.** Other occupants' speech is context only, and edits on the central display are tied to the signed-in user.
+7. **Without you, the phone is the window.** When the car runs an errand alone, nobody is in the cabin to see the central display or hear Maya, so the run is followed and reported on Michael's phone: view only, through notifications, never by voice.
 
 ## Channels
 
 | | Input | Output |
 |---|---|---|
 | Voice | Natural language, always listening in the cabin (ambient intent) | Maya's spoken lines (rare) |
-| Touch | Tablet: tap, drag, type, pick | Tablet: all detail and interaction |
-| Cabin camera | Face at sign-in (S01); in courier mode, the empty-cabin and item checks | none (results appear on the tablet or the phone) |
-| Strip | none (not touchable) | Glance: presence, next stop, spare time, events; off when the cabin is empty |
+| Touch | Central display: tap, drag, type, pick | Central display: all detail and interaction |
+| Cabin camera | Face at sign-in (S01); in courier mode, the empty-cabin and item checks | none (results appear on the central display or the phone) |
+| Panoramic Vision | none (not touchable) | Glance: presence, next stop, spare time, events; off when the cabin is empty |
 | Chime | none | Ambient changes only, always with a visual twin |
-| Captions | none | Text of anything Maya says, on the tablet |
+| Captions | none | Text of anything Maya says, on the central display |
 | Phone (courier mode only) | Tap a notification to open the run or the report; view only | Live run (C2), errand report (C3), notifications; never voice |
 | Car exterior (courier mode only) | The shop staff type the one-time code at the door | The door to use flashes; only that door opens, then it locks |
 
@@ -29,7 +29,7 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 
 **Boarding and briefing**
 
-| Task | Voice | Touch | Tablet shows | Strip shows |
+| Task | Voice | Touch | Central display shows | Panoramic Vision shows |
 |---|---|---|---|---|
 | Sign in | Face recognition, no words needed | PIN or password, or Switch profile (S01) | Sign in (S01), then Welcome and "Going home" (S02) | Home and arrival time, once signed in |
 | Adjust Maya's access | "Change what you can access" | Tap Adjust on the welcome screen (S02) | Maya's access (S03) | none |
@@ -40,7 +40,7 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 
 **Planning and editing**
 
-| Task | Voice | Touch | Tablet shows | Strip shows |
+| Task | Voice | Touch | Central display shows | Panoramic Vision shows |
 |---|---|---|---|---|
 | Review the plan | "What's next?" | Tap a stop on the timeline | Timeline, map, stop detail (S12) | Next stop and spare time |
 | Move a stop | "Pick up my wife before the pharmacy" | Drag the stop in Edit plan (S15) | Ripple preview, then Apply (S15) | Event "Plan updated" |
@@ -49,7 +49,7 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 
 **In transit**
 
-| Task | Voice | Touch | Tablet shows | Strip shows |
+| Task | Voice | Touch | Central display shows | Panoramic Vision shows |
 |---|---|---|---|---|
 | Check status | "Are we on time?" | Look at spare time, always on screen | Spare time and stop times (S14) | Spare time |
 | Know what the car will do at a stop | "What happens at school?" | Read the intent card (S13) | Where it stops, which doors unlock, how long it waits (S13) | Next stop |
@@ -59,7 +59,7 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 
 **Courier errands**
 
-| Task | Voice | Touch | Tablet or phone shows | Strip shows |
+| Task | Voice | Touch | Central display or phone shows | Panoramic Vision shows |
 |---|---|---|---|---|
 | Accept or decline a suggested errand | "Yes, please" / "No thanks" | Tap Yes or No thanks (S18) | Errand suggestion (S18), then the call, payment and agreed handover (S19) | ◉ speaking, ◉ on call, then "Errand booked: dry cleaner" |
 | Schedule an errand by hand | "Drop my jacket at the dry cleaner tomorrow at 10" | Box icon, then New errand (C4, C5) | Errands list and form (C4, C5) | Event "Errand booked" |
@@ -69,7 +69,7 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 
 ## Output matrix: what each event produces
 
-| Event | Tablet | Strip | Voice | Chime | Caption |
+| Event | Central display | Panoramic Vision | Voice | Chime | Caption |
 |---|---|---|---|---|---|
 | Maya asks a question | Question card | ◉ speaking | Yes | No | Yes |
 | Automatic plan update (pharmacy) | Banner and ledger (S09) | Event, 4 s | No | No | n/a |
@@ -81,22 +81,22 @@ Every task can be done by voice alone or touch alone; Maya's speech always has c
 | Running late | Fixes, cheapest first (V2) | Red, with a minus sign | Yes (short) | No | Yes |
 | Pickup states | State chip | Next stop | No | No | n/a |
 | Arrival | Arrival report (S20) | Arrived and spare time | Yes (short) | No | Yes |
-| Courier hand-off | "Leaving in courier mode. Please take your belongings." (C1) | "Courier · back 21:30" | Yes, in the arrival line | No | Yes |
+| Courier hand-off | "Leaving in courier mode. Please take your belongings." (C1) | "Courier · waits for you" | Yes, in the arrival line | No | Yes |
 | Error or offline | Error card with action | "Offline · plan kept" | No | No | n/a |
 
 Only ambient changes use the chime. Every other alert, including low spare time and offline, is visual; Maya speaks only when she needs an answer or has a result.
 
 **Courier mode outputs**
 
-Nobody is in the cabin, so during the run there is no voice and no chime, and the tablet and the strip are off. Everything goes to Michael's phone, and the car speaks to the shop staff only through one flashing door.
+Nobody is in the cabin, so during the run there is no voice and no chime, and the central display and Panoramic Vision are off. Everything goes to Michael's phone, and the car speaks to the shop staff only through one flashing door.
 
 | Event | Phone | Car exterior | Cabin |
 |---|---|---|---|
-| Something left in the cabin (before leaving) | Notification: courier on hold until it is removed | none | Tablet shows what and where; Maya says it once, with a caption |
-| Car leaves (18:58) | Live run starts (C2) | none | Tablet and strip off |
+| Something left in the cabin (before leaving) | Notification: courier on hold until it is removed | none | Central display shows what and where; Maya says it once, with a caption |
+| Car leaves (18:58) | Live run starts (C2) | none | Central display and Panoramic Vision off |
 | At the shop (19:20) | Step: at the dry cleaner | Rear right door flashes; the code opens only that door | Camera checks the item: "1 garment bag, rear right" |
 | Report (19:24) | Notification and report (C3) | Door locked | none |
-| Return time at risk | Notification with the new time | none | none |
+| The errand runs late | Notification with the new time | none | none |
 
 ## Stress tests
 
@@ -104,16 +104,16 @@ Nobody is in the cabin, so during the run there is no voice and no chime, and th
 |---|---|---|
 | **Touch-only user** (speech-impaired) | Ambient intent only hears others, never them | They instruct by touch; ambient intent still works on calls and messages |
 | **Voice-only user** (motion-impaired) | Undo and edits need a tap | Every action has a spoken command, and undo has no short timeout |
-| **Noisy cabin** | Voice misses or errors | After one failed attempt, Maya shows the touch path on the tablet instead of asking again |
-| **Hard of hearing** | The chime is missed | Visual twin on both the tablet and the strip, and optional haptics |
-| **Children tapping the tablet** | Accidental edits | Edit actions tied to the signed-in user's profile |
+| **Noisy cabin** | Voice misses or errors | After one failed attempt, Maya shows the touch path on the central display instead of asking again |
+| **Hard of hearing** | The chime is missed | Visual twin on both the central display and Panoramic Vision, and optional haptics |
+| **Children tapping the central display** | Accidental edits | Edit actions tied to the signed-in user's profile |
 | **Privacy** (silent mode) | The user does not want to speak aloud | Full touch path, and Maya's speech becomes captions only |
-| **Nobody in the car** (courier mode) | No one sees the tablet or hears Maya, and the shop staff are not users | The phone is the window, view only; the staff get a code by text and one flashing door, and nothing else in the car responds to them |
+| **Nobody in the car** (courier mode) | No one sees the central display or hears Maya, and the shop staff are not users | The phone is the window, view only; the staff get a code by text and one flashing door, and nothing else in the car responds to them |
 
 ## Decisions this adds to the plan
 
-- Maya's lines always have captions on the tablet.
+- Maya's lines always have captions on the central display.
 - Undo has no countdown.
-- The strip is read-only and a copy of the tablet, and it is off when the cabin is empty.
+- Panoramic Vision is read-only and a copy of the central display, and it is off when the cabin is empty.
 - Voice and touch both stay available at every moment, with no mode switch. There is no mic button: tapping Maya's bar opens the keyboard.
-- In courier mode the phone, view only, replaces the tablet, and the shop staff only ever get a code and one door.
+- In courier mode the phone, view only, replaces the central display, and the shop staff only ever get a code and one door.

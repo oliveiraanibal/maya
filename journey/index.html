@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Maya: Journey map and task flow</title>
+<title>Journey Map · Maya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -37,76 +37,14 @@ p.lede{max-width:72ch;color:var(--muted);margin:0 0 8px}
 </head>
 <body><p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · entry page</a></p>
 <main>
-<h1>Maya: journey map and task flow</h1>
-<p class="lede">The family dinner run in ten beats, from sign-in to the empty car charging after its errand. Michael shares needs and goals; Maya does the rest, speaks only when she needs him, and shows everything else on the tablet and the strip. Three reroutes happen on the way (default to plan, pharmacy, pickup), plus one courier errand that the car runs on its own.</p>
+<h1>Maya: journey map</h1>
+<p class="lede">The family dinner run in ten beats, from sign-in to the empty car charging after its errand. Michael shares needs and goals; Maya does the rest, speaks only when she needs him, and shows everything else on the central display and Panoramic Vision. Three reroutes happen on the way (default to plan, pharmacy, pickup), plus one courier errand that the car runs on its own.</p>
 
 <h2>Journey map</h2>
-<p class="lede">Scroll sideways on small screens. Emotion is Michael's expected feeling at each beat (1 low, 5 high). Screen IDs (S01 to S20, C1 to C5) come from the Screen Plan; A2 to A15 are assumptions from Hypothesis and Assumptions. The last rows are the service blueprint: what Maya does backstage and what the outside world does.</p>
+<p class="lede">Scroll sideways on small screens. Emotion is Michael's expected feeling at each beat (1 low, 5 high). Screen IDs (S01 to S20, C1 to C5) come from the Screen Specs; A2 to A16 are assumptions from Concept Foundations. The last rows are the service blueprint: what Maya does backstage and what the outside world does.</p>
 <div class="scroll"><div class="map" id="map"></div></div>
 
-<h2>Task flow</h2>
-<p class="lede">The decision logic behind the ten beats: sign-in, the briefing, the three kinds of replan (world, conversation, Michael), the courier errand and the hand-off to the empty car.</p>
-<div class="scroll"><div class="flow">
-<pre class="mermaid">
-flowchart TD
-  S(["Michael gets in"]) --> SI{"Face recognised? S01"}
-  SI -- No --> PIN["PIN or password, or switch profile"]
-  PIN --> W
-  SI -- Yes --> W["S02 Welcome: the car heads for the most probable destination, home"]
-  W --> GR["Maya greets Michael"]
-  GR --> BR["S04 Briefing: Michael shares needs and goals"]
-  BR --> Q{"Does Maya need more to be highly certain?"}
-  Q -- Yes --> ASK["S06 Maya asks one question"]
-  ASK --> BR
-  Q -- No --> BLD["S07 Building the plan"]
-  BLD --> PH["S08 Call pharmacies on the route, nearest first"]
-  PH --> ST{"In stock?"}
-  ST -- No --> NX["Try the next pharmacy; S09 quiet banner"]
-  NX --> PH
-  ST -- Yes --> PY["Pay now, ready in 10 minutes"]
-  PY --> OC{"Occasion in the calendar?"}
-  OC -- Yes --> SUG["S10 Suggest flowers"]
-  SUG --> AC{"Michael accepts?"}
-  AC -- Yes --> FL["S11 Call the florist, pay, delivery committed"]
-  FL --> PL
-  AC -- No --> PL
-  OC -- No --> PL
-  PL["S12 Plan overview replaces the default route"] --> SP{"Spare time above zero?"}
-  SP -- No --> FX["V2 Show the fixes, cheapest first"]
-  FX --> TR
-  SP -- Yes --> TR["S13, S14 Trip in progress: stop intent, pickups, ledger, strip"]
-  TR --> EV{"What happens next?"}
-  EV -- "A call changes a stop" --> CF{"Confidence high?"}
-  CF -- High --> AM["S17 Change with chime, heard phrase and Undo"]
-  AM --> UN{"Michael undoes?"}
-  UN -- Yes --> RV["Revert to the previous plan"]
-  RV --> TR
-  UN -- No --> TR
-  CF -- Medium --> AK["Maya asks Michael"]
-  AK --> TR
-  EV -- "Michael edits" --> ED["S15 Edit plan with ripple preview"]
-  ED --> TR
-  EV -- "A message calls for an errand" --> ER["S18 Maya offers a courier errand"]
-  ER --> EA{"Michael accepts?"}
-  EA -- No --> TR
-  EA -- Yes --> HO{"Handover agreed with the shop?"}
-  HO -- No --> TR
-  HO -- Yes --> BK["S19 Errand booked, new plan row"]
-  BK --> TR
-  EV -- Arrival --> AR["S20 Arrival report"]
-  AR --> CE{"Errand booked?"}
-  CE -- No --> CH
-  CE -- Yes --> CB{"Cabin empty?"}
-  CB -- No --> WT["C1 Please take your belongings"]
-  WT --> CB
-  CB -- Yes --> CR["C1 Leave in courier mode; C2 live run on the phone"]
-  CR --> HD["One door opens for the code; the camera checks the item"]
-  HD --> RP["C3 Report on the phone"]
-  RP --> CH["The car charges near the restaurant"]
-  CH --> E(["Until Michael calls the car"])
-</pre>
-</div></div>
-<p class="note">Out of scope for now: errand types beyond pick-ups and drop-offs, the bento menu's contents, a full activity log, wallet top-ups and statements. Edge cases (no stock anywhere, florist refuses, false positives, courier failures) are in the Edge Cases and Validation Plan.</p>
+
 </main>
 <script>
 var B=[
@@ -114,13 +52,13 @@ var B=[
 {t:"17:16",n:"Briefing",g:"Say what the evening needs, not where to go",d:"“Family dinner tonight. Kids, my wife, and that prescription.” Answers: the usual Italian on Main Street, seven",m:"Asks only where, and what time",b:"The “New plan” card fills in (S04 to S07)",s:"◉ listening",k:"Parses needs; reads the prescription from messages; asks the gaps",x:"none",e:4,r:"Misheard or missing detail (A6)",o:"The card is the confirmation; tap Maya’s bar to type"},
 {t:"17:19",n:"Pharmacy search",g:"Get the prescription as soon as possible",d:"Rides; may read the transcripts",m:"Silent",b:"Two calls with holds, then “Plan updated” (S08, S09)",s:"Pharmacy changed · +5 min",k:"Calls pharmacies on the route; pays; reroutes to pharmacy 2",x:"Pharmacy 1: no stock. Pharmacy 2: ready in 10 min",e:4,r:"No pharmacy has stock (A4)",o:"Silent reroute with a visible banner"},
 {t:"17:22",n:"Flowers",g:"Not arrive empty-handed",d:"“Yes. White roses.”",m:"Suggests flowers once the pharmacy is secured, then silent",b:"Suggestion, then call, payment and “Delivery committed” (S10, S11)",s:"◉ Calling Main St Florist, then “Flowers confirmed”",k:"Finds the birthday; picks an open florist near the restaurant; calls and pays from Maya Wallet",x:"Florist agrees delivery by 18:45",e:5,r:"Florist refuses an AI caller (A4, A7)",o:"Self-introduction and live transcript"},
-{t:"17:24",n:"The plan appears",g:"Trust the plan at a glance",d:"Glances at it",m:"Silent",b:"Plan overview, spare time +5 min (S12)",s:"School 17:35 · +5 min",k:"Builds the route; arrival 18:55; replaces the default route",x:"none",e:4,r:"Too much detail (A8)",o:"Spare time first, details on tap"},
+{t:"17:24",n:"The plan appears",g:"Trust the plan at a glance",d:"Glances at it",m:"Silent",b:"Plan overview, spare time +5 min (S12)",s:"School 17:35 · +5 min",k:"Builds the route; checks the range; arrival 18:55; replaces the default route",x:"none",e:4,r:"Too much detail (A8)",o:"Spare time first, details on tap"},
 {t:"17:33",n:"Pickups",g:"Collect the kids without managing it",d:"Rides",m:"Silent",b:"What the car is about to do, pickup states, “Done for you” (S13, S14)",s:"Next stop updates",k:"Tracks pickups and ETAs; tells the car where to stop and which doors to unlock",x:"School and kindergarten release the children",e:4,r:"Child not at the pickup point",o:"The intent card says how long the car waits"},
 {t:"18:03",n:"Wife’s call",g:"Absorb a change while on the phone",d:"Takes the call: “Sure, we’ll be there.”",m:"Silent, chime only",b:"Heard phrase, crossed and new stops, Undo (S16, S17)",s:"Pickup moved: hair salon · +5 min",k:"Hears the call; infers the change; replans",x:"Wife asks to be picked up at the hair salon",e:3,r:"Ambient false positive (A3, A9)",o:"Chime, heard phrase, Undo with no countdown"},
 {t:"18:32",n:"The errand",g:"Get the suit without another trip",d:"“Yes, please.”",m:"Offers to collect the suit with the empty car after the drop-off",b:"Errand suggestion, then call, payment, agreed handover and a new plan row (S18, S19)",s:"◉ Calling the dry cleaner, then “Errand booked: dry cleaner”",k:"Reads the dry cleaner’s message; checks the car is free after 18:55; calls, pays and agrees the handover; texts a one-time code",x:"Dry cleaner agrees to hang the suit in the rear right door at 19:20",e:4,r:"Shops won’t serve an empty car (A13); trust in sending it (A14)",o:"No handoff, no commitment: booked only once the handover is agreed"},
-{t:"18:55",n:"Arrival",g:"Arrive on time",d:"Steps out with the family",m:"“We’re here, five minutes early. I’ll collect your suit and be back for you at 21:30.”",b:"Arrival report, then “Leaving in courier mode” (S20, C1)",s:"Arrived 18:55 · +5 min, then “Courier · back 21:30”",k:"Confirms arrival; checks the cabin is empty and nothing is left behind",x:"Flowers delivered 18:44; prescription collected 18:10",e:5,r:"Someone or something left in the cabin (A14)",o:"Courier mode starts only with an empty cabin"},
-{t:"18:58",n:"Courier run",g:"Know the errand is done without watching it",d:"At dinner; glances at the phone",m:"Silent; notifications only",b:"Tablet off; phone shows the live run and the report (C2, C3)",s:"Off (cabin empty)",k:"Drives to the dry cleaner; opens one door for the code; the camera checks the suit; reports; charges near the restaurant until Michael calls",x:"Staff type the code and hang the suit at 19:20",e:4,r:"Shop not ready or wrong item (A13, A14)",o:"One door, one code; a report with photo, receipt and times"}];
-var rows=[["Time","t","time"],["Beat","n","beat"],["Michael’s goal","g",""],["Michael does or says","d",""],["Maya says","m",""],["Tablet shows","b",""],["Strip shows","s",""],["Maya backstage","k","back"],["External","x","back"],["Emotion",null,""],["Risk","r","risk"],["Design response","o",""]];
+{t:"18:55",n:"Arrival",g:"Arrive on time",d:"Steps out with the family",m:"“We’re here, five minutes early. I’ll collect your suit and wait nearby until you call.”",b:"Arrival report, then “Leaving in courier mode” (S20, C1)",s:"Arrived 18:55 · +5 min, then “Courier · waits for you”",k:"Confirms arrival; checks the cabin is empty and nothing is left behind",x:"Flowers delivered 18:44; prescription collected 18:10",e:5,r:"Someone or something left in the cabin (A14)",o:"Courier mode starts only with an empty cabin"},
+{t:"18:58",n:"Courier run",g:"Know the errand is done without watching it",d:"At dinner; glances at the phone",m:"Silent; notifications only",b:"Central display off; the phone shows the live run and the report (C2, C3)",s:"Off (cabin empty)",k:"Drives to the dry cleaner; opens one door for the code; the camera checks the suit; reports; charges near the restaurant until Michael calls",x:"Staff type the code and hang the suit at 19:20",e:4,r:"Shop not ready or wrong item (A13, A14)",o:"One door, one code; a report with photo, receipt and times"}];
+var rows=[["Time","t","time"],["Beat","n","beat"],["Michael’s goal","g",""],["Michael does or says","d",""],["Maya says","m",""],["Central display shows","b",""],["Panoramic Vision shows","s",""],["Maya backstage","k","back"],["External","x","back"],["Emotion",null,""],["Risk","r","risk"],["Design response","o",""]];
 var m=document.getElementById("map"),h="",N=B.length;
 h+='<div class="lab">Phase</div><div class="band" style="grid-column:span 5">Setting off</div><div class="band" style="grid-column:span 3">On the way</div><div class="band">Arrival</div><div class="band alone">Car alone</div>';
 rows.forEach(function(r){
@@ -135,18 +73,8 @@ rows.forEach(function(r){
 });
 m.innerHTML=h;
 </script>
-<script type="module">
-try{
-  var pre=document.querySelector("pre.mermaid");
-  if(pre&&!pre.hasAttribute("data-claude-mermaid-claimed")){
-    var mm=await import("https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs");
-    var mer=mm.default;
-    var dark=window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.getAttribute("data-theme")!=="light"||document.documentElement.getAttribute("data-theme")==="dark";
-    mer.initialize({startOnLoad:false,theme:dark?"dark":"default",flowchart:{htmlLabels:true,curve:"basis"}});
-    await mer.run({querySelector:".mermaid"});
-  }
-}catch(e){}
-</script>
+
+<footer style="max-width:1180px;margin:40px auto 0;padding:16px 20px 40px;border-top:1px solid #D3DCE5;color:#4D6074;font:14px Inter,system-ui,sans-serif">Aníbal Oliveira · Maya, AI trip concierge</footer>
 <script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

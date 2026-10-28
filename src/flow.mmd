@@ -1,0 +1,56 @@
+flowchart TD
+  S(["Michael gets in"]) --> SI{"Face recognised? S01"}
+  SI -- No --> PIN["PIN or password, or switch profile"]
+  PIN --> W
+  SI -- Yes --> W["S02 Welcome: the car heads for the most probable destination, home"]
+  W --> GR["Maya greets Michael"]
+  GR --> BR["S04 Briefing: Michael shares needs and goals"]
+  BR --> Q{"Does Maya need more to be highly certain?"}
+  Q -- Yes --> ASK["S06 Maya asks one question"]
+  ASK --> BR
+  Q -- No --> BLD["S07 Building the plan"]
+  BLD --> PH["S08 Call pharmacies on the route, nearest first"]
+  PH --> ST{"In stock?"}
+  ST -- No --> NX["Try the next pharmacy; S09 quiet banner"]
+  NX --> PH
+  ST -- Yes --> PY["Pay now, ready in 10 minutes"]
+  PY --> OC{"Occasion in the calendar?"}
+  OC -- Yes --> SUG["S10 Suggest flowers"]
+  SUG --> AC{"Michael accepts?"}
+  AC -- Yes --> FL["S11 Call the florist, pay, delivery committed"]
+  FL --> PL
+  AC -- No --> PL
+  OC -- No --> PL
+  PL["S12 Plan overview replaces the default route"] --> SP{"Spare time above zero?"}
+  SP -- No --> FX["V2 Show the fixes, cheapest first"]
+  FX --> TR
+  SP -- Yes --> TR["S13, S14 Trip in progress: stop intent, pickups, ledger, Panoramic Vision"]
+  TR --> EV{"What happens next?"}
+  EV -- "A call changes a stop" --> CF{"Confidence high?"}
+  CF -- High --> AM["S17 Change with chime, heard phrase and Undo"]
+  AM --> UN{"Michael undoes?"}
+  UN -- Yes --> RV["Revert to the previous plan"]
+  RV --> TR
+  UN -- No --> TR
+  CF -- Medium --> AK["Maya asks Michael"]
+  AK --> TR
+  EV -- "Michael edits" --> ED["S15 Edit plan with ripple preview"]
+  ED --> TR
+  EV -- "A message calls for an errand" --> ER["S18 Maya offers a courier errand"]
+  ER --> EA{"Michael accepts?"}
+  EA -- No --> TR
+  EA -- Yes --> HO{"Handover agreed with the shop?"}
+  HO -- No --> TR
+  HO -- Yes --> BK["S19 Errand booked, new plan row"]
+  BK --> TR
+  EV -- Arrival --> AR["S20 Arrival report"]
+  AR --> CE{"Errand booked?"}
+  CE -- No --> CH
+  CE -- Yes --> CB{"Cabin empty?"}
+  CB -- No --> WT["C1 Please take your belongings"]
+  WT --> CB
+  CB -- Yes --> CR["C1 Leave in courier mode; C2 live run on the phone"]
+  CR --> HD["One door opens for the code; the camera checks the item"]
+  HD --> RP["C3 Report on the phone"]
+  RP --> CH["The car charges near the restaurant"]
+  CH --> E(["Until Michael calls the car"])

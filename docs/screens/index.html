@@ -1,5 +1,5 @@
 <!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Screen Plan and Strip Specification · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+<title>Screen Specs and Mood Board · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 :root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
@@ -11,6 +11,7 @@ nav.top span{color:var(--mute)}
 h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
 h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
 p,li{max-width:74ch}
+img{max-width:100%;height:auto}
 a{color:var(--teal)}
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
 table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
@@ -19,24 +20,24 @@ th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mu
 tr:last-child td{border-bottom:0}
 code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
 pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
-footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;font-family:Inter,system-ui,sans-serif}
 </style></head>
-<body><div class="wrap"><nav class="top"><a href="../../">Maya · entry page</a><span>/</span><span>Screen Plan and Strip Specification</span></nav><h1>Screen Plan and Strip Specification</h1>
-<p>Twenty tablet screens in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive LED strip: the tablet holds everything interactive, the strip only lets people glance.</p>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · entry page</a><span>/</span><span>Screen Specs and Mood Board</span></nav><h1>Screen Specs and Mood Board</h1>
+<p>Twenty screens on the central display in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive Panoramic Vision band: the central display holds everything interactive, Panoramic Vision only lets people glance.</p>
 <h2>The two screens</h2>
 <div class="tw"><table>
 <thead>
 <tr>
 <th></th>
-<th>Tablet</th>
-<th>Strip</th>
+<th>Central display</th>
+<th>Panoramic Vision</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Hardware</td>
 <td>Large touchscreen, like today's infotainment</td>
-<td>LED strip at the base of the windscreen, like BMW Panoramic Vision</td>
+<td>A band at the base of the windscreen, as in BMW Panoramic Vision</td>
 </tr>
 <tr>
 <td>Role</td>
@@ -51,11 +52,11 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td>Content rule</td>
 <td>Everything</td>
-<td>Nothing unique: a copy of what is on the tablet</td>
+<td>Nothing unique: a copy of what is on the central display</td>
 </tr>
 </tbody>
 </table></div>
-<p>The strip is split in half: one half is automotive data (speed, temperature, range), the other half belongs to Maya. A third surface, Michael's phone, appears only in courier mode, when nobody is in the car.</p>
+<p>Panoramic Vision is split in half: one half is automotive data (speed, temperature, range), the other half belongs to Maya. A third surface, Michael's phone, appears only in courier mode, when nobody is in the car.</p>
 <h2>Screen inventory</h2>
 <p>Priority <strong>H</strong> = needed for the hero scenario; <em>branch</em> = reached through a touch twin or a side path. Screen IDs follow the story and are used across all artifacts.</p>
 <div class="tw"><table>
@@ -192,7 +193,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td><strong>S18</strong></td>
 <td>Errand suggestion</td>
 <td>8</td>
-<td>The dry cleaner's message and Maya's offer to collect the suit after the drop-off and be back at 21:30; Yes or No thanks</td>
+<td>The dry cleaner's message and Maya's offer to collect the suit after the drop-off, then wait nearby for his call; Yes or No thanks</td>
 <td><strong>H</strong></td>
 </tr>
 <tr>
@@ -206,7 +207,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td><strong>S20</strong></td>
 <td>Arrival report</td>
 <td>9</td>
-<td>Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, back for you at 21:30)</td>
+<td>Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, then the car waits for his call)</td>
 <td><strong>H</strong></td>
 </tr>
 <tr>
@@ -220,7 +221,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td><strong>C2</strong></td>
 <td>Phone: courier run</td>
 <td>10</td>
-<td>View only: live map and steps (to the dry cleaner, handover, back at 21:30), the door being used</td>
+<td>View only: live map and steps (to the dry cleaner, handover, then charging until he calls), in the My BMW app, the door being used</td>
 <td><strong>H</strong></td>
 </tr>
 <tr>
@@ -241,7 +242,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td><strong>C5</strong></td>
 <td>New errand</td>
 <td>any time</td>
-<td>What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (return time), report</td>
+<td>What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (what the car does next), report</td>
 <td><strong>H</strong> (branch)</td>
 </tr>
 <tr>
@@ -262,16 +263,16 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td><strong>F1</strong></td>
 <td>Maya presence</td>
 <td>all</td>
-<td>Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on the strip</td>
+<td>Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on Panoramic Vision</td>
 <td><strong>H</strong> (system layer)</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Errands entry:</strong> a box icon left of the settings cog on every tablet screen. <strong>The phone</strong> is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). <strong>Charging</strong> is not an errand and never appears in the plan list.</p>
+<p><strong>Errands entry:</strong> a box icon left of the settings cog on every central display screen. <strong>The phone</strong> is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). <strong>Charging</strong> is not an errand and never appears in the plan list.</p>
 <p><strong>Supportive (later):</strong> Maya settings beyond access, notifications tray, error and offline states.</p>
 <p><strong>Screens for later (not delivered now):</strong> create a new profile; idle or standby when nobody is signed in; guest mode; the bento menu's contents (the icon stays top left, with "Maya" to its right).</p>
 <p><strong>Prototype path:</strong> about 25 frames in story order: S01, S02 (S03 from Adjust); S04, S06, S07 (S05 when typing); S08, S09; S10, S11; S12; S13, S14 (S15 from Edit plan); S16, S17; S18, S19; S20; C1, C2, C3; then C4 and C5 from the box icon.</p>
-<h2>Strip: Maya's half</h2>
+<h2>Panoramic Vision: Maya's half</h2>
 <pre><code>[ 62 km/h · 21° · 312 km ]  |  [ ◉ Kindergarten 17:55 · ●●○○○ · +5 min ]
    automotive half                    Maya's half
 </code></pre>
@@ -312,15 +313,15 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </tr>
 </tbody>
 </table></div>
-<p><strong>Never on the strip:</strong> transcripts, maps, editing, anything interactive or long, medication names, personal data.</p>
-<p><strong>When the cabin is empty</strong> (courier mode), the strip is off.</p>
-<h2>Strip through the story</h2>
+<p><strong>Never on Panoramic Vision:</strong> transcripts, maps, editing, anything interactive or long, medication names, personal data.</p>
+<p><strong>When the cabin is empty</strong> (courier mode), Panoramic Vision is off.</p>
+<h2>Panoramic Vision through the story</h2>
 <div class="tw"><table>
 <thead>
 <tr>
 <th>Scene</th>
 <th>Screen</th>
-<th>Strip (Maya's half)</th>
+<th>Panoramic Vision (Maya's half)</th>
 </tr>
 </thead>
 <tbody>
@@ -367,7 +368,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <tr>
 <td>9</td>
 <td>S20, C1</td>
-<td>Arrived 18:55 · +5 min, then "Courier · back 21:30"</td>
+<td>Arrived 18:55 · +5 min, then "Courier · waits for you"</td>
 </tr>
 <tr>
 <td>10</td>
@@ -378,10 +379,12 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </table></div>
 <h2>Principles these screens follow</h2>
 <ol>
-<li>The tablet is for interaction, the strip is for glances.</li>
+<li>The central display is for interaction, Panoramic Vision is for glances.</li>
 <li>The screen is the confirmation, so Maya does not read plans back.</li>
 <li>Spare time is always visible.</li>
 <li>Every change (world, conversation, user) shows what was removed and what is new: cancelled stops are crossed out, new stops are marked.</li>
 <li>The phone is view only and appears only when the car is alone.</li>
-</ol><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-</body></html>
+</ol>
+<h2>Mood board</h2>
+<p>The final visual direction, <strong>Deep ocean</strong>: dark first, a deep blue-green ground with cobalt and lumen glows, inspired by The Abyss. In a dark cabin at night, light can carry meaning. Panoramic Vision is always dark.</p>
+<p><img alt="Mood board: Deep ocean" src="../../mood/mood-board.png" /></p><footer>Aníbal Oliveira · Maya, AI trip concierge</footer></div><script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script></body></html>
