@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maya · clickable prototype</title>
+<meta name="description" content="Clickable prototype of Maya, an AI trip concierge for a Level 5 car.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="player.css">
+</head>
+<body>
+<main id="app" aria-label="Maya prototype">
+  <div id="stagewrap"><div id="stage">
+    <img id="imgA" alt=""><img id="imgB" alt="">
+    <div id="zones"></div>
+  </div><div id="toast" role="status" aria-live="polite"></div></div>
+
+  <section id="chrome">
+    <div id="branches" aria-label="What if…"></div>
+    <div class="row">
+      <button id="back" class="ib" aria-label="Back">&#8592;</button>
+      <div id="info">
+        <div id="meta"></div>
+        <div id="note"></div>
+        <div id="maya"></div>
+      </div>
+      <div id="actions">
+        <button id="cta" class="primary"><span id="ctal"></span><small id="ctas"></small><i id="prog"></i></button>
+      </div>
+    </div>
+    <div class="row sub">
+      <button id="menu" class="tx">Screens</button>
+      <button id="taps" class="tx" aria-pressed="false">Show taps</button>
+      <button id="restart" class="tx">Restart</button>
+      <span class="sp"></span>
+      <a class="tx" href="../">Process index</a>
+      <button id="help" class="tx" aria-label="Help">?</button>
+    </div>
+  </section>
+
+  <aside id="menupanel" hidden><div class="in"><h2>Screens</h2><div id="menulist"></div></div></aside>
+  <aside id="helppanel" hidden><div class="in">
+    <h2>How to use this prototype</h2>
+    <p>The story follows Michael through one evening. Every step has two ways in: <b>touch</b> (tap the screen) or <b>voice</b> (the big button at the bottom, which plays what Michael would say).</p>
+    <ul><li>Tap anywhere on the screen to see which parts are live.</li><li><b>Show taps</b> keeps them highlighted.</li><li>“What if…” buttons open the edge cases, then take you back.</li><li>Keys: <kbd>←</kbd> back, <kbd>→</kbd> or <kbd>Space</kbd> continue, <kbd>T</kbd> taps, <kbd>M</kbd> screens, <kbd>R</kbd> restart.</li></ul>
+    <p class="mute">Designers: press <kbd>E</kbd> to edit tap zones. See the README in the repo.</p>
+    <button class="tx" id="helpclose">Close</button></div></aside>
+  <div id="editbar" hidden>
+    <b>Edit zones</b> · <span>drag to move, corner to resize, Alt-drag to draw, Delete removes, double-click sets the target</span>
+    <button id="copyjson" class="tx">Copy JSON for this screen</button><button id="resetedit" class="tx">Reset</button><button id="exitedit" class="tx">Exit</button>
+  </div>
+</main>
+<script src="player.js"></script>
+</body>
+</html>

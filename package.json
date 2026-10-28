@@ -1,0 +1,9 @@
+{
+  "name": "maya",
+  "private": true,
+  "scripts": {
+    "proto": "node tools/build_prototype.js",
+    "site": "python3 tools/build_site.py"
+  },
+  "devDependencies": { "playwright": "^1.48.0" }
+}

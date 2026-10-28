@@ -1,0 +1,921 @@
+{
+  "_help": "Source of truth for the prototype's behaviour. Edit this file, then run: npm run proto. See prototype/README.md.",
+  "title": "Maya · clickable prototype",
+  "size": [
+    1920,
+    1200
+  ],
+  "start": "S01",
+  "mockDir": "screens/live",
+  "global": {
+    "hotspots": [
+      {
+        "id": "errands",
+        "label": "Errands (box icon)",
+        "find": {
+          "sel": "[aria-label=\"Errands\"]"
+        },
+        "go": "C4"
+      }
+    ],
+    "except": [
+      "S01",
+      "S03",
+      "S15",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "E1",
+      "E3",
+      "E4",
+      "V2"
+    ]
+  },
+  "variants": {
+    "E1": {
+      "title": "Edge case 1 · No stock on the route",
+      "base": "S09-ChangeAuto.html",
+      "replace": [
+        [
+          "Plan updated</span><time>17:20",
+          "No stock on your route</span><time>17:21"
+        ],
+        [
+          "Pharmacy 1 had no stock. <b>Pharmacy 2</b> is now after the kindergarten.",
+          "No pharmacy on your route has it. The nearest is <b>3 km off the route</b>."
+        ],
+        [
+          "<p>Spare time is still +5 min.</p>",
+          "<p>Adds 4 min, leaving +1 min spare. Go there?</p>"
+        ],
+        [
+          "<span class=\"btn\">Details</span><span class=\"btn gh\">Dismiss</span>",
+          "<span class=\"btn\">Go there</span><span class=\"btn gh\">Skip it</span>"
+        ],
+        [
+          "<b>Pharmacy 2<span class=\"nw\">CHANGED</span></b><small>Prescription ready · paid</small>",
+          "<b>Pharmacy 3<span class=\"nw\">PROPOSED</span></b><small>3 km off the route · prescription ready</small>"
+        ],
+        [
+          "Plan updated quietly. No input needed.",
+          "I need one answer: the detour uses most of your spare time."
+        ],
+        [
+          "<i>18:10</i>Pharmacy 2<span class=\"nw\">CHANGED</span>",
+          "<i>18:10</i>Pharmacy 3<span class=\"nw\">PROPOSED</span>"
+        ]
+      ]
+    },
+    "E3": {
+      "title": "Edge case 3 · Ambient false positive",
+      "base": "S17-ChangeAmbient.html",
+      "replace": [
+        [
+          "Heard in your call",
+          "Heard in the cabin"
+        ],
+        [
+          "<q>Pick me up at the hair salon.</q>",
+          "<q>Let’s go to the park!</q>"
+        ],
+        [
+          "Your wife’s pickup moved to the <b>hair salon at 18:30</b>. Home is off the plan.",
+          "Sounded like a child, not you. <b>Add a stop at the park?</b>"
+        ],
+        [
+          "<span class=\"btn\">Undo</span><span class=\"btn gh\">Dismiss</span>",
+          "<span class=\"btn\">Add stop</span><span class=\"btn gh\">No, ignore</span>"
+        ],
+        [
+          "<div class=\"s new\"><time>18:30</time><span class=\"n\"></span><div><b>Hair salon<span class=\"nw\">NEW</span></b><small>Pick up wife</small></div></div>",
+          ""
+        ],
+        [
+          "<div class=\"s x\"><time>18:33</time><span class=\"n\"></span><div><b>Home</b><small>Cancelled</small></div></div>",
+          "<div class=\"s \"><time>18:33</time><span class=\"n\"></span><div><b>Home</b><small>Pick up wife</small></div></div>"
+        ],
+        [
+          "Pickup moved to the hair salon at 18:30. Undo if that’s not right.",
+          "Not sure that was for me, so I’m asking instead of changing the plan."
+        ]
+      ]
+    },
+    "E4": {
+      "title": "Edge case 4 · The chime is missed",
+      "base": "S17-ChangeAmbient.html",
+      "replace": [
+        [
+          "<span class=\"k\">Heard in your call</span><time>18:04</time>",
+          "<span class=\"k\">Heard in your call</span><time>18:04 · still here</time>"
+        ],
+        [
+          "Pickup moved to the hair salon at 18:30. Undo if that’s not right.",
+          "Missed the chime? The change is kept here, and the strip showed it once."
+        ],
+        [
+          "</svg></span><time>18:04</time></div>",
+          "</svg></span><time>18:09</time></div>"
+        ]
+      ]
+    }
+  },
+  "screens": {
+    "S01": {
+      "mock": "Main.html",
+      "scene": 1,
+      "time": "17:15",
+      "title": "Sign in",
+      "note": "Michael gets in. The car expects him and signs him in by face. PIN or password is the fallback.",
+      "cta": {
+        "label": "Look at the camera",
+        "go": "S02"
+      }
+    },
+    "S02": {
+      "mock": "S02-Welcome.html",
+      "scene": 1,
+      "time": "17:15",
+      "title": "Welcome",
+      "note": "The car is already moving towards home, the most likely destination. Maya greets him.",
+      "maya": "Hi, I’m Maya, your concierge for the trip. How can I assist you?",
+      "cta": {
+        "label": "Speak to Maya",
+        "say": "Hi Maya. Family dinner tonight. Let’s get the kids and my wife, and I need that new prescription from my messages as soon as possible.",
+        "go": "S04"
+      },
+      "hotspots": [
+        {
+          "id": "adjust",
+          "label": "Adjust access",
+          "find": {
+            "text": "Adjust",
+            "exact": true
+          },
+          "go": "S03"
+        },
+        {
+          "id": "bar",
+          "label": "Maya’s bar: type instead",
+          "find": {
+            "sel": ".dk"
+          },
+          "go": "S05"
+        }
+      ]
+    },
+    "S03": {
+      "mock": "S03-Access.html",
+      "scene": 1,
+      "time": "17:15",
+      "title": "Maya’s access",
+      "note": "Opened from Adjust. Michael chooses what Maya may do on her own. Tap the map to close.",
+      "cta": {
+        "label": "Close",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "close",
+          "label": "Close",
+          "rect": [
+            800,
+            90,
+            1120,
+            1000
+          ],
+          "go": "back"
+        }
+      ]
+    },
+    "S04": {
+      "mock": "S04-Briefing.html",
+      "scene": 2,
+      "time": "17:16",
+      "title": "Briefing: listening",
+      "note": "The New plan card fills in as Michael talks. Voice and touch are both open.",
+      "cta": {
+        "label": "Answer Maya",
+        "say": "The usual Italian on Main Street. Seven.",
+        "go": "S06"
+      },
+      "hotspots": [
+        {
+          "id": "kbd",
+          "label": "Keyboard",
+          "find": {
+            "sel": "[aria-label=\"Keyboard\"]"
+          },
+          "go": "S05"
+        },
+        {
+          "id": "bar",
+          "label": "Maya’s bar: type instead",
+          "find": {
+            "sel": ".dk"
+          },
+          "go": "S05"
+        }
+      ]
+    },
+    "S05": {
+      "mock": "S05-Keyboard.html",
+      "scene": 2,
+      "time": "17:16",
+      "title": "Briefing: keyboard",
+      "note": "Touch twin. Maya’s bar becomes a text field and the keyboard rises. There is no mic button.",
+      "cta": {
+        "label": "Send",
+        "go": "S06"
+      },
+      "hotspots": [
+        {
+          "id": "send",
+          "label": "Send",
+          "find": {
+            "text": "Send",
+            "exact": true
+          },
+          "go": "S06"
+        },
+        {
+          "id": "search",
+          "label": "Search key",
+          "find": {
+            "text": "Search",
+            "exact": true
+          },
+          "go": "S06"
+        }
+      ]
+    },
+    "S06": {
+      "mock": "S06-Question.html",
+      "scene": 2,
+      "time": "17:17",
+      "title": "Briefing: Maya asks",
+      "note": "Maya asks only what she can’t know: where, then when. The search field is the touch twin, with no suggested answers.",
+      "maya": "Where is the dinner?",
+      "cta": {
+        "label": "Answer by voice",
+        "say": "The usual Italian on Main Street. Seven.",
+        "go": "S07"
+      },
+      "hotspots": [
+        {
+          "id": "field",
+          "label": "Type the answer",
+          "rect": [
+            250,
+            1095,
+            1540,
+            60
+          ],
+          "go": "S07"
+        }
+      ]
+    },
+    "S07": {
+      "mock": "S07-Building.html",
+      "scene": 2,
+      "time": "17:18",
+      "title": "Briefing: building the plan",
+      "note": "This is what Maya understood. Every detail is still editable while the plan is built. Maya does not read it back.",
+      "cta": {
+        "label": "Wait",
+        "go": "S08"
+      },
+      "auto": {
+        "ms": 3200,
+        "go": "S08"
+      }
+    },
+    "S08": {
+      "mock": "S08-Calls.html",
+      "scene": 3,
+      "time": "17:19",
+      "title": "Pharmacy search",
+      "note": "Screen only. Maya calls pharmacies on the route, nearest first, with a live transcript. The first has no stock; the second does, and she pays.",
+      "cta": {
+        "label": "Let her work",
+        "go": "S09"
+      },
+      "hotspots": [
+        {
+          "id": "close",
+          "label": "Close",
+          "find": {
+            "text": "Close",
+            "exact": true
+          },
+          "go": "S09"
+        }
+      ],
+      "branches": [
+        {
+          "label": "What if no pharmacy on the route has stock?",
+          "tag": "Edge case 1",
+          "go": "E1"
+        }
+      ]
+    },
+    "S09": {
+      "mock": "S09-ChangeAuto.html",
+      "scene": 3,
+      "time": "17:20",
+      "title": "Plan updated (automatic)",
+      "note": "The world changed, so Maya changes the plan silently and visibly. Pharmacy 1 is gone, pharmacy 2 is new, spare time is still +5 min.",
+      "cta": {
+        "label": "Continue",
+        "go": "S10"
+      },
+      "hotspots": [
+        {
+          "id": "details",
+          "label": "Details",
+          "find": {
+            "text": "Details",
+            "exact": true
+          },
+          "go": "S08"
+        },
+        {
+          "id": "dismiss",
+          "label": "Dismiss",
+          "find": {
+            "text": "Dismiss",
+            "exact": true
+          },
+          "go": "S10"
+        }
+      ]
+    },
+    "S10": {
+      "mock": "S10-Gift.html",
+      "scene": 4,
+      "time": "17:22",
+      "title": "Gift suggestion",
+      "note": "It is a birthday dinner, so Maya suggests flowers once the pharmacy is secure.",
+      "maya": "It’s a birthday dinner. Would you like flowers waiting at the restaurant before we arrive?",
+      "cta": {
+        "label": "Say yes",
+        "say": "Yes. White roses.",
+        "go": "S11"
+      },
+      "hotspots": [
+        {
+          "id": "yes",
+          "label": "Yes, order",
+          "find": {
+            "text": "Yes, order",
+            "exact": true
+          },
+          "go": "S11"
+        },
+        {
+          "id": "no",
+          "label": "No thanks",
+          "find": {
+            "text": "No thanks",
+            "exact": true
+          },
+          "go": "S12",
+          "toast": "No flowers. The plan carries on without them."
+        }
+      ]
+    },
+    "S11": {
+      "mock": "S11-Order.html",
+      "scene": 4,
+      "time": "17:23",
+      "title": "Florist order",
+      "note": "With Maya silent: called, delivery agreed, payment successful, delivery committed. The florist delivers to the restaurant, so there is no extra stop.",
+      "cta": {
+        "label": "Wait",
+        "go": "S12"
+      },
+      "auto": {
+        "ms": 3600,
+        "go": "S12"
+      }
+    },
+    "S12": {
+      "mock": "S12-Plan.html",
+      "scene": 5,
+      "time": "17:24",
+      "title": "Plan overview",
+      "note": "No speech. The Going home route is replaced by the full plan. Spare time +5 min. The car never stops moving.",
+      "cta": {
+        "label": "The car sets off",
+        "go": "S13"
+      },
+      "hotspots": [
+        {
+          "id": "edit",
+          "label": "Edit plan",
+          "find": {
+            "text": "Edit plan",
+            "exact": true
+          },
+          "go": "S15"
+        }
+      ]
+    },
+    "S13": {
+      "mock": "S13-Intent.html",
+      "scene": 6,
+      "time": "17:33",
+      "title": "Vehicle intent",
+      "note": "Before each stop the screen says what the car is about to do: where it pulls in, which doors unlock, how long it waits.",
+      "cta": {
+        "label": "Arrive at the school",
+        "go": "S14"
+      },
+      "hotspots": [
+        {
+          "id": "edit",
+          "label": "Edit plan",
+          "find": {
+            "text": "Edit plan",
+            "exact": true
+          },
+          "go": "S15"
+        }
+      ]
+    },
+    "S14": {
+      "mock": "S14-Trip.html",
+      "scene": 6,
+      "time": "17:40",
+      "title": "Active trip",
+      "note": "Son on board. Maya says nothing. The ledger shows what was done for him, with Undo on the latest row.",
+      "cta": {
+        "label": "Skip ahead to 18:03",
+        "go": "S16"
+      },
+      "hotspots": [
+        {
+          "id": "edit",
+          "label": "Edit plan",
+          "find": {
+            "text": "Edit plan",
+            "exact": true
+          },
+          "go": "S15"
+        },
+        {
+          "id": "undo",
+          "label": "Undo",
+          "find": {
+            "text": "Undo",
+            "exact": true
+          },
+          "toast": "Undo would reverse the flowers order. Not drawn in this prototype."
+        }
+      ],
+      "branches": [
+        {
+          "label": "What if spare time runs out?",
+          "tag": "Edge case 2",
+          "go": "V2"
+        },
+        {
+          "label": "What if a child says “let’s go to the park”?",
+          "tag": "Edge case 3",
+          "go": "E3"
+        }
+      ]
+    },
+    "S15": {
+      "mock": "S15-Edit.html",
+      "scene": 6,
+      "time": "17:40",
+      "title": "Edit plan",
+      "note": "Touch twin for changing the plan. Drag to reorder; the ripple preview shows the effect on every later stop before Apply.",
+      "cta": {
+        "label": "Cancel",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "apply",
+          "label": "Apply",
+          "find": {
+            "text": "Apply",
+            "exact": true
+          },
+          "go": "back",
+          "toast": "Applied. In the full product the plan would update."
+        },
+        {
+          "id": "cancel",
+          "label": "Cancel",
+          "find": {
+            "text": "Cancel",
+            "exact": true
+          },
+          "go": "back"
+        },
+        {
+          "id": "done",
+          "label": "Done",
+          "find": {
+            "text": "Done",
+            "exact": true
+          },
+          "go": "back"
+        }
+      ]
+    },
+    "S16": {
+      "mock": "S16-Call.html",
+      "scene": 7,
+      "time": "18:03",
+      "title": "Incoming call",
+      "note": "The wife calls. The call is the only overlay, and it stays small.",
+      "cta": {
+        "label": "Answer the call",
+        "say": "Sure, we’ll be there.",
+        "go": "S17"
+      },
+      "hotspots": [
+        {
+          "id": "answer",
+          "label": "Answer",
+          "find": {
+            "text": "Answer",
+            "exact": true
+          },
+          "go": "S17"
+        },
+        {
+          "id": "decline",
+          "label": "Decline",
+          "find": {
+            "text": "Decline",
+            "exact": true
+          },
+          "go": "S14",
+          "toast": "Call declined."
+        }
+      ]
+    },
+    "S17": {
+      "mock": "S17-ChangeAmbient.html",
+      "scene": 7,
+      "time": "18:04",
+      "title": "Plan updated (ambient)",
+      "note": "Wife: “Change of plan: pick me up at the hair salon, not at home.” Maya hears it and changes the pickup with no spoken line. A soft chime sounds; Undo has no countdown.",
+      "cta": {
+        "label": "Continue",
+        "go": "S18"
+      },
+      "hotspots": [
+        {
+          "id": "undo",
+          "label": "Undo",
+          "find": {
+            "text": "Undo",
+            "exact": true
+          },
+          "toast": "Undo restores the home pickup. Not drawn in this prototype."
+        },
+        {
+          "id": "dismiss",
+          "label": "Dismiss",
+          "find": {
+            "text": "Dismiss",
+            "exact": true
+          },
+          "go": "S18"
+        },
+        {
+          "id": "edit",
+          "label": "Edit plan",
+          "find": {
+            "text": "Edit plan",
+            "exact": true
+          },
+          "go": "S15"
+        }
+      ],
+      "branches": [
+        {
+          "label": "What if Michael misses the chime?",
+          "tag": "Edge case 4",
+          "go": "E4"
+        }
+      ]
+    },
+    "S18": {
+      "mock": "S18-Errand.html",
+      "scene": 8,
+      "time": "18:32",
+      "title": "Errand suggestion",
+      "note": "The dry cleaner’s message arrives; Maya doesn’t read it aloud. She offers to collect the suit with the empty car after the drop-off.",
+      "maya": "Your suit is ready at the dry cleaner. After I drop you at the restaurant, I can collect it on my own and be back for you at 21:30. Shall I?",
+      "cta": {
+        "label": "Say yes",
+        "say": "Yes, please.",
+        "go": "S19"
+      },
+      "hotspots": [
+        {
+          "id": "yes",
+          "label": "Yes, please",
+          "find": {
+            "text": "Yes, please",
+            "exact": true
+          },
+          "go": "S19"
+        },
+        {
+          "id": "no",
+          "label": "No thanks",
+          "find": {
+            "text": "No thanks",
+            "exact": true
+          },
+          "toast": "No thanks. Maya drops the errand. Not drawn in this prototype."
+        }
+      ]
+    },
+    "S19": {
+      "mock": "S19-Booked.html",
+      "scene": 8,
+      "time": "18:34",
+      "title": "Errand booked",
+      "note": "With Maya silent: the call, payment and agreed handover (19:20, rear right door, on a hanger, code sent). Only now is the errand booked: no handoff, no commitment.",
+      "cta": {
+        "label": "Arrive at the restaurant",
+        "go": "S20"
+      }
+    },
+    "S20": {
+      "mock": "S20-Arrival.html",
+      "scene": 9,
+      "time": "18:55",
+      "title": "Arrival report",
+      "note": "Arrived on time with 5 minutes to spare, and the full list of what was done. The next step is the courier run.",
+      "maya": "We’re here, five minutes early. I’ll collect your suit and be back for you at 21:30.",
+      "cta": {
+        "label": "Leave in courier mode",
+        "go": "C1"
+      },
+      "hotspots": [
+        {
+          "id": "next",
+          "label": "Next: courier",
+          "rect": [
+            63,
+            705,
+            417,
+            75
+          ],
+          "go": "C1"
+        }
+      ]
+    },
+    "C1": {
+      "mock": "C1-Courier.html",
+      "scene": 9,
+      "time": "18:57",
+      "title": "Leaving in courier mode",
+      "note": "Please take your belongings. Once everyone is out, the car checks that the cabin is empty and nothing is left behind, then drives off.",
+      "maya": "Leaving in courier mode. Please take your belongings.",
+      "cta": {
+        "label": "The car leaves",
+        "go": "C2"
+      }
+    },
+    "C2": {
+      "mock": "C2-PhoneRun.html",
+      "scene": 10,
+      "time": "19:21",
+      "title": "Phone: courier run",
+      "note": "Nobody is in the cabin, so the tablet and the strip are off and there is no voice. Michael follows the run on his phone, view only.",
+      "cta": {
+        "label": "19:24 · the report arrives",
+        "go": "C3"
+      }
+    },
+    "C3": {
+      "mock": "C3-PhoneReport.html",
+      "scene": 10,
+      "time": "19:24",
+      "title": "Phone: errand report",
+      "note": "A notification, no voice: a photo of the suit on the hanger, the receipt and the times. The car then charges near the restaurant until Michael calls it. The story ends here.",
+      "cta": {
+        "label": "Start again",
+        "go": "S01"
+      }
+    },
+    "C4": {
+      "mock": "C4-Errands.html",
+      "scene": 0,
+      "time": "any time",
+      "title": "Errands",
+      "note": "Opened by the box icon beside Settings: upcoming, running and done errands.",
+      "cta": {
+        "label": "Back",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "new",
+          "label": "New errand",
+          "find": {
+            "text": "New errand",
+            "exact": true
+          },
+          "go": "C5"
+        },
+        {
+          "id": "report",
+          "label": "See the report",
+          "find": {
+            "text": "See the report",
+            "exact": true
+          },
+          "go": "C3"
+        }
+      ]
+    },
+    "C5": {
+      "mock": "C5-NewErrand.html",
+      "scene": 0,
+      "time": "any time",
+      "title": "New errand",
+      "note": "Schedule an errand by hand: what, where, when, handover, payment, and what happens if it fails.",
+      "cta": {
+        "label": "Back",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "book",
+          "label": "Book errand",
+          "find": {
+            "text": "Book errand",
+            "exact": true
+          },
+          "go": "C4",
+          "toast": "Errand booked."
+        },
+        {
+          "id": "cancel",
+          "label": "Cancel",
+          "find": {
+            "text": "Cancel",
+            "exact": true
+          },
+          "go": "back"
+        }
+      ]
+    },
+    "V2": {
+      "mock": "V2-Late.html",
+      "scene": 0,
+      "time": "18:15",
+      "title": "Edge case 2 · Running late",
+      "note": "Spare time has gone negative. Maya offers fixes, cheapest first. The strip turns red.",
+      "cta": {
+        "label": "Back to the trip",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "d1",
+          "label": "Do it: hold the table",
+          "find": {
+            "text": "Do it",
+            "exact": true,
+            "nth": 0
+          },
+          "go": "back",
+          "toast": "Maya calls the restaurant to hold the table."
+        },
+        {
+          "id": "d2",
+          "label": "Do it: riverside road",
+          "find": {
+            "text": "Do it",
+            "exact": true,
+            "nth": 1
+          },
+          "go": "back",
+          "toast": "Taking the riverside road."
+        },
+        {
+          "id": "d3",
+          "label": "Do it: ask wife to wait",
+          "find": {
+            "text": "Do it",
+            "exact": true,
+            "nth": 2
+          },
+          "go": "back",
+          "toast": "Maya messages your wife."
+        }
+      ]
+    },
+    "E1": {
+      "variant": "E1",
+      "scene": 0,
+      "time": "17:21",
+      "title": "Edge case 1 · No stock on the route",
+      "note": "Maya widens the search and shows it on screen. She asks only because the detour would eat most of the spare time.",
+      "cta": {
+        "label": "Back to the trip",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "go",
+          "label": "Go there",
+          "find": {
+            "text": "Go there",
+            "exact": true
+          },
+          "go": "S09",
+          "toast": "Going to pharmacy 3."
+        },
+        {
+          "id": "skip",
+          "label": "Skip it",
+          "find": {
+            "text": "Skip it",
+            "exact": true
+          },
+          "go": "back",
+          "toast": "Prescription skipped."
+        }
+      ]
+    },
+    "E3": {
+      "variant": "E3",
+      "scene": 0,
+      "time": "17:41",
+      "title": "Edge case 3 · Ambient false positive",
+      "note": "A child says “let’s go to the park”. Maya acts only on high confidence; otherwise she asks. Nothing has changed yet.",
+      "cta": {
+        "label": "Back to the trip",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "add",
+          "label": "Add stop",
+          "find": {
+            "text": "Add stop",
+            "exact": true
+          },
+          "go": "back",
+          "toast": "A stop at the park would be added."
+        },
+        {
+          "id": "ignore",
+          "label": "No, ignore",
+          "find": {
+            "text": "No, ignore",
+            "exact": true
+          },
+          "go": "back",
+          "toast": "Ignored. The plan is unchanged."
+        }
+      ]
+    },
+    "E4": {
+      "variant": "E4",
+      "scene": 0,
+      "time": "18:09",
+      "title": "Edge case 4 · The chime is missed",
+      "note": "Michael didn’t notice the chime. The change stays on screen until he dismisses it, and the strip repeats it once.",
+      "cta": {
+        "label": "Back to the story",
+        "go": "back"
+      },
+      "hotspots": [
+        {
+          "id": "undo",
+          "label": "Undo",
+          "find": {
+            "text": "Undo",
+            "exact": true
+          },
+          "toast": "Undo restores the home pickup. Not drawn in this prototype."
+        },
+        {
+          "id": "dismiss",
+          "label": "Dismiss",
+          "find": {
+            "text": "Dismiss",
+            "exact": true
+          },
+          "go": "back"
+        }
+      ]
+    }
+  }
+}
