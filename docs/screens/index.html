@@ -1,0 +1,386 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Screen Plan and Strip Specification · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+ padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+nav.top{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav.top a{color:var(--teal);text-decoration:none;font-weight:500}nav.top a:hover{text-decoration:underline}
+nav.top span{color:var(--mute)}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
+h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
+p,li{max-width:74ch}
+a{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+</style></head>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · process index</a><span>/</span><span>Screen Plan and Strip Specification</span></nav><h1>Screen Plan and Strip Specification</h1>
+<p>Twenty tablet screens in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive LED strip: the tablet holds everything interactive, the strip only lets people glance.</p>
+<h2>The two screens</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Tablet</th>
+<th>Strip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>Large touchscreen, like today's infotainment</td>
+<td>LED strip at the base of the windscreen, like BMW Panoramic Vision</td>
+</tr>
+<tr>
+<td>Role</td>
+<td>All detail and interaction</td>
+<td>Passive, glanceable, secondary information</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>Touch</td>
+<td>None (not touchable)</td>
+</tr>
+<tr>
+<td>Content rule</td>
+<td>Everything</td>
+<td>Nothing unique: a copy of what is on the tablet</td>
+</tr>
+</tbody>
+</table></div>
+<p>The strip is split in half: one half is automotive data (speed, temperature, range), the other half belongs to Maya. A third surface, Michael's phone, appears only in courier mode, when nobody is in the car.</p>
+<h2>Screen inventory</h2>
+<p>Priority <strong>H</strong> = needed for the hero scenario; <em>branch</em> = reached through a touch twin or a side path. Screen IDs follow the story and are used across all artifacts.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Scene</th>
+<th>What it shows</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S01</strong></td>
+<td>Sign in</td>
+<td>1</td>
+<td>The car expects Michael and looks for his face; PIN or password as fallback; "Not Michael? Switch profile"</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S02</strong></td>
+<td>Welcome</td>
+<td>1</td>
+<td>"Welcome back, Michael", synced data, the "Going home" default route already moving, Maya's greeting, "Full access" with Adjust</td>
+<td><strong>H</strong> (central)</td>
+</tr>
+<tr>
+<td><strong>S03</strong></td>
+<td>Maya's access</td>
+<td>1</td>
+<td>Opened from Adjust: what Maya may do on her own (calls, payments from Maya Wallet up to a limit, plan changes from what she hears, messages), listening settings, synced data</td>
+<td><strong>H</strong> (branch)</td>
+</tr>
+<tr>
+<td><strong>S04</strong></td>
+<td>Briefing: listening</td>
+<td>2</td>
+<td>Maya listening; the "New plan" card (occasion, where, when, pick up, to do) fills in as Michael talks</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S05</strong></td>
+<td>Briefing: keyboard</td>
+<td>2</td>
+<td>Touch twin: Maya's bar becomes a text field, with the keyboard in the lower half</td>
+<td><strong>H</strong> (branch)</td>
+</tr>
+<tr>
+<td><strong>S06</strong></td>
+<td>Briefing: Maya asks</td>
+<td>2</td>
+<td>Maya's question with a search field for the answer (no suggested answers); details filled in so far</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S07</strong></td>
+<td>Briefing: building the plan</td>
+<td>2</td>
+<td>"This is what Maya understood", every detail still editable, while the plan is built</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S08</strong></td>
+<td>Retailer calls</td>
+<td>3</td>
+<td>Silent live transcripts, hold timer, reference number, "pay now", chosen pharmacy; the pharmacy pin is dotted until confirmed</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S09</strong></td>
+<td>Plan change: automatic</td>
+<td>3</td>
+<td>Banner plus ledger, no input: pharmacy 1 crossed out, pharmacy 2 marked changed</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S10</strong></td>
+<td>Gift suggestion</td>
+<td>4</td>
+<td>The florist, delivery time and payment; Yes, order or No thanks (no bouquet choices)</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S11</strong></td>
+<td>Florist order</td>
+<td>4</td>
+<td>Order steps: called, delivery agreed, payment successful, delivery committed; Show call</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S12</strong></td>
+<td>Plan overview</td>
+<td>5</td>
+<td>Timeline and map, spare time (+5 min), stop cards, completed stops greyed out; replaces the provisional "Going home" route</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S13</strong></td>
+<td>Vehicle intent</td>
+<td>6</td>
+<td>What the car is about to do at the next stop: where it pulls in, which doors unlock, how long it waits</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S14</strong></td>
+<td>Active trip</td>
+<td>6</td>
+<td>Now and next, spare time, "Done for you" ledger (Undo on the latest row), pickup states, Edit plan</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S15</strong></td>
+<td>Edit plan</td>
+<td>6</td>
+<td>Drag to reorder or move a stop, add or remove, ripple preview, Apply or Cancel</td>
+<td><strong>H</strong> (central, branch)</td>
+</tr>
+<tr>
+<td><strong>S16</strong></td>
+<td>Incoming call</td>
+<td>7</td>
+<td>Incoming-call overlay over the active trip</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S17</strong></td>
+<td>Plan change: ambient</td>
+<td>7</td>
+<td>Heard phrase, cancelled stop crossed out, new stop marked, Undo</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S18</strong></td>
+<td>Errand suggestion</td>
+<td>8</td>
+<td>The dry cleaner's message and Maya's offer to collect the suit after the drop-off and be back at 21:30; Yes or No thanks</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S19</strong></td>
+<td>Errand booked</td>
+<td>8</td>
+<td>The call to the dry cleaner (live transcript), payment, the agreed handover (19:20, rear right door, on a hanger, code sent) and a new plan row after the restaurant</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>S20</strong></td>
+<td>Arrival report</td>
+<td>9</td>
+<td>Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, back for you at 21:30)</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>C1</strong></td>
+<td>Leaving in courier mode</td>
+<td>9, 10</td>
+<td>"Please take your belongings", the cabin check (empty, nothing left behind), where the car is going and when it will be back</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>Phone: courier run</td>
+<td>10</td>
+<td>View only: live map and steps (to the dry cleaner, handover, back at 21:30), the door being used</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>C3</strong></td>
+<td>Phone: errand report</td>
+<td>10</td>
+<td>View only: photo of the suit on the hanger, receipt, times, what the camera saw</td>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td><strong>C4</strong></td>
+<td>Errands</td>
+<td>any time</td>
+<td>Opened by the box icon beside Settings: upcoming, running and done errands; New errand</td>
+<td><strong>H</strong> (branch)</td>
+</tr>
+<tr>
+<td><strong>C5</strong></td>
+<td>New errand</td>
+<td>any time</td>
+<td>What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (return time), report</td>
+<td><strong>H</strong> (branch)</td>
+</tr>
+<tr>
+<td><strong>V1</strong></td>
+<td>Takeover request</td>
+<td>variant</td>
+<td>Level 3 or 4 only, outside the Level 5 scope: countdown to take over; Maya pauses every task</td>
+<td>Variant</td>
+</tr>
+<tr>
+<td><strong>V2</strong></td>
+<td>Running late</td>
+<td>edge case 2</td>
+<td>Fixes, cheapest first: ask the restaurant to hold the table, take a faster road, ask the wife to wait at the corner</td>
+<td>Variant</td>
+</tr>
+<tr>
+<td><strong>F1</strong></td>
+<td>Maya presence</td>
+<td>all</td>
+<td>Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on the strip</td>
+<td><strong>H</strong> (system layer)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Errands entry:</strong> a box icon left of the settings cog on every tablet screen. <strong>The phone</strong> is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). <strong>Charging</strong> is not an errand and never appears in the plan list.</p>
+<p><strong>Supportive (later):</strong> Maya settings beyond access, notifications tray, error and offline states.</p>
+<p><strong>Screens for later (not delivered now):</strong> create a new profile; idle or standby when nobody is signed in; guest mode; the bento menu's contents (the icon stays top left, with "Maya" to its right).</p>
+<p><strong>Prototype path:</strong> about 25 frames in story order: S01, S02 (S03 from Adjust); S04, S06, S07 (S05 when typing); S08, S09; S10, S11; S12; S13, S14 (S15 from Edit plan); S16, S17; S18, S19; S20; C1, C2, C3; then C4 and C5 from the box icon.</p>
+<h2>Strip: Maya's half</h2>
+<pre><code>[ 62 km/h · 21° · 312 km ]  |  [ ◉ Kindergarten 17:55 · ●●○○○ · +5 min ]
+   automotive half                    Maya's half
+</code></pre>
+<p>Short text only (about 25 characters), always with text so colour is never the only signal.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Content</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Presence</td>
+<td>Idle, listening, speaking, on a call</td>
+<td>Small pulse</td>
+</tr>
+<tr>
+<td>2. Next stop</td>
+<td>Icon, short label, arrival time</td>
+<td>Updates as stops complete</td>
+</tr>
+<tr>
+<td>3. Spare time</td>
+<td>"+5 min"</td>
+<td>Green above 4 min, amber 0 to 4, red below 0</td>
+</tr>
+<tr>
+<td>4. Progress (optional)</td>
+<td>Squares for done, current, upcoming stops</td>
+<td>Static</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>"Plan updated", "Pharmacy changed", "Flowers confirmed", "Flowers delivered", "Pickup moved: hair salon", "Errand booked: dry cleaner"</td>
+<td>4-second takeover of slots 2 and 3</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Never on the strip:</strong> transcripts, maps, editing, anything interactive or long, medication names, personal data.</p>
+<p><strong>When the cabin is empty</strong> (courier mode), the strip is off.</p>
+<h2>Strip through the story</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Scene</th>
+<th>Screen</th>
+<th>Strip (Maya's half)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>S01, S02</td>
+<td>◉ Home 17:48, once signed in</td>
+</tr>
+<tr>
+<td>2</td>
+<td>S04 to S07</td>
+<td>◉ listening · Home 17:48</td>
+</tr>
+<tr>
+<td>3</td>
+<td>S08, S09</td>
+<td>◉ Calling Pharmacy 2, then "Pharmacy changed · +5 min"</td>
+</tr>
+<tr>
+<td>4</td>
+<td>S10, S11</td>
+<td>◉ speaking, then ◉ Calling Main St Florist, then "Flowers confirmed"</td>
+</tr>
+<tr>
+<td>5</td>
+<td>S12</td>
+<td>School 17:35 · +5 min</td>
+</tr>
+<tr>
+<td>6</td>
+<td>S13, S14</td>
+<td>Next stop updates: School 17:35, Kindergarten 17:55, Pharmacy 2 18:10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>S16, S17</td>
+<td>"Pickup moved: hair salon · +5 min", then Hair salon 18:30</td>
+</tr>
+<tr>
+<td>8</td>
+<td>S18, S19</td>
+<td>◉ speaking, then ◉ Calling the dry cleaner, then "Errand booked: dry cleaner"</td>
+</tr>
+<tr>
+<td>9</td>
+<td>S20, C1</td>
+<td>Arrived 18:55 · +5 min, then "Courier · back 21:30"</td>
+</tr>
+<tr>
+<td>10</td>
+<td>C1 to C3</td>
+<td>Off (cabin empty)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Principles these screens follow</h2>
+<ol>
+<li>The tablet is for interaction, the strip is for glances.</li>
+<li>The screen is the confirmation, so Maya does not read plans back.</li>
+<li>Spare time is always visible.</li>
+<li>Every change (world, conversation, user) shows what was removed and what is new: cancelled stops are crossed out, new stops are marked.</li>
+<li>The phone is view only and appears only when the car is alone.</li>
+</ol><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>

@@ -1,0 +1,220 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero Scenario and Conversation Script · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+ padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+nav.top{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav.top a{color:var(--teal);text-decoration:none;font-weight:500}nav.top a:hover{text-decoration:underline}
+nav.top span{color:var(--mute)}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
+h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
+p,li{max-width:74ch}
+a{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+</style></head>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · process index</a><span>/</span><span>Hero Scenario and Conversation Script</span></nav><h1>Hero Scenario and Conversation Script</h1>
+<p>One evening, ten scenes, three reroutes and one courier errand: Maya takes Michael, a father of two, from work to a 19:00 family dinner, then sends the empty car to collect his suit, speaking only when she needs him and showing everything else on screen.</p>
+<h2>The scenario</h2>
+<p>A Level 5 car collects Michael at work at 17:15. His needs: collect his son (school), daughter (kindergarten) and wife (home), and get a new prescription from his text messages as soon as possible, all before a family birthday dinner at 19:00 at "the usual Italian on Main Street". Maya plans to arrive at 18:55, which leaves <strong>5 minutes of spare time</strong>.</p>
+<p><strong>What Maya knows:</strong> both schools, home, the calendar (a birthday of a female family member), Michael's messages. <strong>What she doesn't know:</strong> the restaurant, the dinner time, and which pharmacy can fill the prescription.</p>
+<p><strong>Assumptions:</strong> payments happen automatically from Maya Wallet; the schools release the children to the car (pre-authorised); the florist delivers to the restaurant (no stop); Michael is in the car for the pharmacy, so he can collect in person. In courier mode, the dry cleaner's staff open one door of the car with a code that Maya texts them.</p>
+<h2>Three reroutes</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Reroute</th>
+<th>Cause</th>
+<th>Michael's involvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Default route (home) to the real plan</td>
+<td>Habit prediction, then the briefing</td>
+<td>The briefing itself</td>
+</tr>
+<tr>
+<td>2</td>
+<td>First pharmacy to a second pharmacy</td>
+<td>The world: no stock</td>
+<td>None, visible on screen</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pickup moved from home to the hair salon</td>
+<td>The conversation: the wife's call (ambient intent)</td>
+<td>None, chime and Undo</td>
+</tr>
+</tbody>
+</table></div>
+<p>Plus one courier errand, which is not a reroute: after dropping the family at the restaurant, the empty car collects a suit from the dry cleaner and is back for them at 21:30.</p>
+<h2>The day in numbers</h2>
+<p>Spare time stays at 5 minutes in every version of the plan.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Stop</th>
+<th>Plan v1</th>
+<th>After reroute 2</th>
+<th>After reroute 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leave work</td>
+<td>17:15</td>
+<td>17:15</td>
+<td>17:15</td>
+</tr>
+<tr>
+<td>School (son)</td>
+<td>17:35</td>
+<td>17:35</td>
+<td>17:35</td>
+</tr>
+<tr>
+<td>Pharmacy 1 (no stock)</td>
+<td>17:50</td>
+<td>removed</td>
+<td>removed</td>
+</tr>
+<tr>
+<td>Kindergarten (daughter)</td>
+<td>18:10</td>
+<td>17:55</td>
+<td>17:55</td>
+</tr>
+<tr>
+<td>Pharmacy 2</td>
+<td>none</td>
+<td>18:10</td>
+<td>18:10</td>
+</tr>
+<tr>
+<td>Wife</td>
+<td>18:33 (home)</td>
+<td>18:33 (home)</td>
+<td>18:30 (hair salon)</td>
+</tr>
+<tr>
+<td>Restaurant (dinner 19:00)</td>
+<td>18:55</td>
+<td>18:55</td>
+<td>18:55</td>
+</tr>
+<tr>
+<td>Flowers delivered</td>
+<td>18:45</td>
+<td>18:45</td>
+<td>18:45</td>
+</tr>
+<tr>
+<td>Dry cleaner (car alone, courier mode)</td>
+<td>none</td>
+<td>none</td>
+<td>19:20 (booked at 18:34)</td>
+</tr>
+<tr>
+<td>Car back for the family</td>
+<td>none</td>
+<td>none</td>
+<td>21:30 (promised; after the story ends)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Script</h2>
+<p>Screen tags (S01 to S20, C1 to C5) refer to the Screen Plan. Anything not in quotes happens on screen only.</p>
+<p><strong>Scene 1: Boarding and sign-in (17:15)</strong> [S01, S02]</p>
+<ul>
+<li>Michael gets in. The car expects him and signs him in by face; if his face isn't recognised he uses his PIN or password, and anyone else can tap "Not Michael? Switch profile". [S01]</li>
+<li>The car starts moving straight away towards the most probable destination. Screen: "Welcome back, Michael" and "Going home, 17:48". [S02]</li>
+<li><strong>Maya:</strong> "Hi, I'm Maya, your concierge for the trip. How can I assist you?"</li>
+<li>Touch twin: Adjust opens Maya's access, where Michael chooses what she may do on her own. [S03]</li>
+</ul>
+<p><strong>Scene 2: Briefing, in needs and goals</strong> [S04 to S07]</p>
+<ul>
+<li><strong>Michael:</strong> "Hi Maya. Family dinner tonight. Let's get the kids and my wife, and I need that new prescription from my messages as soon as possible." [S04]</li>
+<li><strong>Maya:</strong> "Where is the dinner?" [S06]</li>
+<li><strong>Michael:</strong> "The usual Italian on Main Street."</li>
+<li><strong>Maya:</strong> "What time?"</li>
+<li><strong>Michael:</strong> "Seven."</li>
+<li>Screen: the "New plan" card fills in as they talk, including the prescription reference (RX-48317). Maya does not read it back. Then "Building the plan", with every detail still editable. [S07]</li>
+<li>Touch twin: Michael taps Maya's bar to type [S05], and answers Maya's questions in the search field [S06].</li>
+</ul>
+<p><strong>Scene 3: Pharmacy search (17:19), screen only</strong> [S08, S09]</p>
+<ul>
+<li>The prescription is the urgent to-do, so the first call goes to the nearest pharmacy on the route. The pharmacy pin on the map is dotted until confirmed.</li>
+<li>Call 1. <strong>Maya:</strong> "Hello, I'm Maya, an AI assistant calling to ask about a prescription's availability, reference RX-48317. Do you have it, and how soon can we pick it up?" <strong>Pharmacist:</strong> "One moment, please hold." (on hold 0:35) <strong>Pharmacist:</strong> "Sorry, we don't have it." <strong>Maya:</strong> "Thank you."</li>
+<li>Call 2. <strong>Maya:</strong> (same question) <strong>Pharmacist:</strong> "One moment, please hold." (on hold 0:28) <strong>Pharmacist:</strong> "Yes, we have it." <strong>Maya:</strong> "I'd like to pay now and have it ready in ten minutes, please. We'll collect it at 18:10." <strong>Pharmacist:</strong> "OK. I'm sending the payment reference now. Thank you." [S08]</li>
+<li>Screen: "Paid", then a quiet "Plan updated" banner: pharmacy 1 crossed out, pharmacy 2 after the kindergarten, spare time still +5 min. No input needed. [S09]</li>
+</ul>
+<p><strong>Scene 4: Flowers (17:22)</strong> [S10, S11]</p>
+<ul>
+<li><strong>Maya:</strong> "It's a birthday dinner. Would you like flowers waiting at the restaurant before we arrive?" [S10]</li>
+<li><strong>Michael:</strong> "Yes. White roses."</li>
+<li>Screen: until Michael answers, the suggestion shows the florist but no bouquet choices, and the florist pin is dotted. Then, with Maya silent: (1) "Called Main St Florist" (2) live transcript: <strong>Maya:</strong> "Hello, I'm Maya, an AI assistant calling for a customer. I'd like white roses delivered to the Italian restaurant on Main Street before seven tonight. Can you do that?" <strong>Florist:</strong> "Yes, we can deliver by 18:45." <strong>Maya:</strong> "Perfect. I'll pay now. Please leave the bouquet at reception for Michael to collect." (3) "Delivery agreed: 18:45" (4) "Payment successful" (5) "Delivery committed: restaurant, before 19:00". The pin becomes solid, 300 m from the restaurant. [S11]</li>
+<li>Touch twin: Yes, order or No thanks on the suggestion. [S10]</li>
+</ul>
+<p><strong>Scene 5: The plan appears (17:24)</strong> [S12]</p>
+<ul>
+<li>No speech. The "Going home" route is replaced by the full plan: work already done, school next, pharmacy 2 at 18:10, wife, dinner, spare time +5 min. The car never stops moving.</li>
+</ul>
+<p><strong>Scene 6: Pickups, screen only</strong> [S13, S14]</p>
+<ul>
+<li>Before each stop the screen says what the car is about to do: "Stopping at School in 1 min. Doors unlock on the right." [S13]</li>
+<li>"Son on board", then "Arriving at kindergarten, 17:55", "Daughter on board", "Arriving at pharmacy, 18:10", "Prescription collected". Maya says nothing. [S14]</li>
+<li>Branch: Michael can also reorder stops by hand, for example picking up his wife before the pharmacy; Edit plan shows the ripple before he applies it. [S15]</li>
+</ul>
+<p><strong>Scene 7: The wife's call (18:03), ambient intent</strong> [S16, S17]</p>
+<ul>
+<li>Screen: incoming-call overlay. [S16]</li>
+<li><strong>Wife:</strong> "Change of plan: pick me up at the hair salon, not at home."</li>
+<li><strong>Michael:</strong> "Sure, we'll be there."</li>
+<li>Maya hears it and changes the pickup with <strong>no spoken line</strong>. A soft chime sounds. Screen: "Heard in your call: Pick me up at the hair salon." The wife's pickup moves to the hair salon at 18:30, home is crossed out, the hair salon is marked new, and spare time stays +5 min. Undo and Dismiss sit on the change. [S17]</li>
+<li>Touch twin: Michael taps Undo, or changes the pickup by hand in Edit plan. [S17, S15]</li>
+</ul>
+<p><strong>Scene 8: The errand (18:32)</strong> [S18, S19]</p>
+<ul>
+<li>Screen: a message from the dry cleaner arrives: "Your suit is ready for collection (order 2231). We're open until 20:00." Maya doesn't read it aloud.</li>
+<li><strong>Maya:</strong> "Your suit is ready at the dry cleaner. After I drop you at the restaurant, I can collect it on my own and be back for you at 21:30. Shall I?" [S18]</li>
+<li><strong>Michael:</strong> "Yes, please."</li>
+<li>Screen, with Maya silent: (1) "Calling the dry cleaner..." (2) live transcript: <strong>Maya:</strong> "Hello, I'm Maya, an AI assistant calling for a customer about order 2231. I'd like to pay now and collect it at 19:20 with his car, which will arrive with nobody inside. Could someone hang it in the back? I'll text you a code that opens only the rear right door." <strong>Dry cleaner:</strong> "No problem. It'll be ready at 19:20." <strong>Maya:</strong> "Thank you. Paying now." (3) "Payment successful" (4) "Handover agreed: 19:20, rear right door, on a hanger, code sent" (5) a new row joins the plan after the restaurant: "19:20 Dry cleaner · car alone · back 21:30". Only now is the errand booked: no handoff, no commitment. [S19]</li>
+<li>Touch twin: Yes or No thanks on the suggestion card. [S18]</li>
+</ul>
+<p><strong>Scene 9: Arrival (18:55)</strong> [S20, C1]</p>
+<ul>
+<li><strong>Maya:</strong> "We're here, five minutes early. I'll collect your suit and be back for you at 21:30."</li>
+<li>Screen: a full-screen arrival report: arrived 18:55 with 5 minutes to spare, then a list of what was done (son, daughter, prescription 18:10, wife at the hair salon 18:30, flowers delivered 18:44), and "Next: courier · dry cleaner 19:20, back for you at 21:30". [S20]</li>
+<li>Then the courier hand-off: "Leaving in courier mode. Please take your belongings." Once everyone is out, the car checks that the cabin is empty and nothing is left behind, then drives off. [C1]</li>
+</ul>
+<p><strong>Scene 10: The courier run (from 18:58), car alone</strong> [C1 to C3]</p>
+<ul>
+<li>18:58: cabin empty, nothing left behind. The tablet and the strip turn off, and the car leaves. Michael's phone shows the run live, view only: to the dry cleaner, then back at 21:30. [C2]</li>
+<li>19:20: at the dry cleaner, the car stops and flashes the rear right door. A member of staff types the code; only that door opens. They hang the suit and close the door. The cabin camera checks it: "1 garment bag, rear right". The door locks.</li>
+<li>19:24: a report on the phone with a photo, the receipt and the times. A notification, no voice. [C3]</li>
+<li>The car drives to a charging station near the restaurant and charges. Charging is not an errand, so it isn't in the plan. The story ends here, with the car ready to be back for the family at 21:30.</li>
+<li>Errands can also be scheduled by hand: the box icon beside Settings opens Errands and a New errand form. [C4, C5]</li>
+</ul>
+<h2>Conversation design rules</h2>
+<ol>
+<li><strong>Ask only what she can't know, as many times as needed.</strong> Here that is two questions and one suggestion.</li>
+<li><strong>Speak only when she needs Michael:</strong> a question, the result of something he asked, or when the car leaves. Everything else is on screen.</li>
+<li><strong>The screen is the confirmation.</strong> The "New plan" card replaces reading back.</li>
+<li><strong>Changes caused by the world happen silently and visibly.</strong> Changes caused by conversation get a chime, the heard phrase, and Undo.</li>
+<li><strong>Calls to staff are screen-only and transparent:</strong> live transcript, always opening with "Hello, I'm Maya, an AI assistant calling...".</li>
+<li><strong>Every voice action has a touch twin</strong> (chips, pickers, drag).</li>
+<li><strong>Maya's voice:</strong> calm, competent, short, female. She says "we" for the trip.</li>
+<li><strong>Medication names stay off the shared screen:</strong> transcripts say "your prescription" and show the reference number only.</li>
+<li><strong>Courier errands are booked only once the handover is agreed.</strong> Maya says once what the car will do and when it will be back; the run itself is followed on the phone.</li>
+</ol><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>

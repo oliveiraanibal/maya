@@ -1,0 +1,558 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decision Log and Trade-offs · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+ padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+nav.top{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav.top a{color:var(--teal);text-decoration:none;font-weight:500}nav.top a:hover{text-decoration:underline}
+nav.top span{color:var(--mute)}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
+h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
+p,li{max-width:74ch}
+a{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+</style></head>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · process index</a><span>/</span><span>Decision Log and Trade-offs</span></nav><h1>Decision Log and Trade-offs</h1>
+<p>This log records what we decided for Maya, what each choice costs us, and which costs we expect but have not yet decided.</p>
+<h2>Decisions of 28 October 2026</h2>
+<p>Phase 0 is closed. These choices now apply to every artifact.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Final deliverable</td>
+<td>One self-sufficient PDF, Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf: everything needed to judge the work is inside it</td>
+</tr>
+<tr>
+<td>Links from the PDF</td>
+<td>Extras, not needed to judge the work. At most three, hosted as plain web pages on GitHub Pages so nobody has to sign in: clickable prototype, hi-fi screens, process index. Each one tested in a private window</td>
+</tr>
+<tr>
+<td>Screen IDs</td>
+<td>Renumbered once, in story order: S01 to S20 in the car, C1 to C5 for courier mode, V1 and V2 for variants (map below). Strip states take the ID of the screen they go with</td>
+</tr>
+<tr>
+<td>The user</td>
+<td>Called Michael in every screen and doc. Aníbal Oliveira stays as the author</td>
+</tr>
+<tr>
+<td>UI font</td>
+<td>Inter, replacing Manrope</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>UK English everywhere</td>
+</tr>
+<tr>
+<td>Sign-in</td>
+<td>New first screen (S01). The car expects Michael but signs him in only after face recognition; PIN or password as fallback; "Not Michael? Switch profile"</td>
+</tr>
+<tr>
+<td>Errands entry</td>
+<td>A box icon left of the settings cog on every tablet screen opens Errands (C4). The bento icon stays top left, with "Maya" to its right and more space between them; the bento menu itself (other apps) is not designed</td>
+</tr>
+<tr>
+<td>Courier mode</td>
+<td>In scope. The story's errand is the dry cleaner, offered after the hair salon pickup (scene 8)</td>
+</tr>
+<tr>
+<td>Charging</td>
+<td>Not an errand, so it never appears in the plan list</td>
+</tr>
+<tr>
+<td>Story end</td>
+<td>The story ends with the car charging near the restaurant after the courier errand. The return at 21:30 is promised, not shown: the same car, with the suit, charges near the restaurant until Michael calls it, as he did at 17:15</td>
+</tr>
+<tr>
+<td>Phone</td>
+<td>Courier mode only and view only, kept to two screens: the live run (C2) and the report (C3). No Come back now, no voice</td>
+</tr>
+<tr>
+<td>Strip in an empty car</td>
+<td>Off once the cabin is empty. During the hand-off it shows "Courier · back 21:30"</td>
+</tr>
+<tr>
+<td>Maya and the car</td>
+<td>Maya belongs to Michael, not to a car: she is in any car he signs in to, his own or a robotaxi. In the story it is the same car all evening, because his suit is inside</td>
+</tr>
+<tr>
+<td>Starting Maya by touch</td>
+<td>No mic button: tapping Maya's bar at the bottom opens the keyboard (S05)</td>
+</tr>
+<tr>
+<td>The word "errand"</td>
+<td>An errand is something the car does alone, in courier mode. With Michael on board, the plan has stops, and the briefing card lists to-dos (the prescription is a to-do)</td>
+</tr>
+<tr>
+<td>Visual direction</td>
+<td>Deep ocean: dark first, a deep blue-green ground with cobalt and lumen glows, inspired by The Abyss. The light versions are parked; the strip is always dark</td>
+</tr>
+<tr>
+<td>Shapes and surfaces</td>
+<td>Sharp corners and no borders; translucent glass panels over a full-bleed map; spacing, not lines, groups things</td>
+</tr>
+<tr>
+<td>Tablet canvas</td>
+<td>1920 × 1200 (16:10)</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>A real-looking map of Porto that shows the whole journey; square pins, sonar rings on the next stop</td>
+</tr>
+<tr>
+<td>Maya's presence</td>
+<td>No orb: presence is a status line in Maya's bar (listening, thinking, speaking, on a call) and a pulsing dot on the strip</td>
+</tr>
+<tr>
+<td>Strip</td>
+<td>One band at the base of the windscreen, always dark: the automotive half and Maya's half, with no dividers or pill borders</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>Maya Wallet: automatic up to the limit set in Maya's access (S03); above it, Maya asks first</td>
+</tr>
+<tr>
+<td>Design system</td>
+<td>Our own Deep ocean tokens; Material 3 and Android Automotive guidance only as a reference for sizes and behaviour</td>
+</tr>
+<tr>
+<td>Maya's first greeting</td>
+<td>Spoken and short, with a caption (S02)</td>
+</tr>
+<tr>
+<td>Ledger depth</td>
+<td>"Done for you" shows the last two actions; the rest on tap (S14)</td>
+</tr>
+<tr>
+<td>Arrival report</td>
+<td>The full list of what was done, readable in one glance (S20)</td>
+</tr>
+<tr>
+<td>Touch targets</td>
+<td>Buttons keep their visual size, but every tap area is at least 76 × 76 px: the Android for Cars minimum of 76 dp, assuming about 1 px per dp on a 14 to 15 inch 1920 × 1200 tablet. Noted in the spec</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>No text below 16 px on the tablet, except uppercase labels (13 to 14 px) and small badges (12 px)</td>
+</tr>
+<tr>
+<td>Errands badge</td>
+<td>A small dot on the box icon while an errand is booked or running</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Screen ID map</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>New ID</th>
+<th>Screen</th>
+<th>Old ID</th>
+<th>Scene</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01</td>
+<td>Sign in</td>
+<td>new</td>
+<td>1</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Welcome</td>
+<td>S1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>Maya's access (from Adjust)</td>
+<td>N3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>Briefing: listening</td>
+<td>S2a</td>
+<td>2</td>
+</tr>
+<tr>
+<td>S05</td>
+<td>Briefing: keyboard</td>
+<td>S2d</td>
+<td>2</td>
+</tr>
+<tr>
+<td>S06</td>
+<td>Briefing: Maya asks</td>
+<td>S2b</td>
+<td>2</td>
+</tr>
+<tr>
+<td>S07</td>
+<td>Briefing: building the plan</td>
+<td>S2c</td>
+<td>2</td>
+</tr>
+<tr>
+<td>S08</td>
+<td>Retailer calls</td>
+<td>S3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>S09</td>
+<td>Plan change: automatic</td>
+<td>S7a</td>
+<td>3</td>
+</tr>
+<tr>
+<td>S10</td>
+<td>Gift suggestion</td>
+<td>S4a</td>
+<td>4</td>
+</tr>
+<tr>
+<td>S11</td>
+<td>Florist order</td>
+<td>S4b</td>
+<td>4</td>
+</tr>
+<tr>
+<td>S12</td>
+<td>Plan overview</td>
+<td>S5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>S13</td>
+<td>Vehicle intent</td>
+<td>N1</td>
+<td>6</td>
+</tr>
+<tr>
+<td>S14</td>
+<td>Active trip</td>
+<td>S6a</td>
+<td>6</td>
+</tr>
+<tr>
+<td>S15</td>
+<td>Edit plan</td>
+<td>S8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>S16</td>
+<td>Incoming call</td>
+<td>S6b</td>
+<td>7</td>
+</tr>
+<tr>
+<td>S17</td>
+<td>Plan change: ambient</td>
+<td>S7b</td>
+<td>7</td>
+</tr>
+<tr>
+<td>S18</td>
+<td>Errand suggestion</td>
+<td>new</td>
+<td>8</td>
+</tr>
+<tr>
+<td>S19</td>
+<td>Errand booked</td>
+<td>new</td>
+<td>8</td>
+</tr>
+<tr>
+<td>S20</td>
+<td>Arrival report</td>
+<td>S9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Leaving in courier mode</td>
+<td>new</td>
+<td>9</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Phone: courier run</td>
+<td>new</td>
+<td>10</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Phone: errand report</td>
+<td>new</td>
+<td>10</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Errands (box icon)</td>
+<td>new</td>
+<td>any time</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>New errand</td>
+<td>new</td>
+<td>any time</td>
+</tr>
+<tr>
+<td>V1</td>
+<td>Takeover request (Level 3/4 variant)</td>
+<td>N2</td>
+<td>variant</td>
+</tr>
+<tr>
+<td>V2</td>
+<td>Running late</td>
+<td>N4</td>
+<td>edge case 2</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Accepted trade-offs</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>What we gain</th>
+<th>What we give up</th>
+<th>Where it shows</th>
+<th>Check it by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Level 5 only, no manual driving</td>
+<td>A single calm, trip-level experience</td>
+<td>Any use before full autonomy; no driver-state design</td>
+<td>Hypothesis</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Full trust: Maya acts, pays and listens</td>
+<td>The assistant feels like an executive assistant</td>
+<td>Safety nets: no approval before calls, or before payments under the limit set in Maya's access (S03)</td>
+<td>S02, S03, S11</td>
+<td>Trust calibration (month list)</td>
+</tr>
+<tr>
+<td>Maya speaks rarely; the screen carries the detail</td>
+<td>A quiet cabin; calm trip</td>
+<td>Users who rely on voice alone get less status</td>
+<td>Multimodal Matrix, S08</td>
+<td>Voice-only stress test</td>
+</tr>
+<tr>
+<td>Ambient intent: Maya acts on high confidence and asks on medium</td>
+<td>Plans change without the user managing them</td>
+<td>Risk of false positives from overheard talk</td>
+<td>S17</td>
+<td>Ambient false-positive test</td>
+</tr>
+<tr>
+<td>Chime only for ambient changes, with the heard phrase and Undo, no countdown</td>
+<td>Non-intrusive; a missed chime costs nothing</td>
+<td>A user may not notice a change until they look</td>
+<td>S17</td>
+<td>Validation plan</td>
+</tr>
+<tr>
+<td>Banner stays until dismissed</td>
+<td>Never lost</td>
+<td>Panel clutter if changes pile up</td>
+<td>S09</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>Pharmacy first, flowers after</td>
+<td>The urgent to-do wins</td>
+<td>Flowers are offered later, with less lead time</td>
+<td>S08, S10</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>Silent retailer calls shown on screen only</td>
+<td>Silence in the cabin</td>
+<td>Users cannot hear what Maya promised</td>
+<td>S08</td>
+<td>Wizard of Oz (month list)</td>
+</tr>
+<tr>
+<td>Passive LED strip carrying nothing unique</td>
+<td>No second interactive surface to design</td>
+<td>Strip cannot be the only channel for anything</td>
+<td>Screen Plan</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>One tablet layout: plan panel always left, flat 2D map</td>
+<td>Learnable and consistent</td>
+<td>No right-to-left variant; no 3D context</td>
+<td>Wireframes</td>
+<td>Responsive layouts (month list)</td>
+</tr>
+<tr>
+<td>Keyboard takes about the lower half of the screen</td>
+<td>Large, comfortable keys</td>
+<td>Plan and map shrink while typing</td>
+<td>S05</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>Undo only on the latest ledger row, then the previous</td>
+<td>A calm ledger, one clear action</td>
+<td>Older actions are slower to reverse</td>
+<td>S14</td>
+<td>Prototype, 3 users</td>
+</tr>
+<tr>
+<td>Spare time pill: green above 4 min, amber 0 to 4, red below 0</td>
+<td>Promise readable at a glance</td>
+<td>Colour alone is not enough: needs text and shape too</td>
+<td>S12 to S20</td>
+<td>Accessibility review</td>
+</tr>
+<tr>
+<td>Edit plan with ripple preview, then Apply</td>
+<td>Informed edits</td>
+<td>Extra step for a quick change</td>
+<td>S15</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>Solo exercise with no user research</td>
+<td>Speed</td>
+<td>Assumptions A1 to A15 are untested</td>
+<td>Hypothesis</td>
+<td>Validation plan</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Courier mode: rules and trade-offs</h2>
+<p>Courier mode lets the empty car run errands. It starts only when nobody is inside and the handover has been agreed.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>What we gain</th>
+<th>What we give up</th>
+<th>Where it shows</th>
+<th>Check it by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty cabin only: before leaving, the car checks for people, pets and forgotten items</td>
+<td>Nobody rides along by accident</td>
+<td>A camera in the cabin</td>
+<td>C1</td>
+<td>Courier trust test</td>
+</tr>
+<tr>
+<td>No handoff, no commitment: an errand is booked only once the other side confirms the time, the person and the handover</td>
+<td>Errands don't fail at the door</td>
+<td>Fewer errands qualify</td>
+<td>S19, C5</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>One door, one code: only the agreed compartment opens, with a one-time code, and the camera checks what goes in or out</td>
+<td>The rest of the car stays closed</td>
+<td>The item must fit that compartment</td>
+<td>S19, C2, C5</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>The return time is the promise</td>
+<td>Michael knows when the car will be back</td>
+<td>Errands that can't make it are declined or moved</td>
+<td>S18, C2</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>Every run is reported: live on the phone, then a photo, receipt and times</td>
+<td>Trust without watching</td>
+<td>A third surface, the phone</td>
+<td>C2, C3</td>
+<td>Courier trust test</td>
+</tr>
+<tr>
+<td>Charging is not an errand</td>
+<td>A short, clear plan</td>
+<td>Charging happens out of sight</td>
+<td>S19, S20</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Errands open from a box icon beside Settings</td>
+<td>Errands are one tap away on any screen</td>
+<td>One more icon in the corner</td>
+<td>All tablet screens</td>
+<td>Prototype</td>
+</tr>
+<tr>
+<td>Pick-ups and drop-offs only, for now</td>
+<td>A simple form</td>
+<td>Other errand types come later</td>
+<td>C5</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Expected trade-offs, not yet decided</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Open question</th>
+<th>Option A</th>
+<th>Option B</th>
+<th>Lean</th>
+<th>Decide at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What happens when Maya is unsure on a payment</td>
+<td>Ask first</td>
+<td>Act and show Undo</td>
+<td>Act and show Undo, below a limit</td>
+<td>Month list</td>
+</tr>
+<tr>
+<td>Responsive layouts (other screen sizes and orientations)</td>
+<td>Scale the tablet layout</td>
+<td>Design each size</td>
+<td>Design each size</td>
+<td>Month list</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Screens for later</h2>
+<p>These are not delivered now. Each one is a gap in the current story, not a decision.</p>
+<ul>
+<li>Bento menu contents (other apps); the icon stays top left</li>
+<li>Create new profile</li>
+<li>Idle or standby, when nobody is signed in</li>
+<li>Guest mode</li>
+</ul><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>

@@ -1,0 +1,221 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hypothesis and Assumptions · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+ padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+nav.top{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav.top a{color:var(--teal);text-decoration:none;font-weight:500}nav.top a:hover{text-decoration:underline}
+nav.top span{color:var(--mute)}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
+h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
+p,li{max-width:74ch}
+a{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+</style></head>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · process index</a><span>/</span><span>Hypothesis and Assumptions</span></nav><h1>Hypothesis and Assumptions</h1>
+<p><em>Futuristic use case · Level 5 autonomous vehicle · UX exercise</em></p>
+<h2>Context</h2>
+<p>Maya is an AI concierge inside a fully autonomous (Level 5) car. She plans and runs the logistics of a single trip: routing, stops and calls to retailers. Michael, the user in our story, is in the car and either talks to her or uses the tablet; a passive LED strip at the base of the windscreen shows glanceable status. Maya acts with full delegated trust, like an executive assistant, within the limits Michael sets, and he can see and undo everything. Maya belongs to Michael, not to the car: she is in any car he signs in to, his own or a robotaxi. When nobody is in the car, Maya can also send it to run errands on its own (courier mode).</p>
+<h2>Problem</h2>
+<p>Navigation handles routes, not commitments. Even in a driverless car the passenger still has to work out the sequence of stops, phone businesses, and re-plan by hand whenever something changes, so the freed-up time is not really free.</p>
+<h2>Vision</h2>
+<p><em>I share my needs and goals; everything else just happens, and I can see it happening.</em></p>
+<p><em>With me in the car, Maya runs my trip. Without me, my car runs my errands.</em></p>
+<h2>Hypothesis</h2>
+<p>We believe that time-poor people will hand over trip logistics entirely to an AI that asks only what it cannot know (as many questions as needed, no more), acts on its own, follows the conversation (ambient intent), and makes every action visible and reversible. We will know we are right when users arrive on time, rarely undo what Maya did, and trust her with more over time.</p>
+<p>Courier mode extends the bet: people will also let an empty car run errands on its own, as long as every handover is agreed before it leaves and reported when it's done.</p>
+<h2>Hero scenario: the family dinner run</h2>
+<p>At 17:15 the car collects Michael at work and heads home by default. He tells Maya his needs: a family birthday dinner at 19:00, the kids and his wife to collect, and a new prescription from his messages as soon as possible. Maya asks only for the restaurant and the time, phones two pharmacies first (the first has no stock) and replans silently, then offers flowers and phones the florist. When his wife calls from the hair salon, Maya hears it, moves the pickup, and chimes. After that pickup, a message says his suit is ready at the dry cleaner: Maya offers to collect it on her own once the family is at the restaurant, he says yes, and she phones the shop to pay and agree the handover. The family arrives at 18:55 with 5 minutes of spare time, the flowers arrive first, and the empty car leaves in courier mode, collects the suit and charges nearby, ready to be back for them at 21:30. Three reroutes: default to plan, pharmacy (the world), pickup (the conversation). Plus one courier errand, run by the empty car.</p>
+<h2>Scope</h2>
+<ul>
+<li><strong>In:</strong> sign-in by face (PIN or password as fallback) with a default route; Maya's access settings; briefing in needs and goals; a proactive suggestion tied to a known occasion; plan overview with spare time (5 min); live calls to retailers with payment from Maya Wallet; automatic reroutes; ambient intent; plan editing; two-screen UI (tablet plus passive strip); voice and touch parity; courier mode: errands that Maya suggests or that are scheduled from the Errands button, run by the empty car with an agreed handover, followed live on the phone (view only) and reported at the end.</li>
+<li><strong>Assumed, not designed:</strong> payments happen automatically from Maya Wallet, up to the limit set in Maya's access (top-ups and statements are not designed); schools release the children to the car; the same car, with the suit, charges near the restaurant until Michael calls it, as he did at 17:15.</li>
+<li><strong>If I had a month:</strong> other errand types beyond pick-ups and drop-offs, the bento menu's contents, a full activity log, wallet top-ups and statements, trust that grows over time, multi-passenger conflicts, merchant onboarding, support escalation to a human, competitive and analogous review, a proto-persona, a Wizard of Oz session, accessibility research and a study of real family trips.</li>
+</ul>
+<h2>Success metrics (illustrative targets)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-time arrival (within the 5-minute spare time)</td>
+<td>95% or more</td>
+</tr>
+<tr>
+<td>Replans that keep spare time at or above zero</td>
+<td>90% or more</td>
+</tr>
+<tr>
+<td>Questions Maya could have answered herself</td>
+<td>Under 10%</td>
+</tr>
+<tr>
+<td>Undo rate on automatic and ambient changes</td>
+<td>Under 10%</td>
+</tr>
+<tr>
+<td>Time from a change to a visible adapted plan</td>
+<td>3 seconds or less</td>
+</tr>
+<tr>
+<td>Proactive suggestion acceptance</td>
+<td>50% or more</td>
+</tr>
+<tr>
+<td>"Feels like a great assistant" rating</td>
+<td>4 / 5 or more</td>
+</tr>
+<tr>
+<td>Courier errands completed without the user stepping in</td>
+<td>90% or more</td>
+</tr>
+<tr>
+<td>Car back by the promised time after a courier run</td>
+<td>95% or more</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Assumptions, ranked by risk</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Assumption</th>
+<th>Risk</th>
+<th>Confidence</th>
+<th>How we would test it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Pre-trusted users accept "do first, show clearly, undo easily"</td>
+<td>High</td>
+<td>Medium</td>
+<td>Wizard of Oz session (if I had a month)</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Maya can predict the likely destination and learn the user's day and recurring places from habit and data (calendar, messages)</td>
+<td>High</td>
+<td>Medium</td>
+<td>Prototype with a scripted calendar</td>
+</tr>
+<tr>
+<td>A3</td>
+<td><strong>Ambient intent:</strong> listening to cabin talk and calls is welcome, and false positives are cheap to undo</td>
+<td>High</td>
+<td>Low</td>
+<td>Ambient-intent test</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Retailers cooperate with a self-identified AI caller (hold, stock, payment, timing)</td>
+<td>High</td>
+<td>Low</td>
+<td>Scripted calls to local shops (if I had a month)</td>
+</tr>
+<tr>
+<td>A13</td>
+<td>Shops will hand items to, or take them from, an empty car that opens one door with a one-time code</td>
+<td>High</td>
+<td>Low</td>
+<td>Scripted calls to local shops (if I had a month)</td>
+</tr>
+<tr>
+<td>A14</td>
+<td>People will let their empty car run an errand, and accept a cabin camera that checks the cabin and the handover</td>
+<td>High</td>
+<td>Medium</td>
+<td>Courier trust test</td>
+</tr>
+<tr>
+<td>A15</td>
+<td>An empty Level 5 car may legally drive and stop on its own to run errands</td>
+<td>High</td>
+<td>Medium</td>
+<td>Assumed; regulation review (if I had a month)</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>Automatic payments from Maya Wallet, up to a limit, are acceptable</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Out of scope for now</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>Users accept as many questions as needed when each is clearly necessary</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Wizard of Oz session (if I had a month)</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>A proactive suggestion tied to a known occasion (a birthday) is welcome</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Concept test</td>
+</tr>
+<tr>
+<td>A8</td>
+<td>Spare time (5 min) gives at-a-glance confidence</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Glance test</td>
+</tr>
+<tr>
+<td>A9</td>
+<td>Silent changes with a chime, heard phrase and Undo are understood in a noisy cabin</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Replan legibility test</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>A passive strip carries enough glanceable information while the tablet holds all interaction</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Glance test</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>Voice and touch parity is achievable for every task</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Touch-only run</td>
+</tr>
+<tr>
+<td>A12</td>
+<td>On-time arrival is the dominant success criterion</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Short survey</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Design principles</h2>
+<ol>
+<li><strong>Ask only what she can't know,</strong> as many times as needed.</li>
+<li><strong>Ambient intent:</strong> the plan follows the conversation.</li>
+<li><strong>Speak only when needed;</strong> the screen is the confirmation.</li>
+<li><strong>Do first, show clearly, undo easily</strong> (no countdown).</li>
+<li><strong>The plan is alive:</strong> the world, the conversation or the user can reshape it, and the ripple is visible.</li>
+<li><strong>Spare time is the promise:</strong> 5 minutes, always visible; green above 4, amber 0 to 4, red below 0.</li>
+<li><strong>Tablet for interaction, strip for glances</strong> (the strip carries nothing unique).</li>
+<li><strong>Voice and touch are equals.</strong></li>
+<li><strong>With you or without you:</strong> when the car is empty it works for you, but only with an agreed handover (no handoff, no commitment).</li>
+</ol><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>

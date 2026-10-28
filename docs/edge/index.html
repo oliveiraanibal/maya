@@ -1,0 +1,216 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edge Cases and Validation Plan · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+ padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+nav.top{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav.top a{color:var(--teal);text-decoration:none;font-weight:500}nav.top a:hover{text-decoration:underline}
+nav.top span{color:var(--mute)}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
+h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
+p,li{max-width:74ch}
+a{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+</style></head>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · process index</a><span>/</span><span>Edge Cases and Validation Plan</span></nav><h1>Edge Cases and Validation Plan</h1>
+<p>Seventeen edge cases and six tests, each tied to the assumptions (A1 to A15) in the Hypothesis and Assumptions document. Cases 11 to 17 and the courier trust test cover courier mode.</p>
+<h2>Edge-case list</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Edge case</th>
+<th>Why it matters</th>
+<th>Expected behaviour</th>
+<th>Assumption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>No pharmacy on the route has stock</td>
+<td>The core goal (prescription as soon as possible) fails</td>
+<td>Widen the search, show it on screen, ask only if the detour breaks spare time</td>
+<td>A4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Spare time goes negative</td>
+<td>On-time arrival is the main promise</td>
+<td>Show the fixes, cheapest first, such as asking the restaurant to hold the table (V2); the strip turns red</td>
+<td>A8, A12</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Ambient false positive</strong> (a child says "let's go to the park")</td>
+<td>The riskiest assumption</td>
+<td>Act only on high confidence, otherwise ask; chime, heard phrase, and Undo</td>
+<td>A3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The chime is missed</td>
+<td>Michael does not know the plan changed</td>
+<td>The change stays in the ledger, and the strip repeats it once</td>
+<td>A9</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Florist cannot deliver before 19:00</td>
+<td>The gift is part of the on-time story</td>
+<td>Try the next florist; otherwise offer a pickup stop</td>
+<td>A4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Pharmacist refuses an AI caller</td>
+<td>Depends on staff cooperation</td>
+<td>Next pharmacy, with the refusal logged</td>
+<td>A4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Child not at the pickup point</td>
+<td>Safety and delay</td>
+<td>Alert on the tablet, wait window, school call</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Connectivity loss</td>
+<td>Everything backstage runs in the cloud</td>
+<td>Keep the current plan, strip shows "Offline", edits queue</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Dinner time or place changes by message</td>
+<td>Same pattern as the wife's call</td>
+<td>Ambient update from messages, same chime and Undo</td>
+<td>A3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Several people speak</td>
+<td>Whose voice counts?</td>
+<td>Commands only from the signed-in user; other speech is context only</td>
+<td>A3, A11</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Shop not ready, or nobody comes to the car</td>
+<td>The car can't wait for ever, and the return time is the promise</td>
+<td>Wait within a set window, then leave so the car is back on time; the report (C3) says what happened, and the errand goes back to Errands (C4) to try again</td>
+<td>A13</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Wrong item loaded, or more than one</td>
+<td>The cabin camera is the only witness</td>
+<td>The camera checks the item against the order before the door locks; if it doesn't match, Maya texts the shop and waits within the window for a fix; the report shows what the camera saw</td>
+<td>A14</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Someone or something left in the cabin (a person, a pet, a bag)</td>
+<td>Courier mode needs an empty cabin; safety first</td>
+<td>A person or a pet stops courier mode from starting. A bag gets "Please take your belongings", said once with a caption, and a note on the phone</td>
+<td>A14</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Car needed earlier</td>
+<td>Plans change during dinner</td>
+<td>Michael calls the car, as he did at 17:15. It is the same car, because his suit is inside: it comes from the charging station near the restaurant, or finishes the handover first if it is still mid-errand, and the phone says when it will arrive</td>
+<td>A14</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Return time at risk (traffic, a slow handover)</td>
+<td>Being back on time is the courier promise</td>
+<td>Tell Michael early on the phone, with the new time; never late in silence</td>
+<td>A14</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Wrong door, or the code is shared or reused</td>
+<td>The car and what's inside must stay safe</td>
+<td>The code opens only the agreed door, once, at the agreed place and time; a wrong code opens nothing, and the code expires when the door closes</td>
+<td>A13</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Item not allowed (too big, dangerous, an animal, or needing a signature or ID)</td>
+<td>Not every errand suits an empty car</td>
+<td>Maya checks while booking and declines before anything is booked: no handoff, no commitment</td>
+<td>A13, A15</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cases 1, 3 and 4 appear in the prototype, and case 2 has its own screen (V2); the rest stay as a list.</p>
+<h2>Validation plan</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>What it checks</th>
+<th>Method</th>
+<th>Success signal</th>
+<th>Assumptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wizard of Oz briefing (if I had a month)</td>
+<td>Questions needed, natural language</td>
+<td>A person plays Maya's voice with a prototype tablet, 5 participants</td>
+<td>Completion without confusion; count of questions</td>
+<td>A1, A6</td>
+</tr>
+<tr>
+<td><strong>Ambient-intent false positives</strong></td>
+<td>Trust and creepiness</td>
+<td>Scripted audio clips (true changes and decoys), measure Undo and reaction</td>
+<td>Few false positives; chime and heard phrase understood</td>
+<td>A3, A9</td>
+</tr>
+<tr>
+<td>Glance test</td>
+<td>Strip and tablet readability</td>
+<td>5-second exposure: "What's next? How much spare time?"</td>
+<td>80% or more correct</td>
+<td>A8, A10</td>
+</tr>
+<tr>
+<td>Replan legibility</td>
+<td>Before and after understanding</td>
+<td>Show it, ask "what changed?"</td>
+<td>Understood in under 5 seconds</td>
+<td>A9</td>
+</tr>
+<tr>
+<td>Touch-only run</td>
+<td>Parity</td>
+<td>Complete briefing and a plan edit without speaking</td>
+<td>Same completion as voice</td>
+<td>A11</td>
+</tr>
+<tr>
+<td><strong>Courier trust test</strong></td>
+<td>Willingness to send the empty car; trust in the report</td>
+<td>Clickable courier flow (S18 to C3) with 5 participants: what would they send, and what would stop them?</td>
+<td>4 of 5 would send it for an everyday errand; the report is understood without help</td>
+<td>A14</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Solo-friendly:</strong> the glance, legibility, touch-only and courier trust tests can run remotely on a clickable prototype. The Wizard of Oz briefing moves to the one-month list. Retailer cooperation (A4, and A13 for courier handovers) would be tested with scripted calls to a few local shops if I had a month.</p><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>

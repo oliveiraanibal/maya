@@ -1,0 +1,495 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multimodal Matrix · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+ padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+nav.top{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:20px 0;font-size:14px;border-bottom:1px solid var(--line)}
+nav.top a{color:var(--teal);text-decoration:none;font-weight:500}nav.top a:hover{text-decoration:underline}
+nav.top span{color:var(--mute)}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.12;margin:36px 0 12px;letter-spacing:-.02em;font-weight:700}
+h2{font-size:1.35rem;margin:44px 0 8px;font-weight:650;letter-spacing:-.01em}
+p,li{max-width:74ch}
+a{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+</style></head>
+<body><div class="wrap"><nav class="top"><a href="../../">Maya · process index</a><span>/</span><span>Multimodal Matrix</span></nav><h1>Multimodal Matrix</h1>
+<p>Every task can be done by voice alone or touch alone; Maya's speech always has captions, and every chime has a visual twin.</p>
+<h2>Principles</h2>
+<ol>
+<li><strong>Parity:</strong> every task can be completed by voice alone or by touch alone. A single-mode step is a bug.</li>
+<li><strong>Mirroring:</strong> everything Maya says appears as a caption, and every chime has a visual twin.</li>
+<li><strong>The strip carries nothing unique.</strong> Anything shown there is also on the tablet, and it cannot be touched.</li>
+<li><strong>Voice is for intent, touch is for precision</strong> (drag, pick, correct), but each can do the other's job.</li>
+<li><strong>No time pressure on undo or correction,</strong> so people who are slower to speak or tap are not penalised.</li>
+<li><strong>Only the signed-in user commands Maya.</strong> Other occupants' speech is context only, and edits on the tablet are tied to the signed-in user.</li>
+<li><strong>Without you, the phone is the window.</strong> When the car runs an errand alone, nobody is in the cabin to see the tablet or hear Maya, so the run is followed and reported on Michael's phone: view only, through notifications, never by voice.</li>
+</ol>
+<h2>Channels</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voice</td>
+<td>Natural language, always listening in the cabin (ambient intent)</td>
+<td>Maya's spoken lines (rare)</td>
+</tr>
+<tr>
+<td>Touch</td>
+<td>Tablet: tap, drag, type, pick</td>
+<td>Tablet: all detail and interaction</td>
+</tr>
+<tr>
+<td>Cabin camera</td>
+<td>Face at sign-in (S01); in courier mode, the empty-cabin and item checks</td>
+<td>none (results appear on the tablet or the phone)</td>
+</tr>
+<tr>
+<td>Strip</td>
+<td>none (not touchable)</td>
+<td>Glance: presence, next stop, spare time, events; off when the cabin is empty</td>
+</tr>
+<tr>
+<td>Chime</td>
+<td>none</td>
+<td>Ambient changes only, always with a visual twin</td>
+</tr>
+<tr>
+<td>Captions</td>
+<td>none</td>
+<td>Text of anything Maya says, on the tablet</td>
+</tr>
+<tr>
+<td>Phone (courier mode only)</td>
+<td>Tap a notification to open the run or the report; view only</td>
+<td>Live run (C2), errand report (C3), notifications; never voice</td>
+</tr>
+<tr>
+<td>Car exterior (courier mode only)</td>
+<td>The shop staff type the one-time code at the door</td>
+<td>The door to use flashes; only that door opens, then it locks</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Task matrix</h2>
+<p><strong>Boarding and briefing</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Voice</th>
+<th>Touch</th>
+<th>Tablet shows</th>
+<th>Strip shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sign in</td>
+<td>Face recognition, no words needed</td>
+<td>PIN or password, or Switch profile (S01)</td>
+<td>Sign in (S01), then Welcome and "Going home" (S02)</td>
+<td>Home and arrival time, once signed in</td>
+</tr>
+<tr>
+<td>Adjust Maya's access</td>
+<td>"Change what you can access"</td>
+<td>Tap Adjust on the welcome screen (S02)</td>
+<td>Maya's access (S03)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Start Maya</td>
+<td>Speak at any time</td>
+<td>Tap Maya's bar at the bottom to type (S05)</td>
+<td>Briefing (S04)</td>
+<td>◉ listening</td>
+</tr>
+<tr>
+<td>State needs and goals</td>
+<td>Speak freely</td>
+<td>Type on the keyboard (S05)</td>
+<td>The "New plan" card fills in (S04)</td>
+<td>◉ listening</td>
+</tr>
+<tr>
+<td>Answer Maya's question</td>
+<td>Say it</td>
+<td>Type in the search field (S06)</td>
+<td>The card updates (S06)</td>
+<td>◉ listening</td>
+</tr>
+<tr>
+<td>Accept or decline a suggestion</td>
+<td>"Yes, white roses" / "No thanks"</td>
+<td>Tap Yes, order or No thanks (S10)</td>
+<td>Florist card (S10), then the order steps (S11)</td>
+<td>◉ speaking, then ◉ on call</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Planning and editing</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Voice</th>
+<th>Touch</th>
+<th>Tablet shows</th>
+<th>Strip shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Review the plan</td>
+<td>"What's next?"</td>
+<td>Tap a stop on the timeline</td>
+<td>Timeline, map, stop detail (S12)</td>
+<td>Next stop and spare time</td>
+</tr>
+<tr>
+<td>Move a stop</td>
+<td>"Pick up my wife before the pharmacy"</td>
+<td>Drag the stop in Edit plan (S15)</td>
+<td>Ripple preview, then Apply (S15)</td>
+<td>Event "Plan updated"</td>
+</tr>
+<tr>
+<td>Remove or add a stop</td>
+<td>"Skip the pharmacy" / "Add a stop at..."</td>
+<td>Remove, or Add stop, in Edit plan (S15)</td>
+<td>Updated plan</td>
+<td>Event "Plan updated"</td>
+</tr>
+<tr>
+<td>Undo a change</td>
+<td>"Undo that"</td>
+<td>Tap Undo (S14, S17)</td>
+<td>Plan reverts</td>
+<td>Event "Plan updated"</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>In transit</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Voice</th>
+<th>Touch</th>
+<th>Tablet shows</th>
+<th>Strip shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check status</td>
+<td>"Are we on time?"</td>
+<td>Look at spare time, always on screen</td>
+<td>Spare time and stop times (S14)</td>
+<td>Spare time</td>
+</tr>
+<tr>
+<td>Know what the car will do at a stop</td>
+<td>"What happens at school?"</td>
+<td>Read the intent card (S13)</td>
+<td>Where it stops, which doors unlock, how long it waits (S13)</td>
+<td>Next stop</td>
+</tr>
+<tr>
+<td>Follow retailer calls</td>
+<td>Not needed (silent)</td>
+<td>Open the live transcript</td>
+<td>Transcript with hold timer (S08)</td>
+<td>◉ on call</td>
+</tr>
+<tr>
+<td>Answer a phone call</td>
+<td>"Answer"</td>
+<td>Tap Answer</td>
+<td>Call overlay (S16)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Dismiss an alert</td>
+<td>"Dismiss"</td>
+<td>Tap Dismiss</td>
+<td>Clears</td>
+<td>Clears</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Courier errands</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Voice</th>
+<th>Touch</th>
+<th>Tablet or phone shows</th>
+<th>Strip shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept or decline a suggested errand</td>
+<td>"Yes, please" / "No thanks"</td>
+<td>Tap Yes or No thanks (S18)</td>
+<td>Errand suggestion (S18), then the call, payment and agreed handover (S19)</td>
+<td>◉ speaking, ◉ on call, then "Errand booked: dry cleaner"</td>
+</tr>
+<tr>
+<td>Schedule an errand by hand</td>
+<td>"Drop my jacket at the dry cleaner tomorrow at 10"</td>
+<td>Box icon, then New errand (C4, C5)</td>
+<td>Errands list and form (C4, C5)</td>
+<td>Event "Errand booked"</td>
+</tr>
+<tr>
+<td>Choose the handover</td>
+<td>"Put it in the boot"</td>
+<td>Pick a door or the boot on the top view of the car (C5)</td>
+<td>Top view with the chosen compartment</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Follow the run</td>
+<td>Not needed (notifications)</td>
+<td>Open the notification</td>
+<td>Phone: live map and steps (C2)</td>
+<td>Off (cabin empty)</td>
+</tr>
+<tr>
+<td>Read the report</td>
+<td>Not needed (notification)</td>
+<td>Open the notification</td>
+<td>Phone: photo, receipt, times, what the camera saw (C3)</td>
+<td>Off (cabin empty)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Output matrix: what each event produces</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Tablet</th>
+<th>Strip</th>
+<th>Voice</th>
+<th>Chime</th>
+<th>Caption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maya asks a question</td>
+<td>Question card</td>
+<td>◉ speaking</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Automatic plan update (pharmacy)</td>
+<td>Banner and ledger (S09)</td>
+<td>Event, 4 s</td>
+<td>No</td>
+<td>No</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td><strong>Ambient change (pickup)</strong></td>
+<td>Heard phrase, crossed and new stops, Undo (S17)</td>
+<td>Event, 4 s</td>
+<td><strong>No</strong></td>
+<td><strong>Yes</strong></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Retailer call</td>
+<td>Live transcript (S08)</td>
+<td>◉ on call</td>
+<td>No</td>
+<td>No</td>
+<td>Transcript</td>
+</tr>
+<tr>
+<td>Errand booked</td>
+<td>Call, payment and handover steps (S19)</td>
+<td>◉ on call, then event, 4 s</td>
+<td>No</td>
+<td>No</td>
+<td>Transcript</td>
+</tr>
+<tr>
+<td>Vehicle intent before a stop</td>
+<td>Intent card (S13)</td>
+<td>Next stop</td>
+<td>No</td>
+<td>No</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Spare time shrinking</td>
+<td>Green above 4 min, amber 0 to 4, red below 0</td>
+<td>Same colours, "+2 min"</td>
+<td>No</td>
+<td>No</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Running late</td>
+<td>Fixes, cheapest first (V2)</td>
+<td>Red, with a minus sign</td>
+<td>Yes (short)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pickup states</td>
+<td>State chip</td>
+<td>Next stop</td>
+<td>No</td>
+<td>No</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Arrival</td>
+<td>Arrival report (S20)</td>
+<td>Arrived and spare time</td>
+<td>Yes (short)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Courier hand-off</td>
+<td>"Leaving in courier mode. Please take your belongings." (C1)</td>
+<td>"Courier · back 21:30"</td>
+<td>Yes, in the arrival line</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Error or offline</td>
+<td>Error card with action</td>
+<td>"Offline · plan kept"</td>
+<td>No</td>
+<td>No</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table></div>
+<p>Only ambient changes use the chime. Every other alert, including low spare time and offline, is visual; Maya speaks only when she needs an answer or has a result.</p>
+<p><strong>Courier mode outputs</strong></p>
+<p>Nobody is in the cabin, so during the run there is no voice and no chime, and the tablet and the strip are off. Everything goes to Michael's phone, and the car speaks to the shop staff only through one flashing door.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Phone</th>
+<th>Car exterior</th>
+<th>Cabin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Something left in the cabin (before leaving)</td>
+<td>Notification: courier on hold until it is removed</td>
+<td>none</td>
+<td>Tablet shows what and where; Maya says it once, with a caption</td>
+</tr>
+<tr>
+<td>Car leaves (18:58)</td>
+<td>Live run starts (C2)</td>
+<td>none</td>
+<td>Tablet and strip off</td>
+</tr>
+<tr>
+<td>At the shop (19:20)</td>
+<td>Step: at the dry cleaner</td>
+<td>Rear right door flashes; the code opens only that door</td>
+<td>Camera checks the item: "1 garment bag, rear right"</td>
+</tr>
+<tr>
+<td>Report (19:24)</td>
+<td>Notification and report (C3)</td>
+<td>Door locked</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Return time at risk</td>
+<td>Notification with the new time</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Stress tests</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>What it exposes</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Touch-only user</strong> (speech-impaired)</td>
+<td>Ambient intent only hears others, never them</td>
+<td>They instruct by touch; ambient intent still works on calls and messages</td>
+</tr>
+<tr>
+<td><strong>Voice-only user</strong> (motion-impaired)</td>
+<td>Undo and edits need a tap</td>
+<td>Every action has a spoken command, and undo has no short timeout</td>
+</tr>
+<tr>
+<td><strong>Noisy cabin</strong></td>
+<td>Voice misses or errors</td>
+<td>After one failed attempt, Maya shows the touch path on the tablet instead of asking again</td>
+</tr>
+<tr>
+<td><strong>Hard of hearing</strong></td>
+<td>The chime is missed</td>
+<td>Visual twin on both the tablet and the strip, and optional haptics</td>
+</tr>
+<tr>
+<td><strong>Children tapping the tablet</strong></td>
+<td>Accidental edits</td>
+<td>Edit actions tied to the signed-in user's profile</td>
+</tr>
+<tr>
+<td><strong>Privacy</strong> (silent mode)</td>
+<td>The user does not want to speak aloud</td>
+<td>Full touch path, and Maya's speech becomes captions only</td>
+</tr>
+<tr>
+<td><strong>Nobody in the car</strong> (courier mode)</td>
+<td>No one sees the tablet or hears Maya, and the shop staff are not users</td>
+<td>The phone is the window, view only; the staff get a code by text and one flashing door, and nothing else in the car responds to them</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Decisions this adds to the plan</h2>
+<ul>
+<li>Maya's lines always have captions on the tablet.</li>
+<li>Undo has no countdown.</li>
+<li>The strip is read-only and a copy of the tablet, and it is off when the cabin is empty.</li>
+<li>Voice and touch both stay available at every moment, with no mode switch. There is no mic button: tapping Maya's bar opens the keyboard.</li>
+<li>In courier mode the phone, view only, replaces the tablet, and the shop staff only ever get a code and one door.</li>
+</ul><footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>
