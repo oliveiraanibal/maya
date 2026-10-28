@@ -30,7 +30,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 FONT = '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
 def page(title, body, depth=1, desc=""):
     up = "../" * depth
-    nav = f'<nav class="top"><a href="{up}">Maya · process index</a><span>/</span><span>{html.escape(title)}</span></nav>' if depth else ""
+    nav = f'<nav class="top"><a href="{up}">Maya · entry page</a><span>/</span><span>{html.escape(title)}</span></nav>' if depth else ""
     return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)} · Maya</title><meta name="description" content="{html.escape(desc)}">{FONT}<style>{CSS}</style></head>
 <body><div class="wrap">{nav}{body}<footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>'''
@@ -79,7 +79,7 @@ def standalone(slug, src, title):
     d = ROOT/slug; d.mkdir(exist_ok=True)
     h = pathlib.Path(src).read_text()
     h = re.sub(r"<!--claude-mermaid-runtime-begin.*?<!--claude-mermaid-runtime-end-->", "", h, flags=re.S)
-    back = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · process index</a></p>'
+    back = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · entry page</a></p>'
     h = re.sub(r"(<body[^>]*>)", r"\1"+back.replace("\\","\\\\"), h, count=1) if "<body" in h else back+h
     (d/"index.html").write_text(h)
 standalone("journey", sys.argv[2], "Journey map and task flow")

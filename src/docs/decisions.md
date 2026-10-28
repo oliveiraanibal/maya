@@ -9,7 +9,7 @@ Phase 0 is closed. These choices now apply to every artifact.
 | Topic | Decision |
 |---|---|
 | Final deliverable | One self-sufficient PDF, Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf: everything needed to judge the work is inside it |
-| Links from the PDF | Extras, not needed to judge the work. At most three, hosted as plain web pages on GitHub Pages so nobody has to sign in: clickable prototype, hi-fi screens, process index. Each one tested in a private window |
+| Links from the PDF | Extras, not needed to judge the work. At most three, hosted as plain web pages on GitHub Pages so nobody has to sign in: clickable prototype, hi-fi screens, entry page. Each one tested in a private window |
 | Screen IDs | Renumbered once, in story order: S01 to S20 in the car, C1 to C5 for courier mode, V1 and V2 for variants (map below). Strip states take the ID of the screen they go with |
 | The user | Called Michael in every screen and doc. Aníbal Oliveira stays as the author |
 | UI font | Inter, replacing Manrope |
