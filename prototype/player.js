@@ -33,8 +33,14 @@
     show(id);
   }
 
+  // analytics: one view per screen (GoatCounter, loaded in index.html; does nothing if blocked)
+  function track(path, title, event) { let n = 0;
+    (function t() { const g = window.goatcounter; if (g && g.count) { try { g.count({ path, title, event: !!event }); } catch (e) {} }
+      else if (n++ < 20) setTimeout(t, 500); })(); }
+
   function show(id) {
     cur = id; const s = S[id]; clearAuto(); history.replaceState(null, '', '#' + id);
+    track('maya/prototype/' + id, `Prototype · ${id} ${s.title}`);
     // crossfade images
     const next = front === 'A' ? 'B' : 'A', ni = $('#img' + next), fi = $('#img' + front);
     ni.onload = () => { ni.style.opacity = 1; fi.style.opacity = 0; front = next; };
@@ -49,7 +55,7 @@
     $('#cta').hidden = !s.cta;
     $('#back').disabled = !hist.length; $('#back').style.opacity = hist.length ? 1 : .35;
     const br = $('#branches'); br.innerHTML = '';
-    (s.branches || []).forEach(b => { const e = document.createElement('button'); e.innerHTML = `<b>${b.tag || 'What if'}</b>${b.label}`; e.onclick = () => go(b.go); br.appendChild(e); });
+    (s.branches || []).forEach(b => { const e = document.createElement('button'); e.innerHTML = `<b>${b.tag || 'What if'}</b>${b.label}`; e.onclick = () => { track('prototype-branch-' + b.go, `Branch · ${b.tag || ''} ${b.label}`, true); go(b.go); }; br.appendChild(e); });
     drawZones();
     if (s.auto && !editing) { const p = $('#prog'); requestAnimationFrame(() => { p.style.transition = `width ${s.auto.ms}ms linear`; p.style.width = '100%'; });
       timer = setTimeout(() => go(s.auto.go), s.auto.ms); }

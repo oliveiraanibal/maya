@@ -27,13 +27,14 @@ code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
 pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
 """
+GC = '<script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>'
 FONT = '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
 def page(title, body, depth=1, desc=""):
     up = "../" * depth
     nav = f'<nav class="top"><a href="{up}">Maya · entry page</a><span>/</span><span>{html.escape(title)}</span></nav>' if depth else ""
     return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)} · Maya</title><meta name="description" content="{html.escape(desc)}">{FONT}<style>{CSS}</style></head>
-<body><div class="wrap">{nav}{body}<footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div></body></html>'''
+<body><div class="wrap">{nav}{body}<footer>Aníbal Oliveira · CTW UX challenge · Maya, an AI trip concierge for a Level 5 car</footer></div>{GC}</body></html>'''
 
 def md2html(src):
     h = markdown.markdown(src, extensions=["tables", "fenced_code", "sane_lists"])
@@ -81,6 +82,7 @@ def standalone(slug, src, title):
     h = re.sub(r"<!--claude-mermaid-runtime-begin.*?<!--claude-mermaid-runtime-end-->", "", h, flags=re.S)
     back = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · entry page</a></p>'
     h = re.sub(r"(<body[^>]*>)", r"\1"+back.replace("\\","\\\\"), h, count=1) if "<body" in h else back+h
+    if "goatcounter" not in h: h = h.replace("</body>", GC + "\n</body>", 1)
     (d/"index.html").write_text(h)
 standalone("journey", sys.argv[2], "Journey map and task flow")
 standalone("wireframes", sys.argv[3], "Tablet wireframes")
