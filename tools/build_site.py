@@ -121,12 +121,12 @@ cards = "".join(f'<a class="item" href="{u}"><span class="n">{i+1:02d}</span><di
 {FONT}<style>
 :root{{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}}
-.hero{{background:#020812;color:#E6F1F8;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:56px max(16px,env(safe-area-inset-left)) 52px}}
+.hero{{background:linear-gradient(90deg,rgba(2,8,18,.96) 0%,rgba(2,8,18,.9) 42%,rgba(2,8,18,.55) 75%,rgba(2,8,18,.35) 100%),url(screens/img/S09.jpg) center/cover no-repeat,#020812;color:#E6F1F8;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:56px max(16px,env(safe-area-inset-left)) 52px}}
 .w{{max-width:1040px;margin:0 auto}}
 .kicker{{color:#5CD6F2;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}}
 h1{{font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin:12px 0 6px;letter-spacing:-.03em;font-weight:300}}
 .sub{{font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:300;margin:0 0 20px;color:#E6F1F8}}
-.hero p.intro{{color:#9DB2C4;max-width:68ch;margin:0 0 14px;font-size:16.5px}}
+.hero p.intro{{color:#B4C4D2;max-width:68ch;margin:0 0 14px;font-size:16.5px}}
 .btns{{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}}
 .btn{{display:inline-flex;align-items:center;background:#5CD6F2;color:#020812;padding:12px 20px;font-weight:600;text-decoration:none;min-height:48px}}
 .btn.o{{background:none;color:#5CD6F2;border:1px solid #5CD6F2}}
@@ -135,6 +135,7 @@ h2{{font-size:1.3rem;margin:44px 0 14px}}
 .item{{display:grid;grid-template-columns:36px 1fr;gap:12px;background:var(--card);border:1px solid var(--line);padding:16px 18px;text-decoration:none;color:inherit}}
 .item:hover{{border-color:var(--teal)}}.n{{font-weight:700;color:var(--teal)}}.item b{{display:block}}.item span{{color:var(--mute);font-size:.92rem}}
 footer{{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}}
+@media (max-width:760px){{.hero{{background:linear-gradient(rgba(2,8,18,.9),rgba(2,8,18,.9)),url(screens/img/S09_m.jpg) center/cover no-repeat,#020812}}}}
 </style></head><body>
 <div class="hero"><div class="w"><div class="kicker">UX challenge · New AI assistant for infotainment</div>
 <h1>Maya</h1><p class="sub">An AI trip concierge for any Level 5 car</p>
