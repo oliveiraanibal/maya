@@ -1,6 +1,6 @@
 # Concept Foundations
 
-*Problem, vision, hypothesis, scope, success metrics, assumptions, design principles and trade-offs.*
+*Problem, vision, hypothesis, scope, success metrics, assumptions, design principles, conversation design rules and trade-offs.*
 
 ## Context
 
@@ -90,6 +90,18 @@ At 17:15 the car collects Michael at work and heads home by default. He tells Ma
 7. **Central display to act, Panoramic Vision to glance** (Panoramic Vision carries nothing unique).
 8. **Voice and touch are equals.**
 9. **With you or without you:** when the car is empty it works for you, but only with an agreed handover (no handoff, no commitment).
+
+## Conversation design rules
+
+1. **Ask only what she can't know, as many times as needed.** Here that is two questions and one suggestion.
+2. **Speak only when she needs Michael:** a question, the result of something he asked, or when the car leaves. Everything else is on screen.
+3. **The screen is the confirmation.** The "New plan" card replaces reading back.
+4. **Changes caused by the world happen silently and visibly.** Changes caused by conversation get a chime, the heard phrase, and Undo.
+5. **Calls to staff are screen-only and transparent:** live transcript, always opening with "Hello, I'm Maya, an AI assistant calling...".
+6. **Every voice action has a touch twin** (chips, pickers, drag).
+7. **Maya's voice:** calm, competent, short, female. She says "we" for the trip.
+8. **Medication names stay off the shared screen:** transcripts say "your prescription" and show the reference number only.
+9. **Courier errands are booked only once the handover is agreed.** Maya says once what the car will do and when it will be back; the run itself is followed on the phone.
 
 ## Trade-offs
 

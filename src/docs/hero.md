@@ -1,4 +1,4 @@
-# Hero Scenario and Conversation Script
+# The Scenario
 
 One evening, ten scenes, three reroutes and one courier errand: Maya takes Michael, a father of two, from work to a 19:00 family dinner, then sends the empty car to collect his suit, speaking only when she needs him and showing everything else on screen.
 
@@ -111,15 +111,3 @@ Screen tags (S01 to S20, C1 to C5) refer to the Screen Specs. Anything not in qu
 - 19:24: a report on the phone with a photo, the receipt and the times. A notification, no voice. [C3]
 - The car drives to a charging station near the restaurant and charges. Charging is not an errand, so it isn't in the plan. The story ends here: the same car, with the suit inside, waits until Michael calls it.
 - Errands can also be scheduled by hand: the box icon beside Settings opens Errands and a New errand form. [C4, C5]
-
-## Conversation design rules
-
-1. **Ask only what she can't know, as many times as needed.** Here that is two questions and one suggestion.
-2. **Speak only when she needs Michael:** a question, the result of something he asked, or when the car leaves. Everything else is on screen.
-3. **The screen is the confirmation.** The "New plan" card replaces reading back.
-4. **Changes caused by the world happen silently and visibly.** Changes caused by conversation get a chime, the heard phrase, and Undo.
-5. **Calls to staff are screen-only and transparent:** live transcript, always opening with "Hello, I'm Maya, an AI assistant calling...".
-6. **Every voice action has a touch twin** (chips, pickers, drag).
-7. **Maya's voice:** calm, competent, short, female. She says "we" for the trip.
-8. **Medication names stay off the shared screen:** transcripts say "your prescription" and show the reference number only.
-9. **Courier errands are booked only once the handover is agreed.** Maya says once what the car will do and when it will be back; the run itself is followed on the phone.

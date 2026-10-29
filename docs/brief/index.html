@@ -23,7 +23,7 @@ pre{background:var(--card);border:1px solid var(--line);border-radius:8px;paddin
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;font-family:Inter,system-ui,sans-serif}
 </style></head>
 <body><div class="wrap"><nav class="top"><a href="../../">Maya · entry page</a><span>/</span><span>Concept Foundations</span></nav><h1>Concept Foundations</h1>
-<p><em>Problem, vision, hypothesis, scope, success metrics, assumptions, design principles and trade-offs.</em></p>
+<p><em>Problem, vision, hypothesis, scope, success metrics, assumptions, design principles, conversation design rules and trade-offs.</em></p>
 <h2>Context</h2>
 <p>Maya is an AI concierge inside a fully autonomous (Level 5) car. She plans and runs the logistics of a single trip: routing, stops and calls to retailers. Michael, the user in our story, is in the car and either talks to her or uses the central display; Panoramic Vision, a passive band at the base of the windscreen, shows glanceable status. Maya acts with full delegated trust, like an executive assistant, within the limits Michael sets, and he can see and undo everything. Maya belongs to Michael, not to the car: she is in any car he signs in to, his own or a robotaxi. When nobody is in the car, Maya can also send it to run errands on its own (courier mode); a car in courier mode is always reserved to Michael.</p>
 <h2>Problem</h2>
@@ -241,6 +241,18 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <li><strong>Central display to act, Panoramic Vision to glance</strong> (Panoramic Vision carries nothing unique).</li>
 <li><strong>Voice and touch are equals.</strong></li>
 <li><strong>With you or without you:</strong> when the car is empty it works for you, but only with an agreed handover (no handoff, no commitment).</li>
+</ol>
+<h2>Conversation design rules</h2>
+<ol>
+<li><strong>Ask only what she can't know, as many times as needed.</strong> Here that is two questions and one suggestion.</li>
+<li><strong>Speak only when she needs Michael:</strong> a question, the result of something he asked, or when the car leaves. Everything else is on screen.</li>
+<li><strong>The screen is the confirmation.</strong> The "New plan" card replaces reading back.</li>
+<li><strong>Changes caused by the world happen silently and visibly.</strong> Changes caused by conversation get a chime, the heard phrase, and Undo.</li>
+<li><strong>Calls to staff are screen-only and transparent:</strong> live transcript, always opening with "Hello, I'm Maya, an AI assistant calling...".</li>
+<li><strong>Every voice action has a touch twin</strong> (chips, pickers, drag).</li>
+<li><strong>Maya's voice:</strong> calm, competent, short, female. She says "we" for the trip.</li>
+<li><strong>Medication names stay off the shared screen:</strong> transcripts say "your prescription" and show the reference number only.</li>
+<li><strong>Courier errands are booked only once the handover is agreed.</strong> Maya says once what the car will do and when it will be back; the run itself is followed on the phone.</li>
 </ol>
 <h2>Trade-offs</h2>
 <div class="tw"><table>
