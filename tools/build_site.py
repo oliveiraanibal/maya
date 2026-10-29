@@ -37,6 +37,7 @@ def page(title, body, depth=1, desc=""):
     up = "../" * depth
     nav = f'<nav class="top"><a href="{up}">Maya – L5 trip concierge</a><span>/</span><span>{html.escape(title)}</span></nav>' if depth else ""
     return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="{up}assets/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="{up}assets/favicon-32.png"><link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
 <title>{html.escape(title)} · Maya</title><meta name="description" content="{html.escape(desc)}">{FONT}<style>{CSS}</style></head>
 <body><div class="wrap">{nav}{body}{FOOTER}</div>{GC}</body></html>'''
 
@@ -124,7 +125,7 @@ ITEMS = [("docs/brief/", "Concept Foundations", "Problem, vision, hypothesis, sc
  ("screens/", "UI Design Artboard", "Every screen at 1920 × 1200, the Central Display components and Panoramic Vision."),
  ("prototype/", "Clickable Prototype", "The whole evening by touch or voice, with edge cases 1 to 4 as what-if branches.")]
 cards = "".join(f'<a class="item" href="{u}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for u, t, d in ITEMS)
-(ROOT/"index.html").write_text(f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+(ROOT/"index.html").write_text(f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Maya – L5 trip concierge</title><meta name="description" content="Maya, an L5 trip concierge. A UX challenge by Aníbal Oliveira.">
 {FONT}<style>
 :root{{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}}
