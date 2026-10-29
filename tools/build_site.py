@@ -151,8 +151,7 @@ footer{{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:
 <p class="intro">With Maya, you share your needs and goals and she plans the stops, confirms with the shops, pays from her wallet and adapts when conditions change. Everything is shown on your Central Display and Panoramic Vision.</p>
 <p class="intro">When the car is free, she becomes the courier that runs your errands.</p>
 <div class="btns"><a class="btn" href="Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf" download target="_blank" rel="noopener" data-goatcounter-click="pdf-download" data-goatcounter-title="PDF download">Get the PDF</a><a class="btn o" href="prototype/">Open the prototype</a><a class="btn o" href="screens/">UI Design Artboard</a></div></div></div></div>
-<div class="w">
-<h2>The working process</h2>
+<div class="w" style="padding-top:44px">
 <div class="list">{cards}</div>
 {FOOTER}</div>
 {GC}
