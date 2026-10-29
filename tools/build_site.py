@@ -30,7 +30,7 @@ code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
 pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;font-family:Inter,system-ui,sans-serif}
 """
-FOOTER = '<footer>Aníbal Oliveira · Maya, AI trip concierge</footer>'
+FOOTER = '<footer>Maya, L5 trip concierge by Aníbal Oliveira, 2026</footer>'
 GC = '<script data-goatcounter="https://anibal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>'
 FONT = '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
 def page(title, body, depth=1, desc=""):
@@ -70,10 +70,17 @@ for i in IDS:
     cards += f'<figure><a href="img/{i}.jpg"><img loading="lazy" src="img/{i}_m.jpg" alt="{i} {html.escape(NAMES[i])}"></a><figcaption><b>{i}</b> {html.escape(NAMES[i])}{lv}{ph}</figcaption></figure>'
 for f in (A/"v2/prev").glob("*.html"): shutil.copy(f, sc/"live"/f.name)
 shutil.copy(A/"v2/deep-map.svg", sc/"project"/"deep-map.svg")
-extra = '<p>Also live: <a href="live/Components.html">component inventory</a> · <a href="live/Strip.html">Panoramic Vision states</a></p>'
+TABS = [("", "Screens"), ("components/", "Central Display Components"), ("panoramic/", "Panoramic Vision")]
+TAB_CSS = "<style>.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}.tabs a{padding:9px 16px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}.tabs a.on{background:var(--ink);border-color:var(--ink);color:#fff}.tabs a:hover{border-color:var(--teal)}.board{display:block;width:100%;height:auto;margin-top:18px;border:1px solid var(--line);background:#020812}</style>"
+def tabs(cur, up):
+    return '<nav class="tabs" aria-label="UI Design Artboard">' + "".join(f'<a href="{up}{u}" class="{"on" if u == cur else ""}">{t}</a>' for u, t in TABS) + "</nav>"
 g_css = "<style>.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:20px}figure{margin:0}figure img{width:100%;height:auto;display:block;border:1px solid var(--line);background:#020812}figcaption{font-size:.88rem;margin-top:6px;color:var(--mute)}figcaption b{color:var(--ink)}</style>"
-body = g_css + '<h1>UI design artboard</h1><p>Every screen in story order: S01 to S20 in the car, C1 to C5 for courier mode, V1 and V2 for variants. Central display canvas 1920 × 1200, Deep ocean. Click an image for full size; “live page” opens the screen as HTML.</p>' + extra + f'<div class="grid">{cards}</div>'
-(sc/"index.html").write_text(page("UI design artboard", body, 1))
+body = g_css + TAB_CSS + '<h1>UI Design Artboard</h1>' + tabs("", "") + f'<div class="grid">{cards}</div>'
+(sc/"index.html").write_text(page("UI Design Artboard", body, 1))
+for slug, title, img, live_f in (("components", "Central Display Components", "components.jpg", "Components.html"), ("panoramic", "Panoramic Vision", "panoramic.jpg", "Strip.html")):
+    d = sc / slug; d.mkdir(exist_ok=True)
+    body = TAB_CSS + '<h1>UI Design Artboard</h1>' + tabs(slug + "/", "../") + f'<p><a href="../live/{live_f}">Open the live page</a> · <a href="../img/{img}">Full-size image</a></p><img class="board" src="../img/{img}" alt="{title}">'
+    (d/"index.html").write_text(page(title, body, 2))
 
 # mood board image (shown on the Screen Specs and Mood Board page)
 md = ROOT/"mood"; md.mkdir(exist_ok=True); shutil.copy(A/"mood3/final.png", md/"mood-board.png")
@@ -81,7 +88,7 @@ if (md/"index.html").exists(): (md/"index.html").unlink()
 
 # journey map, task flow, wireframes: standalone pages with the same back link and footer
 BACK = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · entry page</a></p>'
-FOOT_SA = '<footer style="max-width:1180px;margin:40px auto 0;padding:16px 20px 40px;border-top:1px solid #D3DCE5;color:#4D6074;font:14px Inter,system-ui,sans-serif">Aníbal Oliveira · Maya, AI trip concierge</footer>'
+FOOT_SA = '<footer style="max-width:1180px;margin:40px auto 0;padding:16px 20px 40px;border-top:1px solid #D3DCE5;color:#4D6074;font:14px Inter,system-ui,sans-serif">Maya, L5 trip concierge by Aníbal Oliveira, 2026</footer>'
 def finish(slug, h):
     d = ROOT/slug; d.mkdir(exist_ok=True)
     h = re.sub(r"<!--claude-mermaid-runtime-begin.*?<!--claude-mermaid-runtime-end-->", "", h, flags=re.S)
@@ -113,7 +120,7 @@ ITEMS = [("docs/brief/", "Concept Foundations", "Problem, vision, hypothesis, sc
  ("docs/matrix/", "Multimodal Matrix", "Voice, touch, Panoramic Vision, chime and phone: parity, outputs and stress tests."),
  ("docs/edge/", "Edge Cases and Validation Plan", "Seventeen edge cases and six tests tied to the assumptions."),
  ("wireframes/", "Central Display Wireframes", "Greyscale iteration 1: layout, patterns and components."),
- ("screens/", "Hi-fi Screens and Components", "Every screen at 1920 × 1200, with live HTML pages and the component inventory."),
+ ("screens/", "UI Design Artboard", "Every screen at 1920 × 1200, the central display components and Panoramic Vision."),
  ("prototype/", "Clickable Prototype", "The whole evening by touch or voice, with edge cases 1 to 4 as what-if branches.")]
 cards = "".join(f'<a class="item" href="{u}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for u, t, d in ITEMS)
 (ROOT/"index.html").write_text(f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -121,7 +128,7 @@ cards = "".join(f'<a class="item" href="{u}"><b>{html.escape(t)}</b><span>{html.
 {FONT}<style>
 :root{{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}}
-.hero{{background:url(screens/img/S09.jpg) center/cover no-repeat,#020812;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:clamp(28px,6vw,72px) max(16px,env(safe-area-inset-left));min-height:min(62.5vw,820px);display:flex;align-items:center}}
+.hero{{background:url(assets/hero-bg.jpg) center/cover no-repeat,#020812;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:clamp(28px,6vw,72px) max(16px,env(safe-area-inset-left));min-height:min(62.5vw,820px);display:flex;align-items:center}}
 .w{{max-width:1040px;margin:0 auto;width:100%}}
 .glass{{max-width:660px;background:rgba(2,8,18,.74);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:clamp(22px,3.4vw,40px);color:#E6F1F8}}
 .kicker{{color:#5CD6F2;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}}
@@ -142,7 +149,7 @@ footer{{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:
 <p class="intro">A self-driving car frees your hands, not your agenda. Navigation handles routes, not commitments, so passengers still sequence the stops, phone businesses and replan whenever something changes.</p>
 <p class="intro">With Maya, you share your needs and goals and she plans the stops, confirms with the shops, pays from her wallet and adapts when conditions change. Everything is shown on your central display and Panoramic Vision.</p>
 <p class="intro">When the car is free, she becomes the courier that runs your errands.</p>
-<div class="btns"><a class="btn" href="Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf" download target="_blank" rel="noopener" data-goatcounter-click="pdf-download" data-goatcounter-title="PDF download">Get the PDF</a><a class="btn o" href="prototype/">Open the prototype</a><a class="btn o" href="screens/">UI design artboard</a></div></div></div></div>
+<div class="btns"><a class="btn" href="Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf" download target="_blank" rel="noopener" data-goatcounter-click="pdf-download" data-goatcounter-title="PDF download">Get the PDF</a><a class="btn o" href="prototype/">Open the prototype</a><a class="btn o" href="screens/">UI Design Artboard</a></div></div></div></div>
 <div class="w">
 <h2>The working process</h2>
 <div class="list">{cards}</div>
