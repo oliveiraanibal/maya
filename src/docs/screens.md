@@ -15,46 +15,40 @@ Panoramic Vision is split in half: one half is automotive data (speed, temperatu
 
 ## Screen inventory
 
-Priority **H** = needed for the hero scenario; *branch* = reached through a touch twin or a side path. Screen IDs follow the story and are used across all artifacts.
+Screen IDs follow the story and are used across all artifacts.
 
-| ID | Screen | Scene | What it shows | Priority |
-|---|---|---|---|---|
-| **S01** | Sign in | 1 | The car expects Michael and looks for his face; PIN or password as fallback; "Not Michael? Switch profile" | **H** |
-| **S02** | Welcome | 1 | "Welcome back, Michael", synced data, the "Going home" default route already moving, Maya's greeting, "Full access" with Adjust | **H** (central) |
-| **S03** | Maya's access | 1 | Opened from Adjust: what Maya may do on her own (calls, payments from Maya Wallet up to a limit, plan changes from what she hears, messages), listening settings, synced data | **H** (branch) |
-| **S04** | Briefing: listening | 2 | Maya listening; the "New plan" card (occasion, where, when, pick up, to do) fills in as Michael talks | **H** |
-| **S05** | Briefing: keyboard | 2 | Touch twin: Maya's bar becomes a text field, with the keyboard in the lower half | **H** (branch) |
-| **S06** | Briefing: Maya asks | 2 | Maya's question with a search field for the answer (no suggested answers); details filled in so far | **H** |
-| **S07** | Briefing: building the plan | 2 | "This is what Maya understood", every detail still editable, while the plan is built | **H** |
-| **S08** | Retailer calls | 3 | Silent live transcripts, hold timer, reference number, "pay now", chosen pharmacy; the pharmacy pin is dotted until confirmed | **H** |
-| **S09** | Plan change: automatic | 3 | Banner plus ledger, no input: pharmacy 1 crossed out, pharmacy 2 marked changed | **H** |
-| **S10** | Gift suggestion | 4 | The florist, delivery time and payment; Yes, order or No thanks (no bouquet choices) | **H** |
-| **S11** | Florist order | 4 | Order steps: called, delivery agreed, payment successful, delivery committed; Show call | **H** |
-| **S12** | Plan overview | 5 | Timeline and map, spare time (+5 min), stop cards, completed stops greyed out; replaces the provisional "Going home" route | **H** |
-| **S13** | Vehicle intent | 6 | What the car is about to do at the next stop: where it pulls in, which doors unlock, how long it waits | **H** |
-| **S14** | Active trip | 6 | Now and next, spare time, "Done for you" ledger (Undo on the latest row), pickup states, Edit plan | **H** |
-| **S15** | Edit plan | 6 | Drag to reorder or move a stop, add or remove, ripple preview, Apply or Cancel | **H** (central, branch) |
-| **S16** | Incoming call | 7 | Incoming-call overlay over the active trip | **H** |
-| **S17** | Plan change: ambient | 7 | Heard phrase, cancelled stop crossed out, new stop marked, Undo | **H** |
-| **S18** | Errand suggestion | 8 | The dry cleaner's message and Maya's offer to collect the suit after the drop-off, then wait nearby for his call; Yes or No thanks | **H** |
-| **S19** | Errand booked | 8 | The call to the dry cleaner (live transcript), payment, the agreed handover (19:20, rear right door, on a hanger, code sent) and a new plan row after the restaurant | **H** |
-| **S20** | Arrival report | 9 | Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, then the car waits for his call) | **H** |
-| **C1** | Leaving in courier mode | 9, 10 | "Please take your belongings", the cabin check (empty, nothing left behind), where the car is going and when it will be back | **H** |
-| **C2** | Phone: courier run | 10 | View only: live map and steps (to the dry cleaner, handover, then charging until he calls), in the My BMW app, the door being used | **H** |
-| **C3** | Phone: errand report | 10 | View only: photo of the suit on the hanger, receipt, times, what the camera saw | **H** |
-| **C4** | Errands | any time | Opened by the box icon beside Settings: upcoming, running and done errands; New errand | **H** (branch) |
-| **C5** | New errand | any time | What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (what the car does next), report | **H** (branch) |
-| **V1** | Takeover request | variant | Level 3 or 4 only, outside the Level 5 scope: countdown to take over; Maya pauses every task | Variant |
-| **V2** | Running late | edge case 2 | Fixes, cheapest first: ask the restaurant to hold the table, take a faster road, ask the wife to wait at the corner | Variant |
-| **F1** | Maya presence | all | Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on Panoramic Vision | **H** (system layer) |
+| ID | Screen | Scene | What it shows |
+|---|---|---|---|
+| **S01** | Sign in | 1 | The car expects Michael and looks for his face; PIN or password as fallback; "Not Michael? Switch profile" |
+| **S02** | Welcome | 1 | "Welcome back, Michael", synced data, the "Going home" default route already moving, Maya's greeting, "Full access" with Adjust |
+| **S03** | Maya's access | 1 | Opened from Adjust: what Maya may do on her own (calls, payments from Maya Wallet up to a limit, plan changes from what she hears, messages), listening settings, synced data |
+| **S04** | Briefing: listening | 2 | Maya listening; the "New plan" card (occasion, where, when, pick up, to do) fills in as Michael talks |
+| **S05** | Briefing: keyboard | 2 | Touch twin: Maya's bar becomes a text field, with the keyboard in the lower half |
+| **S06** | Briefing: Maya asks | 2 | Maya's question with a search field for the answer (no suggested answers); details filled in so far |
+| **S07** | Briefing: building the plan | 2 | "This is what Maya understood", every detail still editable, while the plan is built |
+| **S08** | Retailer calls | 3 | Silent live transcripts, hold timer, reference number, "pay now", chosen pharmacy; the pharmacy pin is dotted until confirmed |
+| **S09** | Plan change: automatic | 3 | Banner plus ledger, no input: pharmacy 1 crossed out, pharmacy 2 marked changed |
+| **S10** | Gift suggestion | 4 | The florist, delivery time and payment; Yes, order or No thanks (no bouquet choices) |
+| **S11** | Florist order | 4 | Order steps: called, delivery agreed, payment successful, delivery committed; Show call |
+| **S12** | Plan overview | 5 | Timeline and map, spare time (+5 min), stop cards, completed stops greyed out; replaces the provisional "Going home" route |
+| **S13** | Vehicle intent | 6 | What the car is about to do at the next stop: where it pulls in, which doors unlock, how long it waits |
+| **S14** | Active trip | 6 | Now and next, spare time, "Done for you" ledger (Undo on the latest row), pickup states, Edit plan |
+| **S15** | Edit plan | 6 | Drag to reorder or move a stop, add or remove, ripple preview, Apply or Cancel |
+| **S16** | Incoming call | 7 | Incoming-call overlay over the active trip |
+| **S17** | Plan change: ambient | 7 | Heard phrase, cancelled stop crossed out, new stop marked, Undo |
+| **S18** | Errand suggestion | 8 | The dry cleaner's message and Maya's offer to collect the suit after the drop-off, then wait nearby for his call; Yes or No thanks |
+| **S19** | Errand booked | 8 | The call to the dry cleaner (live transcript), payment, the agreed handover (19:20, rear right door, on a hanger, code sent) and a new plan row after the restaurant |
+| **S20** | Arrival report | 9 | Full-screen report: arrived on time, spare time earned, everything done with times, and the next step (courier: dry cleaner 19:20, then the car waits for his call) |
+| **C1** | Leaving in courier mode | 9, 10 | "Please take your belongings", the cabin check (empty, nothing left behind), where the car is going and when it will be back |
+| **C2** | Phone: courier run | 10 | View only: live map and steps (to the dry cleaner, handover, then charging until he calls), in the My BMW app, the door being used |
+| **C3** | Phone: errand report | 10 | View only: photo of the suit on the hanger, receipt, times, what the camera saw |
+| **C4** | Errands | any time | Opened by the box icon beside Settings: upcoming, running and done errands; New errand |
+| **C5** | New errand | any time | What, where, when, handover (a compartment on a top view of the car, and how the other person gets in), instructions, payment, if it fails, afterwards (what the car does next), report |
+| **V1** | Takeover request | variant | Level 3 or 4 only, outside the Level 5 scope: countdown to take over; Maya pauses every task |
+| **V2** | Running late | edge case 2 | Fixes, cheapest first: ask the restaurant to hold the table, take a faster road, ask the wife to wait at the corner |
+| **F1** | Maya presence | all | Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on Panoramic Vision |
 
 **Errands entry:** a box icon left of the settings cog on every Central Display screen. **The phone** is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). **Charging** is not an errand and never appears in the plan list.
-
-**Supportive (later):** Maya settings beyond access, notifications tray, error and offline states.
-
-**Screens for later (not delivered now):** create a new profile; idle or standby when nobody is signed in; guest mode; the bento menu's contents (the icon stays top left, with "Maya" to its right).
-
-**Prototype path:** about 25 frames in story order: S01, S02 (S03 from Adjust); S04, S06, S07 (S05 when typing); S08, S09; S10, S11; S12; S13, S14 (S15 from Edit plan); S16, S17; S18, S19; S20; C1, C2, C3; then C4 and C5 from the box icon.
 
 ## Panoramic Vision: Maya's half
 

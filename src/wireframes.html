@@ -165,8 +165,8 @@ tr:last-child td{border-bottom:0}
 .sbadge{display:inline-block;font-size:.7em;border:1px solid var(--line);border-radius:3px;padding:0 .5em;margin-right:.4em;color:var(--mute)}
 </style>
 <div class="wrap">
-  <h1>Maya Central Display Wireframes <span style="font-weight:400;color:var(--mute)">· iteration 1</span></h1>
-  <p class="lede">Greyscale wireframes for the main screen: a large landscape Central Display, 16:10 (drawn as 1280 x 800). Screen IDs follow the order of the story. No colour or type decisions yet; this page decides layout, interaction patterns and components.</p>
+  <h1>Maya Central Display Wireframes</h1>
+  <p class="lede">Greyscale wireframes for the main screen: a large landscape Central Display, 16:10 (drawn as 1280 × 800). They set the layout, interaction patterns and components before the hi-fi screens. Where the two differ (the hi-fi is 1920 × 1200 and drops the mic button and the top status bar), the UI Design Artboard is final.</p>
 
   <h2>1. Layout strategy</h2>
   <ol class="list">
@@ -176,7 +176,7 @@ tr:last-child td{border-bottom:0}
     <li><strong>The keyboard opens from below</strong> and takes roughly the lower half of the screen; the plan panel and map shrink above it.</li>
     <li><strong>Spare time pill pinned to the plan panel.</strong> It is the promise, so it never scrolls away.</li>
     <li><strong>No modal dialogs.</strong> Changes appear as banners inside the panel. The only overlay is the incoming phone call, and it stays small.</li>
-    <li><strong>Large targets, short text.</strong> Controls are sized for arm's length on a console: aim for about 64 to 76 px high at 1280 x 800 (check against Android Automotive guidance at hi-fi). Two lines of text at most per card.</li>
+    <li><strong>Large targets, short text.</strong> Controls are sized for arm's length on a console: aim for about 64 to 76 px high at 1280 x 800. Two lines of text at most per card.</li>
     <li><strong>Nothing duplicates Panoramic Vision.</strong> Speed, temperature and range stay on the Panoramic Vision; the Central Display shows no automotive data.</li>
     <li><strong>Arrival is a different screen.</strong> The trip ends in a full-width report, not in the working layout.</li>
   </ol>
@@ -198,39 +198,39 @@ tr:last-child td{border-bottom:0}
   <div class="tblwrap"><table>
     <tr><th>Pattern</th><th>Used for</th><th>Why</th></tr>
     <tr><td>Persistent dock: mic, caption, keyboard</td><td>Every screen</td><td>Voice and touch parity without a mode switch. Captions mirror Maya's speech.</td></tr>
-    <tr><td>Editable trip card</td><td>S2 briefing</td><td>The card is the confirmation, so Maya does not read it back. Any row can be corrected by tap.</td></tr>
-    <tr><td>Search field, no suggested answers</td><td>S2 questions</td><td>Maya does not guess before the user has replied. Touch users search; others speak.</td></tr>
+    <tr><td>Editable trip card</td><td>S04 to S07 briefing</td><td>The card is the confirmation, so Maya does not read it back. Any row can be corrected by tap.</td></tr>
+    <tr><td>Search field, no suggested answers</td><td>S06 questions</td><td>Maya does not guess before the user has replied. Touch users search; others speak.</td></tr>
     <tr><td>Keyboard sheet from below</td><td>Any text entry</td><td>Takes about half the screen; the plan and map stay visible above it.</td></tr>
-    <tr><td>Side drawer over the map</td><td>S3 retailer calls</td><td>Detail on demand while the map stays visible.</td></tr>
-    <tr><td>Step list with status</td><td>S4 florist order</td><td>Shows calling, agreed, paid, committed without any speech.</td></tr>
-    <tr><td>Vertical timeline of cards</td><td>S5, S6, S7, S8</td><td>Time and order read top to bottom, and each stop can hold a state.</td></tr>
-    <tr><td>Inline banner, no timeout</td><td>S7 automatic and ambient changes</td><td>Non-blocking, stays until dismissed, so a missed chime costs nothing.</td></tr>
-    <tr><td>Undo on the latest ledger row only</td><td>S6 ledger, S7 ambient change</td><td>Pressing Undo reveals the Undo on the row before it. No countdown. To validate in the prototype.</td></tr>
-    <tr><td>Drag handle with live ripple preview, then Apply or Cancel</td><td>S8 edit plan</td><td>Shows the effect on every later stop before committing.</td></tr>
-    <tr><td>Small call banner with Answer and Decline</td><td>S6 incoming call</td><td>The one overlay; kept off the plan panel so the plan stays readable.</td></tr>
-    <tr><td>Full-screen report</td><td>S9 arrival</td><td>Closes the trip with a summary and the spare time earned.</td></tr>
+    <tr><td>Side drawer over the map</td><td>S08 retailer calls</td><td>Detail on demand while the map stays visible.</td></tr>
+    <tr><td>Step list with status</td><td>S11 florist order</td><td>Shows calling, agreed, paid, committed without any speech.</td></tr>
+    <tr><td>Vertical timeline of cards</td><td>S12, S14, S15, S17</td><td>Time and order read top to bottom, and each stop can hold a state.</td></tr>
+    <tr><td>Inline banner, no timeout</td><td>S09 and S17 automatic and ambient changes</td><td>Non-blocking, stays until dismissed, so a missed chime costs nothing.</td></tr>
+    <tr><td>Undo on the latest ledger row only</td><td>S14 ledger, S17 ambient change</td><td>Pressing Undo reveals the Undo on the row before it. No countdown.</td></tr>
+    <tr><td>Drag handle with live ripple preview, then Apply or Cancel</td><td>S15 edit plan</td><td>Shows the effect on every later stop before committing.</td></tr>
+    <tr><td>Small call banner with Answer and Decline</td><td>S16 incoming call</td><td>The one overlay; kept off the plan panel so the plan stays readable.</td></tr>
+    <tr><td>Full-screen report</td><td>S20 arrival</td><td>Closes the trip with a summary and the spare time earned.</td></tr>
   </table></div>
 
   <h2>3. Component kit</h2>
   <div class="tblwrap"><table>
     <tr><th>Component</th><th>States</th><th>Where</th></tr>
-    <tr><td>Maya dock</td><td>Idle, listening, speaking, on a call</td><td>All except S9</td></tr>
+    <tr><td>Maya dock</td><td>Idle, listening, speaking, on a call</td><td>All except S20</td></tr>
     <tr><td>Presence pill (status bar)</td><td>Idle, listening, thinking, speaking, on a call, chime</td><td>All</td></tr>
-    <tr><td>Trip card with rows</td><td>Empty, partly filled, question pending, complete</td><td>S2</td></tr>
-    <tr><td>Search field</td><td>Empty, typing</td><td>S2</td></tr>
-    <tr><td>Keyboard sheet</td><td>Open (about 46% of the height)</td><td>S2</td></tr>
-    <tr><td>Processing indicator</td><td>Building the plan</td><td>S2</td></tr>
-    <tr><td>Step list</td><td>Pending, in progress, done</td><td>S4</td></tr>
-    <tr><td>Stop card</td><td>Done, current, upcoming, checking, changed, cancelled, dragging</td><td>S5, S6, S7, S8</td></tr>
-    <tr><td>Spare time pill</td><td>Green above 4 min, amber 0 to 4, red below 0</td><td>S5 to S8, S9</td></tr>
-    <tr><td>Banner</td><td>Info (automatic change), action (ambient change)</td><td>S7</td></tr>
-    <tr><td>Drawer with tabs and transcript</td><td>On hold, speaking, outcome</td><td>S3</td></tr>
-    <tr><td>Ledger row</td><td>Default, latest (with Undo)</td><td>S6</td></tr>
-    <tr><td>Map pin</td><td>Past (grey), next, pending (dotted), cancelled (crossed), new</td><td>S1 to S8</td></tr>
-    <tr><td>Map route</td><td>Past (grey), ahead (solid), previous plan (dashed)</td><td>S1 to S8</td></tr>
+    <tr><td>Trip card with rows</td><td>Empty, partly filled, question pending, complete</td><td>S04 to S07</td></tr>
+    <tr><td>Search field</td><td>Empty, typing</td><td>S04 to S07</td></tr>
+    <tr><td>Keyboard sheet</td><td>Open (about 46% of the height)</td><td>S04 to S07</td></tr>
+    <tr><td>Processing indicator</td><td>Building the plan</td><td>S04 to S07</td></tr>
+    <tr><td>Step list</td><td>Pending, in progress, done</td><td>S11</td></tr>
+    <tr><td>Stop card</td><td>Done, current, upcoming, checking, changed, cancelled, dragging</td><td>S12, S14, S15, S17</td></tr>
+    <tr><td>Spare time pill</td><td>Green above 4 min, amber 0 to 4, red below 0</td><td>S12 to S20</td></tr>
+    <tr><td>Banner</td><td>Info (automatic change), action (ambient change)</td><td>S09, S17</td></tr>
+    <tr><td>Drawer with tabs and transcript</td><td>On hold, speaking, outcome</td><td>S08</td></tr>
+    <tr><td>Ledger row</td><td>Default, latest (with Undo)</td><td>S14</td></tr>
+    <tr><td>Map pin</td><td>Past (grey), next, pending (dotted), cancelled (crossed), new</td><td>S02 to S17</td></tr>
+    <tr><td>Map route</td><td>Past (grey), ahead (solid), previous plan (dashed)</td><td>S02 to S17</td></tr>
     <tr><td>Buttons</td><td>Primary, secondary, text</td><td>All</td></tr>
     <tr><td>Panoramic Vision slots (presence, next stop, spare time, beads, event)</td><td>See section 5</td><td>Panoramic Vision</td></tr>
-    <tr><td>Arrival report</td><td>Headline, spare time, ledger, next step</td><td>S9</td></tr>
+    <tr><td>Arrival report</td><td>Headline, spare time, ledger, next step</td><td>S20</td></tr>
   </table></div>
   <div class="pres">
     <div class="p1"><strong>Idle</strong><br><small>Mic outline, no caption</small></div>
@@ -290,112 +290,113 @@ function spare(v,x){return '<div class="row"><span class="pill spare">Spare time
 var S=[];
 function add(id,title,state,inner,notes,cls){S.push({id:id,title:title,state:state,inner:inner,notes:notes,cls:cls||''})}
 
-// S1
-add('S1','Welcome and login','Default route, already moving',
+// S02
+add('S02','Welcome','Default route, already moving',
  topbar('17:15','idle')+body('<h4>Welcome back</h4><div class="card row"><div><strong>Profile recognised</strong><small>Signed in automatically</small></div><span class="chip">User</span>'+A(1)+'</div><div class="card"><small>Synced</small><div class="chips"><span class="chip">Calendar</span><span class="chip">Contacts</span><span class="chip">Messages</span><span class="chip">Cloud</span></div></div><div class="card row"><div><strong>Access: Full</strong><small>Maya can act, pay and listen</small></div><div class="btn">Adjust'+A(2)+'</div></div>',
   MAP({route:['work','home'],car:{seg:0,t:.12},nums:{home:'H'},extra:'<div class="mchip">Going home &middot; 17:48'+A(3)+'</div>'}))+
  dock('Maya: "Hi, I\'m Maya, your concierge for the trip. How can I assist you?"',{ac:A(4)}),
  ['Profile recognition replaces any login form; the car is already moving.','Access summary with Adjust is the entry to trust settings (kept for the month list).','The default route shows as a quiet chip until the real plan exists.','The dock greets and shows the caption.']);
 
-// S2a
-add('S2','Briefing','State a: listening',
+// S04
+add('S04','Briefing: listening','Maya listens, the card fills in',
  topbar('17:16','listening')+body('<h4>Trip plan</h4><div class="card"><div class="slot"><span class="k">Occasion</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">Where</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">When</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">Pick up</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">Errands</span><span class="ph">&mdash;</span></div>'+A(1)+'</div><div class="chips"><span class="chip">Dinner</span><span class="chip">Pick up</span><span class="chip">Errand'+A(2)+'</span></div>',
   MAP({route:['work','home'],car:{seg:0,t:.2},nums:{home:'H'},extra:''}).replace('class="map"','class="map faded"'))+
  dock(W+' "Family dinner tonight. Kids, my wife, and that new prescription..."',{mic:'on',am:A(3)}),
  ['The trip card starts empty and fills as the user speaks.','Starter chips give a touch-only user a way in; the keyboard opens a text field.','Mic in its active state, with live words in the caption.']);
 
-// S2b
-add('S2','Briefing','State b: Maya has a question',
+// S06
+add('S06','Briefing: Maya asks','Maya has a question',
  topbar('17:16','speaking')+body('<h4>Trip plan</h4><div class="card"><div class="slot"><span class="k">Occasion</span><span class="v">Family dinner</span></div><div class="slot q"><span class="k">Where</span><span class="v">?</span>'+A(1)+'</div><div class="slot"><span class="k">When</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">Pick up</span><span class="v">Son, daughter, wife</span></div><div class="slot"><span class="k">Errands</span><span class="v">Prescription &middot; RX-48317</span></div></div><div class="card strong"><strong>Where is the dinner?</strong><div class="btn" style="margin-top:.5em;width:100%;justify-content:flex-start">Search a place'+A(2)+'</div></div>',
   MAP({route:['work','home'],car:{seg:0,t:.2},nums:{home:'H'}}).replace('class="map"','class="map faded"'))+
  dock('Maya: "Where is the dinner?"',{ac:A(3)}),
  ['The row Maya is asking about is outlined in the card.','Search only: no suggested places, because Maya does not guess before the user has replied. Speaking works equally well.','The question also appears as a caption in the dock.']);
 
-// S2c
-add('S2','Briefing','State c: Maya builds the plan',
+// S07
+add('S07','Briefing: building the plan','Maya builds the plan',
  topbar('17:17','thinking')+body('<h4>Trip plan</h4><div class="card"><div class="slot"><span class="k">Occasion</span><span class="v">Birthday dinner</span><span class="btn t">Edit</span></div><div class="slot"><span class="k">Where</span><span class="v">Italian, Main St</span><span class="btn t">Edit</span></div><div class="slot"><span class="k">When</span><span class="v">19:00 &middot; arrive 18:55</span><span class="btn t">Edit</span></div><div class="slot"><span class="k">Pick up</span><span class="v">Son, daughter, wife</span><span class="btn t">Edit</span></div><div class="slot"><span class="k">Errands</span><span class="v">Prescription &middot; RX-48317</span><span class="btn t">Edit</span></div>'+A(1)+'</div>',
   '<div class="map faded"><div class="proc"><big>&#9696;</big>Building the plan'+A(2)+'</div></div>')+
  dock('Maya stays silent. The card is the confirmation.',{dim:true}),
  ['The finished card is the confirmation; Maya does not read it back. Every row can be edited by tap.','The default route is gone. A processing indicator sits over the faded map while the plan is built.']);
 
-// S2d keyboard
-add('S2','Briefing','State d: keyboard open',
+// S05 keyboard
+add('S05','Briefing: keyboard','Keyboard open',
  topbar('17:16','listening')+body('<h4>Trip plan</h4><div class="card"><div class="slot"><span class="k">Occasion</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">Where</span><span class="ph">&mdash;</span></div><div class="slot"><span class="k">When</span><span class="ph">&mdash;</span></div></div>',
   MAP({route:['work','home'],car:{seg:0,t:.2},nums:{home:'H'}}).replace('class="map"','class="map faded"'))+
  '<div class="dock"><div class="mic">mic</div><div class="field">Family dinner tonight, kids, wife and the new prescription|'+A(1)+'</div><div class="btn p">Send</div></div>'+
  '<div class="kb"><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><i></i><i class="w"></i><i></i></div>'+A(2)+'</div>',
  ['The text field replaces the caption and sits directly above the keyboard, with Send.','The keyboard sheet rises from below and takes roughly the lower half; the plan and map shrink above it.'],'kbopen');
 
-// S3 pharmacy calls
-add('S3','Retailer calls','Pharmacy first, drawer over the plan panel',
+// S08 pharmacy calls
+add('S08','Retailer calls','Pharmacy first, drawer over the plan panel',
  topbar('17:19','on a call')+body('<h4>Trip plan</h4><div class="card dash">Maya is checking pharmacies on the way</div>',
   MAP({car:{seg:0,t:.3},cls:{work:'past',ph:'dot'},nums:{}}))+
  dock('Maya works silently while you ride.',{dim:true})+
  '<div class="drawer"><div class="row"><h4>Calls</h4><div class="btn">Close</div></div><div class="chips" style="margin-top:0"><span class="chip">Pharmacy 1 &#10007;</span><span class="chip on">Pharmacy 2'+A(1)+'</span></div><div class="bub m"><b>Maya</b>He has a new prescription, reference RX-48317. In stock?'+A(2)+'</div><div class="bub o"><b>Pharmacist</b>One moment, please hold.</div><div><span class="chip">On hold 0:28'+A(3)+'</span></div><div class="card strong"><strong>In stock &middot; ready in 10 min &middot; paid</strong><small>Plan effect: pharmacy at 18:10, spare time +5 min</small>'+A(4)+'</div></div>',
  ['Tabs switch between calls; a cross or tick shows each outcome. The first call goes to a pharmacy on the route.','Transcript bubbles: Maya on the left, the other party on the right.','The hold timer shows that silence is waiting, not failure.','The outcome card states what it means for the plan. The pharmacy pin is dotted on the map until it is confirmed.']);
 
-// S4a flowers
-add('S4','Gift suggestion','State a: Maya suggests flowers',
+// S10 flowers
+add('S10','Gift suggestion','Maya suggests flowers',
  topbar('17:22','speaking')+body('<h4>Flowers for the birthday?</h4><div class="card"><strong>Main St Florist</strong><small>300 m from the restaurant &middot; open until 20:00</small>'+A(1)+'</div><small>Delivery by 18:45 &middot; paid automatically</small><div class="btns"><div class="btn p">Yes, order'+A(2)+'</div><div class="btn">No thanks</div></div>',
   MAP({car:{seg:0,t:.4},cls:{work:'past',fl:'dot'},more:['fl'],badge:{fl:A(3)}}))+
  dock('Maya: "It\'s a birthday dinner. Would you like flowers waiting at the restaurant before we arrive?"'),
  ['The suggestion is a card with the facts that matter: place, distance, hours, delivery time. No options are shown until the user says yes.','Yes and No are always both visible; the answer can also be spoken.','The florist pin is dotted because nothing has been paid yet.']);
 
-// S4b order
-add('S4','Gift suggestion','State b: Maya orders, silent',
+// S11 order
+add('S11','Florist order','Maya orders, silent',
  topbar('17:23','on a call')+body('<h4>Main St Florist</h4><div class="card"><div class="row"><span>&#10003; Called Main St Florist</span></div><div class="row" style="margin-top:.3em"><span>&#10003; Delivery agreed: 18:45</span></div><div class="row" style="margin-top:.3em"><span>&#10003; Payment successful</span></div><div class="row" style="margin-top:.3em"><strong>&#9679; Delivery committed: restaurant, before 19:00</strong></div>'+A(1)+'</div><div class="card dash"><small>Last words of the call</small><div>Maya: "I\'ll pay now by card."</div></div><div class="btn" style="align-self:flex-start">Show call'+A(2)+'</div>',
   MAP({car:{seg:0,t:.5},cls:{work:'past'},more:['fl'],badge:{fl:A(3)}}))+
  dock('Maya works silently while you ride.',{dim:true}),
  ['The whole order is told as a step list: no speech is needed.','Show call opens the transcript drawer.','The florist pin is solid now and sits next to the restaurant: 300 m apart, while the car is far away.']);
 
-// S5 plan overview
-add('S5','Plan overview','Maya has built the plan',
+// S12 plan overview
+add('S12','Plan overview','Maya has built the plan',
  topbar('17:24','idle')+body(spare('+5 min',A(1))+stop('17:15','&#10003; Work &middot; left',null,'done',A(2))+stop('17:35','School &middot; son','6 min')+stop('17:55','Kindergarten &middot; daughter')+stop('18:10','Pharmacy &middot; ready 18:10')+stop('18:33','Home &middot; wife')+stop('18:55','Italian, Main St &middot; dinner 19:00')+'<small>Flowers delivered by 18:45</small><div class="btn" style="align-self:flex-start">Edit plan'+A(3)+'</div>',
   MAP({car:{seg:0,t:.6},cls:{work:'past'},more:['fl']}))+
  dock('Maya stays silent. The plan replaced the default route.',{dim:true}),
- ['Spare time is the first thing in the panel and never scrolls.','Work is already done: greyed out and ticked, and grey on the map too.','Edit plan opens S8.']);
+ ['Spare time is the first thing in the panel and never scrolls.','Work is already done: greyed out and ticked, and grey on the map too.','Edit plan opens S15.']);
 
-// S6a active
-add('S6','Active trip','State a: riding',
+// S14 active
+add('S14','Active trip','Riding',
  topbar('17:40','idle')+body(spare('+5 min',A(1))+'<div class="card strong"><small>Next stop</small><div class="row"><strong>Kindergarten</strong><span>17:55 &middot; 6 min</span></div><div class="chips"><span class="chip on">Son on board</span></div></div><small>Done for you</small><div class="card"><div class="row"><span>Pharmacy reserved &middot; ready 18:10</span><span class="btn t">Undo</span></div>'+A(2)+'<div class="row" style="margin-top:.3em;color:var(--mute)"><span>Flowers confirmed &middot; by 18:45</span><small>17:23</small></div></div>'+stop('18:10','Pharmacy')+stop('18:33','Home &middot; wife')+'<div class="btn" style="align-self:flex-start">Edit plan'+A(3)+'</div>',
   MAP({car:{seg:1,t:.4},cls:{work:'past',school:'past'},more:['fl']}))+
  dock('Maya stays silent. Everything is on screen.',{dim:true}),
  ['Spare time stays pinned during the trip.','Only the latest ledger row shows Undo. Pressing it reveals the Undo on the row before it.','Edit plan is available at any time during the trip.']);
 
-// S6b call
-add('S6','Active trip','State b: incoming call',
+// S16 call
+add('S16','Incoming call','Over the active trip',
  topbar('18:03','listening')+body(spare('+5 min')+'<div class="card strong"><small>Next stop</small><div class="row"><strong>Pharmacy</strong><span>18:10 &middot; 5 min</span></div></div><small>Done for you</small><div class="card"><div class="row"><span>Pharmacy reserved &middot; ready 18:10</span><span class="btn t">Undo</span></div></div>'+stop('18:33','Home &middot; wife')+'<div class="btn" style="align-self:flex-start">Edit plan</div>',
   MAP({car:{seg:2,t:.5},cls:{work:'past',school:'past',kg:'past'},more:['fl'],extra:'<div class="ovl" style="left:50%;top:.7em;transform:translateX(-50%)"><div class="card strong row" style="gap:1em"><strong>Wife calling</strong><div class="btns"><div class="btn p">Answer</div><div class="btn">Decline</div></div>'+A(1)+'</div></div>'}))+
  dock('Maya is listening quietly.',{dim:true,mic:'on',am:A(2)}),
  ['The call is the only overlay: small, on the map, not over the plan.','The mic shows that Maya is listening; she does not speak.']);
 
-// S7a auto
-add('S7','Plan change','State a: automatic (the world changed)',
+// S09 auto
+add('S09','Plan change: automatic','The world changed',
  topbar('17:20','idle')+body('<div class="card strong"><strong>Plan updated</strong><small>Pharmacy 1 had no stock. Pharmacy 2 is now after kindergarten. Spare time still +5 min.</small><div class="btns" style="margin-top:.4em"><div class="btn">Details</div><div class="btn t">Dismiss</div></div>'+A(1)+'</div>'+spare('+5 min')+stop('17:55','Kindergarten')+stop('18:10','Pharmacy 2','Ready at 18:10','chg',A(2))+stop('18:33','Home &middot; wife')+stop('18:55','Dinner'),
   MAP({car:{seg:0,t:.5},cls:{work:'past',ph1:'cancel'},more:['ph1'],old:[[42,58],[50,68],[58,46]],badge:{ph1:A(3)}}))+
  dock('Maya stays silent.',{dim:true}),
  ['The banner is informational: no action is required, and it stays until dismissed.','The changed row has a heavier border so the eye finds it.','Pharmacy 1 is crossed on the map and the previous route is dashed.']);
 
-// S7b ambient
-add('S7','Plan change','State b: ambient (the conversation changed)',
+// S17 ambient
+add('S17','Plan change: ambient','The conversation changed',
  topbar('18:03','chime')+body('<div class="card strong"><small>Heard in your call</small><div>"Pick me up at the hair salon"</div>'+A(1)+'<strong>Pickup moved: wife, hair salon 18:30</strong><div class="btns" style="margin-top:.4em"><div class="btn p">Undo'+A(2)+'</div><div class="btn t">Dismiss</div></div></div>'+spare('+5 min')+stop('18:10','Pharmacy')+stop('18:30','Hair salon &middot; wife <span class="newtag">NEW</span>',null,'chg',A(3))+stop('18:33','Home &middot; wife',null,'strike',A(4))+stop('18:55','Dinner'),
   MAP({route:['work','school','kg','ph','salon','rest'],car:{seg:2,t:.6},cls:{work:'past',school:'past',kg:'past',salon:'new',home:'cancel'},more:['home'],nums:{salon:'5',rest:'6'},old:[[58,46],[70,34],[82,14]],badge:{salon:A(3),home:A(4)}}))+
  dock('Maya stays silent. A chime sounded.',{dim:true}),
  ['The phrase Maya heard is quoted, so the user can see why the plan changed.','Undo is the primary action and has no countdown.','The hair salon is marked NEW in the list and on the map.','Home is crossed out in the list and on the map, because it is cancelled. The previous route is dashed.']);
 
-// S8 edit
-add('S8','Edit plan','Dragging a stop',
+// S15 edit
+add('S15','Edit plan','Dragging a stop',
  topbar('17:40','idle')+body('<div class="row"><h4>Edit plan</h4><div class="btn p">Done</div></div>'+spare('+5 min')+'<div class="stop done"><time>17:35</time><div class="card">&#10003; School &middot; locked'+A(1)+'</div></div><div class="stop"><time>17:55</time><div class="card"><span class="grab">&#8942;&#8942;</span>Kindergarten &middot; daughter</div></div><div class="stop"><time>18:15</time><div class="card lift"><span class="grab">&#8942;&#8942;</span>Home &middot; wife'+A(2)+'</div></div><div class="gap"></div><div class="stop"><time>18:30</time><div class="card row"><span><span class="grab">&#8942;&#8942;</span>Pharmacy</span><span class="delta">+20 min'+A(3)+'</span></div></div><div class="stop"><time>18:58</time><div class="card row"><span><span class="grab">&#8942;&#8942;</span>Dinner</span><span class="delta">+3 min</span></div></div><div class="btn" style="align-self:flex-start">+ Add stop</div><div class="card strong row"><span>Spare time 5 &rarr; 2 min</span><div class="btns"><div class="btn">Cancel</div><div class="btn p">Apply</div></div>'+A(4)+'</div>',
   MAP({route:['work','school','kg','home','ph','rest'],car:{seg:1,t:.4},cls:{work:'past',school:'past'},old:[[42,58],[58,46],[70,34],[82,14]]}))+
  dock('Say it instead: "Pick up my wife before the pharmacy."',{dim:true}),
  ['Passed stops are locked and greyed; only what is ahead can be edited.','The lifted card shows what is being moved, with the drop line below it.','Later stops show their time shift live, before anything is applied.','The bottom bar states the cost to spare time and needs Apply or Cancel. Voice can do the same.']);
 
-// S9 arrival
-add('S9','Arrival','Full-screen trip report',
+// S20 arrival
+add('S20','Arrival report','Full-screen trip report',
  '<div class="top"><span>18:55</span><span class="pill">&#9679; Maya &middot; speaking</span><span>signal</span></div><div class="arr"><div class="hero"><small>Arrived</small><div class="big">18:55'+A(1)+'</div><div class="bigspare">5 min to spare</div><small>Dinner starts at 19:00</small></div><div class="rep"><small>What Maya did</small><div class="card"><div class="row"><span>&#10003; Son picked up</span><small>17:35</small></div></div><div class="card"><div class="row"><span>&#10003; Daughter picked up</span><small>17:55</small></div></div><div class="card"><div class="row"><span>&#10003; Prescription collected</span><small>18:10</small></div></div><div class="card"><div class="row"><span>&#10003; Wife picked up at the hair salon</span><small>18:30</small></div></div><div class="card"><div class="row"><span>&#10003; Flowers delivered to the restaurant</span><small>18:44</small></div>'+A(2)+'</div></div><div class="card strong next row"><span><strong>Next:</strong> the car goes to charge nearby</span><small>Back when you need it</small>'+A(3)+'</div></div>'+
  dock('Maya: "We\'re here, five minutes early. Enjoy the dinner."',{ac:A(4)}),
  ['The headline restates the promise: on time, with the spare time earned.','A report of everything done, with times: the trip story in one glance.','The next car action is stated and needs no button.','Maya speaks last, briefly.']);
 
+S.sort(function(x,y){return x.id<y.id?-1:x.id>y.id?1:0});
 document.getElementById('screens').innerHTML=S.map(function(s){
   return '<section class="scr"><div class="sh"><h3>'+s.id+' &middot; '+s.title+'</h3><span class="tag">'+s.state+'</span></div><div class="scroller"><div class="fw"><div class="frame '+s.cls+'">'+s.inner+'</div></div></div><ol class="notes">'+s.notes.map(function(n){return '<li>'+n+'</li>'}).join('')+'</ol></section>'}).join('');
 
@@ -408,18 +409,18 @@ function stripFrame(o){
   var right='<div class="half maya"><span class="s-slot">'+sp(o.pres)+'<span>'+o.state+'</span>'+A2(an.pres)+'</span>'+mid+beads+'</div>';
   return '<div class="sframe">'+left+right+'</div>'}
 var SS=[
- {id:'F1-1',t:'Boarding',n:'Scene 1, Central Display S1',o:{kmh:'12',state:'idle',pres:'',next:'Home 17:48',spare:'--',sc:'g',an:{pres:1,next:2}},notes:['Idle presence: outlined dot.','The provisional default route. No spare time yet, so the pill shows a dash.']},
- {id:'F1-2',t:'Briefing',n:'Scene 2, Central Display S2',o:{kmh:'38',state:'listening',pres:'on pulse',next:'Home 17:48',spare:'--',an:{pres:1}},notes:['Listening: filled, pulsing dot. The text mirrors the Central Display presence pill.']},
- {id:'F1-3',t:'Pharmacy call',n:'Scene 3, Central Display S3',o:{kmh:'41',state:'on a call',pres:'on pulse',next:'Pharmacy 18:10',spare:'+5 min',sc:'g',an:{pres:1,next:2,spare:3}},notes:['On a call: filled, pulsing dot with the label.','Next stop is the pharmacy being confirmed.','Spare time is green above 4 minutes.']},
- {id:'F1-3b',t:'Event: plan changed',n:'Scene 3, Central Display S7 (automatic)',o:{kmh:'41',state:'idle',pres:'',evt:'Pharmacy changed &middot; +5 min',an:{evt:1}},notes:['Event takeover of slots 2 and 3 for 4 seconds, then Panoramic Vision returns to normal. No chime for world changes.']},
- {id:'F1-4',t:'Florist call',n:'Scene 4, Central Display S4',o:{kmh:'44',state:'on a call',pres:'on pulse',next:'Florist',spare:'+5 min',an:{next:1}},notes:['The call target replaces the next stop while the call lasts. Afterwards, the event is &ldquo;Flowers confirmed&rdquo;.']},
- {id:'F1-5',t:'Plan running',n:'Scene 5, Central Display S5',o:{kmh:'52',state:'idle',pres:'',next:'School 17:35',spare:'+5 min',beads:'dcuuuu',an:{beads:1}},notes:['Beads show 1 stop done (work), the current one filled, and the rest ahead. Six stops in total.']},
- {id:'F1-6',t:'Pickup',n:'Scene 6, Central Display S6',o:{kmh:'0',state:'idle',pres:'',next:'Kindergarten 17:55',spare:'+5 min',beads:'ddcuuu',an:{next:1}},notes:['A short state chip such as &ldquo;Son on board&rdquo; appears as a 4-second event, then the next stop returns.']},
- {id:'F1-6b',t:'Event: son on board',n:'Scene 6, Central Display S6',o:{kmh:'0',state:'idle',pres:'',evt:'Son on board',an:{evt:1}},notes:['Pickup states are shown as events, never as a permanent slot.']},
- {id:'F1-7',t:'Event: ambient change',n:'Scene 7, Central Display S7 (ambient)',o:{kmh:'46',state:'listening',pres:'on pulse',evt:'Pickup moved: hair salon &middot; +5 min',an:{evt:1}},notes:['The same wording as the Central Display banner. A chime sounds with it; Panoramic Vision stays silent. Afterwards the next stop reads &ldquo;Hair salon 18:30&rdquo;.']},
- {id:'F1-8',t:'Spare time shrinking',n:'Edge case: running late',o:{kmh:'58',state:'idle',pres:'',next:'Hair salon 18:30',spare:'+2 min',sc:'a',beads:'ddddcu',an:{spare:1}},notes:['Amber from 0 to 4 minutes: striped fill plus the number. Below 0 it becomes a red double outline, e.g. &ldquo;-3 min&rdquo;.']},
- {id:'F1-9',t:'Arrival',n:'Scene 8, Central Display S9',o:{kmh:'0',state:'idle',pres:'',next:'Arrived 18:55',spare:'+5 min',beads:'dddddd',an:{next:1}},notes:['Shows the arrival time and the spare time earned. After a few seconds the next stop reads &ldquo;Charging&rdquo;.']},
- {id:'F1-10',t:'Offline',n:'Edge case: connectivity loss',o:{kmh:'62',state:'idle',pres:'',evt:'Offline &middot; plan kept',an:{evt:1}},notes:['Stays until the connection returns. Shown as text only, never as colour alone.']}
+ {id:'PV-1',t:'Boarding',n:'Scene 1, Central Display S02',o:{kmh:'12',state:'idle',pres:'',next:'Home 17:48',spare:'--',sc:'g',an:{pres:1,next:2}},notes:['Idle presence: outlined dot.','The provisional default route. No spare time yet, so the pill shows a dash.']},
+ {id:'PV-2',t:'Briefing',n:'Scene 2, Central Display S04',o:{kmh:'38',state:'listening',pres:'on pulse',next:'Home 17:48',spare:'--',an:{pres:1}},notes:['Listening: filled, pulsing dot. The text mirrors the Central Display presence pill.']},
+ {id:'PV-3',t:'Pharmacy call',n:'Scene 3, Central Display S08',o:{kmh:'41',state:'on a call',pres:'on pulse',next:'Pharmacy 18:10',spare:'+5 min',sc:'g',an:{pres:1,next:2,spare:3}},notes:['On a call: filled, pulsing dot with the label.','Next stop is the pharmacy being confirmed.','Spare time is green above 4 minutes.']},
+ {id:'PV-3b',t:'Event: plan changed',n:'Scene 3, Central Display S09',o:{kmh:'41',state:'idle',pres:'',evt:'Pharmacy changed &middot; +5 min',an:{evt:1}},notes:['Event takeover of slots 2 and 3 for 4 seconds, then Panoramic Vision returns to normal. No chime for world changes.']},
+ {id:'PV-4',t:'Florist call',n:'Scene 4, Central Display S11',o:{kmh:'44',state:'on a call',pres:'on pulse',next:'Florist',spare:'+5 min',an:{next:1}},notes:['The call target replaces the next stop while the call lasts. Afterwards, the event is &ldquo;Flowers confirmed&rdquo;.']},
+ {id:'PV-5',t:'Plan running',n:'Scene 5, Central Display S12',o:{kmh:'52',state:'idle',pres:'',next:'School 17:35',spare:'+5 min',beads:'dcuuuu',an:{beads:1}},notes:['Beads show 1 stop done (work), the current one filled, and the rest ahead. Six stops in total.']},
+ {id:'PV-6',t:'Pickup',n:'Scene 6, Central Display S14',o:{kmh:'0',state:'idle',pres:'',next:'Kindergarten 17:55',spare:'+5 min',beads:'ddcuuu',an:{next:1}},notes:['A short state chip such as &ldquo;Son on board&rdquo; appears as a 4-second event, then the next stop returns.']},
+ {id:'PV-6b',t:'Event: son on board',n:'Scene 6, Central Display S14',o:{kmh:'0',state:'idle',pres:'',evt:'Son on board',an:{evt:1}},notes:['Pickup states are shown as events, never as a permanent slot.']},
+ {id:'PV-7',t:'Event: ambient change',n:'Scene 7, Central Display S17',o:{kmh:'46',state:'listening',pres:'on pulse',evt:'Pickup moved: hair salon &middot; +5 min',an:{evt:1}},notes:['The same wording as the Central Display banner. A chime sounds with it; Panoramic Vision stays silent. Afterwards the next stop reads &ldquo;Hair salon 18:30&rdquo;.']},
+ {id:'PV-8',t:'Spare time shrinking',n:'Edge case: running late',o:{kmh:'58',state:'idle',pres:'',next:'Hair salon 18:30',spare:'+2 min',sc:'a',beads:'ddddcu',an:{spare:1}},notes:['Amber from 0 to 4 minutes: striped fill plus the number. Below 0 it becomes a red double outline, e.g. &ldquo;-3 min&rdquo;.']},
+ {id:'PV-9',t:'Arrival',n:'Scene 9, Central Display S20',o:{kmh:'0',state:'idle',pres:'',next:'Arrived 18:55',spare:'+5 min',beads:'dddddd',an:{next:1}},notes:['Shows the arrival time and the spare time earned. After a few seconds the next stop reads &ldquo;Charging&rdquo;.']},
+ {id:'PV-10',t:'Offline',n:'Edge case: connectivity loss',o:{kmh:'62',state:'idle',pres:'',evt:'Offline &middot; plan kept',an:{evt:1}},notes:['Stays until the connection returns. Shown as text only, never as colour alone.']}
 ];
 document.getElementById('strips').innerHTML=SS.map(function(x){
  return '<section class="scr"><div class="sh"><h3>'+x.id+' &middot; '+x.t+'</h3><span class="tag">'+x.n+'</span></div><div class="scroller"><div class="sfw">'+stripFrame(x.o)+'</div></div><ol class="notes">'+x.notes.map(function(n){return '<li>'+n+'</li>'}).join('')+'</ol></section>'}).join('');

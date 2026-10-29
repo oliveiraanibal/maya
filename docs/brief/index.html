@@ -1,4 +1,5 @@
-<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png"><link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png"><link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 <title>Concept Foundations · Maya</title><meta name="description" content=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 :root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--cobalt:#2E4FD8;--card:#fff}
 *{box-sizing:border-box}
@@ -23,7 +24,6 @@ pre{background:var(--card);border:1px solid var(--line);border-radius:8px;paddin
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;font-family:Inter,system-ui,sans-serif}
 </style></head>
 <body><div class="wrap"><nav class="top"><a href="../../">Maya – L5 trip concierge</a><span>/</span><span>Concept Foundations</span></nav><h1>Concept Foundations</h1>
-<p><em>Problem, vision, hypothesis, scope, success metrics, assumptions, design principles, conversation design rules and trade-offs.</em></p>
 <h2>Context</h2>
 <p>Maya is an AI concierge inside a fully autonomous (Level 5) car. She plans and runs the logistics of a single trip: routing, stops and calls to retailers. Michael, the user in our story, is in the car and either talks to her or uses the Central Display; Panoramic Vision, a passive band at the base of the windscreen, shows glanceable status. Maya acts with full delegated trust, like an executive assistant, within the limits Michael sets, and he can see and undo everything. Maya belongs to Michael, not to the car: she is in any car he signs in to, his own or a robotaxi. When nobody is in the car, Maya can also send it to run errands on its own (courier mode); a car in courier mode is always reserved to Michael.</p>
 <h2>Problem</h2>
@@ -35,7 +35,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <p>We believe that time-poor people will hand over trip logistics entirely to an AI that asks only what it cannot know (as many questions as needed, no more), acts on its own, follows the conversation (ambient intent), and makes every action visible and reversible. We will know we are right when users arrive on time, rarely undo what Maya did, and trust her with more over time.</p>
 <p>Courier mode extends the bet: people will also let an empty car run errands on its own, as long as every handover is agreed before it leaves and reported when it's done.</p>
 <h2>Hero scenario: the family dinner run</h2>
-<p>At 17:15 the car collects Michael at work and heads home by default. He tells Maya his needs: a family birthday dinner at 19:00, the kids and his wife to collect, and a new prescription from his messages as soon as possible. Maya asks only for the restaurant and the time, phones two pharmacies first (the first has no stock) and replans silently, then offers flowers and phones the florist. When his wife calls from the hair salon, Maya hears it, moves the pickup, and chimes. After that pickup, a message says his suit is ready at the dry cleaner: Maya offers to collect it on her own once the family is at the restaurant, he says yes, and she phones the shop to pay and agree the handover. The family arrives at 18:55 with 5 minutes of spare time, the flowers arrive first, and the empty car leaves in courier mode, collects the suit, then charges nearby and waits until Michael calls it. Three reroutes, each with its own cause: the plan replaces the default route, the world (no stock at the pharmacy) and the conversation (the wife's call). Plus one courier errand, run by the empty car.</p>
+<p>One evening: Michael is collected at work at 17:15 and needs his kids, his wife and a new prescription before a 19:00 family birthday dinner; Maya plans, phones and replans so the family arrives at 18:55, then the empty car collects his suit from the dry cleaner. The full script and timings are in <a href="../hero/">The Scenario</a>.</p>
 <h2>Scope</h2>
 <ul>
 <li><strong>In:</strong> sign-in by face (PIN or password as fallback) with a default route; Maya's access settings; briefing in needs and goals; a proactive suggestion tied to a known occasion; plan overview with spare time (5 min); live calls to retailers with payment from Maya Wallet; automatic reroutes; ambient intent; plan editing; two-screen UI (Central Display plus a passive Panoramic Vision band); voice and touch parity; courier mode: errands that Maya suggests or that are scheduled from the Errands button, run by the empty car with an agreed handover, followed live on the phone in the My BMW app (view only) and reported at the end.</li>
@@ -177,7 +177,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>Automatic payments from Maya Wallet, up to a limit, are acceptable</td>
 <td>Medium</td>
 <td>Medium</td>
-<td>Out of scope for now</td>
+<td>Not tested (out of scope)</td>
 </tr>
 <tr>
 <td>A6</td>
@@ -267,18 +267,11 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 </thead>
 <tbody>
 <tr>
-<td>Level 5 only, no manual driving</td>
-<td>A single calm, trip-level experience</td>
-<td>Any use before full autonomy; no driver-state design</td>
-<td>This page</td>
-<td>n/a</td>
-</tr>
-<tr>
 <td>Full trust: Maya acts, pays and listens</td>
 <td>The assistant feels like an executive assistant</td>
 <td>Safety nets: no approval before calls, or before payments under the limit set in Maya's access (S03)</td>
 <td>S02, S03, S11</td>
-<td>Trust calibration (month list)</td>
+<td>Trust calibration (if I had a month)</td>
 </tr>
 <tr>
 <td>Maya speaks rarely; the screen carries the detail</td>
@@ -320,21 +313,14 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>Silence in the cabin</td>
 <td>Users cannot hear what Maya promised</td>
 <td>S08</td>
-<td>Wizard of Oz (month list)</td>
-</tr>
-<tr>
-<td>Passive Panoramic Vision carrying nothing unique</td>
-<td>No second interactive surface to design</td>
-<td>It cannot be the only channel for anything</td>
-<td>Screen Specs</td>
-<td>n/a</td>
+<td>Wizard of Oz (if I had a month)</td>
 </tr>
 <tr>
 <td>One layout on the Central Display: plan panel always left, flat 2D map</td>
 <td>Learnable and consistent</td>
 <td>No right-to-left variant; no 3D context</td>
 <td>Central Display Wireframes</td>
-<td>Responsive layouts (month list)</td>
+<td>Responsive layouts (if I had a month)</td>
 </tr>
 <tr>
 <td>Keyboard takes about the lower half of the screen</td>
@@ -363,13 +349,6 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 <td>Extra step for a quick change</td>
 <td>S15</td>
 <td>Prototype</td>
-</tr>
-<tr>
-<td>Solo exercise with no user research</td>
-<td>Speed</td>
-<td>Assumptions A1 to A16 are untested</td>
-<td>This page</td>
-<td>Validation plan</td>
 </tr>
 </tbody>
 </table></div>

@@ -37,4 +37,3 @@ Cases 1, 3 and 4 appear in the prototype, and case 2 has its own screen (V2); th
 | Touch-only run | Parity | Complete briefing and a plan edit without speaking | Same completion as voice | A11 |
 | **Courier trust test** | Willingness to send the empty car; trust in the report | Clickable courier flow (S18 to C3) with 5 participants: what would they send, and what would stop them? | 4 of 5 would send it for an everyday errand; the report is understood without help | A14 |
 
-**Solo-friendly:** the glance, legibility, touch-only and courier trust tests can run remotely on a clickable prototype. The Wizard of Oz briefing moves to the one-month list. Retailer cooperation (A4, and A13 for courier handovers) would be tested with scripted calls to a few local shops if I had a month.

@@ -60,6 +60,7 @@ NAMES = {"S01":"Sign in","S02":"Welcome","S03":"Maya's access","S04":"Briefing: 
  "S16":"Incoming call","S17":"Plan change: ambient","S18":"Errand suggestion","S19":"Errand booked","S20":"Arrival report","C1":"Leaving in courier mode","C2":"Phone: courier run",
  "C3":"Phone: errand report","C4":"Errands","C5":"New errand","V1":"Takeover request (variant)","V2":"Running late (variant)"}
 live = {p.name.split("-")[0]: p.name for p in (A/"v2/prev").glob("*.html")}
+if (A/"v2/prev/Main.html").exists(): live["S01"] = "Main.html"  # S01 Sign in is rendered from Main.html
 cards = ""
 for i in IDS:
     for suf in ("", "_m"):
@@ -88,11 +89,13 @@ md = ROOT/"mood"; md.mkdir(exist_ok=True); shutil.copy(A/"mood3/final.png", md/"
 if (md/"index.html").exists(): (md/"index.html").unlink()
 
 # journey map, task flow, wireframes: standalone pages with the same back link and footer
+FAV = '<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">'
 BACK = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya – L5 trip concierge</a></p>'
 FOOT_SA = '<footer style="max-width:1180px;margin:40px auto 0;padding:16px 20px 40px;border-top:1px solid #D3DCE5;color:#4D6074;font:14px Inter,system-ui,sans-serif">Maya, L5 trip concierge by Aníbal Oliveira, 2026</footer>'
 def finish(slug, h):
     d = ROOT/slug; d.mkdir(exist_ok=True)
     h = re.sub(r"<!--claude-mermaid-runtime-begin.*?<!--claude-mermaid-runtime-end-->", "", h, flags=re.S)
+    if "favicon.svg" not in h: h = re.sub(r"(<meta charset=[\"']?utf-?8[\"']?>)", lambda m: m.group(1) + FAV, h, count=1, flags=re.I)
     h = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + BACK, h, count=1)
     h = h.replace("</body>", FOOT_SA + "\n" + GC + "\n</body>", 1)
     (d/"index.html").write_text(h)
@@ -121,7 +124,7 @@ ITEMS = [("docs/brief/", "Concept Foundations", "Problem, vision, hypothesis, sc
  ("docs/screens/", "Screen Specs and Mood Board", "S01 to S20, C1 to C5 and variants, Panoramic Vision through the story, and the Deep ocean mood board."),
  ("docs/matrix/", "Multimodal Matrix", "Voice, touch, Panoramic Vision, chime and phone: parity, outputs and stress tests."),
  ("docs/edge/", "Edge Cases and Validation Plan", "Seventeen edge cases and six tests tied to the assumptions."),
- ("wireframes/", "Central Display Wireframes", "Greyscale iteration 1: layout, patterns and components."),
+ ("wireframes/", "Central Display Wireframes", "Greyscale layout, interaction patterns and components, drawn before the hi-fi screens."),
  ("screens/", "UI Design Artboard", "Every screen at 1920 × 1200, the Central Display components and Panoramic Vision."),
  ("prototype/", "Clickable Prototype", "The whole evening by touch or voice, with edge cases 1 to 4 as what-if branches.")]
 cards = "".join(f'<a class="item" href="{u}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for u, t, d in ITEMS)

@@ -1,7 +1,5 @@
 # Concept Foundations
 
-*Problem, vision, hypothesis, scope, success metrics, assumptions, design principles, conversation design rules and trade-offs.*
-
 ## Context
 
 Maya is an AI concierge inside a fully autonomous (Level 5) car. She plans and runs the logistics of a single trip: routing, stops and calls to retailers. Michael, the user in our story, is in the car and either talks to her or uses the Central Display; Panoramic Vision, a passive band at the base of the windscreen, shows glanceable status. Maya acts with full delegated trust, like an executive assistant, within the limits Michael sets, and he can see and undo everything. Maya belongs to Michael, not to the car: she is in any car he signs in to, his own or a robotaxi. When nobody is in the car, Maya can also send it to run errands on its own (courier mode); a car in courier mode is always reserved to Michael.
@@ -24,7 +22,7 @@ Courier mode extends the bet: people will also let an empty car run errands on i
 
 ## Hero scenario: the family dinner run
 
-At 17:15 the car collects Michael at work and heads home by default. He tells Maya his needs: a family birthday dinner at 19:00, the kids and his wife to collect, and a new prescription from his messages as soon as possible. Maya asks only for the restaurant and the time, phones two pharmacies first (the first has no stock) and replans silently, then offers flowers and phones the florist. When his wife calls from the hair salon, Maya hears it, moves the pickup, and chimes. After that pickup, a message says his suit is ready at the dry cleaner: Maya offers to collect it on her own once the family is at the restaurant, he says yes, and she phones the shop to pay and agree the handover. The family arrives at 18:55 with 5 minutes of spare time, the flowers arrive first, and the empty car leaves in courier mode, collects the suit, then charges nearby and waits until Michael calls it. Three reroutes, each with its own cause: the plan replaces the default route, the world (no stock at the pharmacy) and the conversation (the wife's call). Plus one courier errand, run by the empty car.
+One evening: Michael is collected at work at 17:15 and needs his kids, his wife and a new prescription before a 19:00 family birthday dinner; Maya plans, phones and replans so the family arrives at 18:55, then the empty car collects his suit from the dry cleaner. The full script and timings are in [The Scenario](../hero/).
 
 ## Scope
 
@@ -70,7 +68,7 @@ At 17:15 the car collects Michael at work and heads home by default. He tells Ma
 | A14 | People will let their empty car run an errand, and accept a cabin camera that checks the cabin and the handover | High | Medium | Courier trust test |
 | A15 | An empty Level 5 car may legally drive and stop on its own to run errands | High | Medium | Assumed; regulation review (if I had a month) |
 | A16 | Michael's phone data (messages, calendar) is available to the car, despite the limits phone platforms set | High | Medium | Assumed; platform review (if I had a month) |
-| A5 | Automatic payments from Maya Wallet, up to a limit, are acceptable | Medium | Medium | Out of scope for now |
+| A5 | Automatic payments from Maya Wallet, up to a limit, are acceptable | Medium | Medium | Not tested (out of scope) |
 | A6 | Users accept as many questions as needed when each is clearly necessary | Medium | Medium | Wizard of Oz session (if I had a month) |
 | A7 | A proactive suggestion tied to a known occasion (a birthday) is welcome | Medium | Medium | Concept test |
 | A8 | Spare time (5 min) gives at-a-glance confidence | Medium | Medium | Glance test |
@@ -107,21 +105,18 @@ At 17:15 the car collects Michael at work and heads home by default. He tells Ma
 
 | Decision | What we gain | What we give up | Where it shows | Check it by |
 |---|---|---|---|---|
-| Level 5 only, no manual driving | A single calm, trip-level experience | Any use before full autonomy; no driver-state design | This page | n/a |
-| Full trust: Maya acts, pays and listens | The assistant feels like an executive assistant | Safety nets: no approval before calls, or before payments under the limit set in Maya's access (S03) | S02, S03, S11 | Trust calibration (month list) |
+| Full trust: Maya acts, pays and listens | The assistant feels like an executive assistant | Safety nets: no approval before calls, or before payments under the limit set in Maya's access (S03) | S02, S03, S11 | Trust calibration (if I had a month) |
 | Maya speaks rarely; the screen carries the detail | A quiet cabin; calm trip | Users who rely on voice alone get less status | Multimodal Matrix, S08 | Voice-only stress test |
 | Ambient intent: Maya acts on high confidence and asks on medium | Plans change without the user managing them | Risk of false positives from overheard talk | S17 | Ambient false-positive test |
 | Chime only for ambient changes, with the heard phrase and Undo, no countdown | Non-intrusive; a missed chime costs nothing | A user may not notice a change until they look | S17 | Validation plan |
 | Banner stays until dismissed | Never lost | Panel clutter if changes pile up | S09 | Prototype |
 | Pharmacy first, flowers after | The urgent to-do wins | Flowers are offered later, with less lead time | S08, S10 | Prototype |
-| Silent retailer calls shown on screen only | Silence in the cabin | Users cannot hear what Maya promised | S08 | Wizard of Oz (month list) |
-| Passive Panoramic Vision carrying nothing unique | No second interactive surface to design | It cannot be the only channel for anything | Screen Specs | n/a |
-| One layout on the Central Display: plan panel always left, flat 2D map | Learnable and consistent | No right-to-left variant; no 3D context | Central Display Wireframes | Responsive layouts (month list) |
+| Silent retailer calls shown on screen only | Silence in the cabin | Users cannot hear what Maya promised | S08 | Wizard of Oz (if I had a month) |
+| One layout on the Central Display: plan panel always left, flat 2D map | Learnable and consistent | No right-to-left variant; no 3D context | Central Display Wireframes | Responsive layouts (if I had a month) |
 | Keyboard takes about the lower half of the screen | Large, comfortable keys | Plan and map shrink while typing | S05 | Prototype |
 | Undo only on the latest ledger row, then the previous | A calm ledger, one clear action | Older actions are slower to reverse | S14 | Prototype, 3 users |
 | Spare time pill: green above 4 min, amber 0 to 4, red below 0 | Promise readable at a glance | Colour alone is not enough: needs text and shape too | S12 to S20 | Accessibility review |
 | Edit plan with ripple preview, then Apply | Informed edits | Extra step for a quick change | S15 | Prototype |
-| Solo exercise with no user research | Speed | Assumptions A1 to A16 are untested | This page | Validation plan |
 
 ## Courier mode: rules and trade-offs
 
