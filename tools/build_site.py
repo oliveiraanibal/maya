@@ -35,7 +35,7 @@ GC = '<script data-goatcounter="https://anibal.goatcounter.com/count" async src=
 FONT = '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
 def page(title, body, depth=1, desc=""):
     up = "../" * depth
-    nav = f'<nav class="top"><a href="{up}">Maya · entry page</a><span>/</span><span>{html.escape(title)}</span></nav>' if depth else ""
+    nav = f'<nav class="top"><a href="{up}">Maya – L5 trip concierge</a><span>/</span><span>{html.escape(title)}</span></nav>' if depth else ""
     return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)} · Maya</title><meta name="description" content="{html.escape(desc)}">{FONT}<style>{CSS}</style></head>
 <body><div class="wrap">{nav}{body}{FOOTER}</div>{GC}</body></html>'''
@@ -87,7 +87,7 @@ md = ROOT/"mood"; md.mkdir(exist_ok=True); shutil.copy(A/"mood3/final.png", md/"
 if (md/"index.html").exists(): (md/"index.html").unlink()
 
 # journey map, task flow, wireframes: standalone pages with the same back link and footer
-BACK = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya · entry page</a></p>'
+BACK = '<p style="margin:0;padding:10px 16px;font:14px Inter,system-ui,sans-serif;background:#F3F6F9;border-bottom:1px solid #D3DCE5"><a href="../" style="color:#0A7896">&larr; Maya – L5 trip concierge</a></p>'
 FOOT_SA = '<footer style="max-width:1180px;margin:40px auto 0;padding:16px 20px 40px;border-top:1px solid #D3DCE5;color:#4D6074;font:14px Inter,system-ui,sans-serif">Maya, L5 trip concierge by Aníbal Oliveira, 2026</footer>'
 def finish(slug, h):
     d = ROOT/slug; d.mkdir(exist_ok=True)
@@ -125,7 +125,7 @@ ITEMS = [("docs/brief/", "Concept Foundations", "Problem, vision, hypothesis, sc
  ("prototype/", "Clickable Prototype", "The whole evening by touch or voice, with edge cases 1 to 4 as what-if branches.")]
 cards = "".join(f'<a class="item" href="{u}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for u, t, d in ITEMS)
 (ROOT/"index.html").write_text(f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maya · AI trip concierge</title><meta name="description" content="Maya, an L5 trip concierge. A UX challenge by Aníbal Oliveira.">
+<title>Maya – L5 trip concierge</title><meta name="description" content="Maya, an L5 trip concierge. A UX challenge by Aníbal Oliveira.">
 {FONT}<style>
 :root{{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}}
 {FACES}*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font-family:InterDoc,Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}}
