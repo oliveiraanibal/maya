@@ -109,11 +109,3 @@ Nobody is in the cabin, so during the run there is no voice and no chime, and th
 | **Children tapping the Central Display** | Accidental edits | Edit actions tied to the signed-in user's profile |
 | **Privacy** (silent mode) | The user does not want to speak aloud | Full touch path, and Maya's speech becomes captions only |
 | **Nobody in the car** (courier mode) | No one sees the Central Display or hears Maya, and the shop staff are not users | The phone is the window, view only; the staff get a code by text and one flashing door, and nothing else in the car responds to them |
-
-## Decisions this adds to the plan
-
-- Maya's lines always have captions on the Central Display.
-- Undo has no countdown.
-- Panoramic Vision is read-only and a copy of the Central Display, and it is off when the cabin is empty.
-- Voice and touch both stay available at every moment, with no mode switch. There is no mic button: tapping Maya's bar opens the keyboard.
-- In courier mode the phone, view only, replaces the Central Display, and the shop staff only ever get a code and one door.
