@@ -3,8 +3,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 :root{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}
 @font-face{font-family:'InterDoc';src:url('assets/fonts/Inter-ExtraLight.woff') format('woff');font-weight:200;font-display:swap}@font-face{font-family:'InterDoc';src:url('assets/fonts/Inter-Light.woff') format('woff');font-weight:300;font-display:swap}@font-face{font-family:'InterDoc';src:url('assets/fonts/Inter-Regular.woff') format('woff');font-weight:400;font-display:swap}@font-face{font-family:'InterDoc';src:url('assets/fonts/Inter-Medium.woff') format('woff');font-weight:500;font-display:swap}@font-face{font-family:'InterDoc';src:url('assets/fonts/Inter-SemiBold.woff') format('woff');font-weight:600;font-display:swap}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:InterDoc,Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
-.hero{background:url(assets/hero-bg.jpg) center/cover no-repeat,#020812;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:clamp(28px,6vw,72px) max(16px,env(safe-area-inset-left));min-height:min(62.5vw,820px);display:flex;align-items:center}
+.hero{position:relative;overflow:hidden;background:url(assets/hero-bg.jpg) center/cover no-repeat,#020812;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:clamp(28px,6vw,72px) max(16px,env(safe-area-inset-left));min-height:min(62.5vw,820px);display:flex;align-items:center}
 .w{max-width:1040px;margin:0 auto;width:100%}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.hero .w{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.hero video{display:none}}
 .glass{max-width:680px;background:rgba(2,8,18,.74);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:clamp(22px,3.4vw,40px);color:#E6F1F8}
 .kicker{color:#5CD6F2;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
 h1{font-size:clamp(3.8rem,10vw,6.6rem);line-height:.92;margin:18px 0 14px;letter-spacing:-.05em;font-weight:200}
@@ -19,7 +21,7 @@ h2{font-size:1.3rem;margin:44px 0 14px}
 .item:hover{border-color:var(--teal)}.item b{display:block}.item span{display:block;margin-top:2px;color:var(--mute);font-size:.92rem}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
 </style></head><body>
-<div class="hero"><div class="w"><div class="glass"><div class="kicker">UX challenge · New AI assistant for infotainment</div>
+<div class="hero"><video autoplay muted loop playsinline preload="auto" poster="assets/hero-bg.jpg" aria-hidden="true" tabindex="-1"><source src="assets/hero-loop.webm" type="video/webm"><source src="assets/hero-loop.mp4" type="video/mp4"></video><div class="w"><div class="glass"><div class="kicker">UX challenge · New AI assistant for infotainment</div>
 <h1>Maya</h1><p class="sub">L5 trip concierge</p>
 <p class="intro">A self-driving car frees your hands, not your agenda. Navigation handles routes, not commitments, so passengers still sequence the stops, phone businesses and replan whenever something changes.</p>
 <p class="intro">With Maya, you share your needs and goals and she plans the stops, confirms with the shops, pays from her wallet and adapts when conditions change. Everything is shown on your Central Display and Panoramic Vision.</p>
