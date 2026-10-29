@@ -229,7 +229,7 @@ tr:last-child td{border-bottom:0}
     <tr><td>Map pin</td><td>Past (grey), next, pending (dotted), cancelled (crossed), new</td><td>S1 to S8</td></tr>
     <tr><td>Map route</td><td>Past (grey), ahead (solid), previous plan (dashed)</td><td>S1 to S8</td></tr>
     <tr><td>Buttons</td><td>Primary, secondary, text</td><td>All</td></tr>
-    <tr><td>Panoramic Vision slots (presence, next stop, spare time, beads, event)</td><td>See section 6</td><td>Panoramic Vision</td></tr>
+    <tr><td>Panoramic Vision slots (presence, next stop, spare time, beads, event)</td><td>See section 5</td><td>Panoramic Vision</td></tr>
     <tr><td>Arrival report</td><td>Headline, spare time, ledger, next step</td><td>S9</td></tr>
   </table></div>
   <div class="pres">
@@ -240,16 +240,11 @@ tr:last-child td{border-bottom:0}
     <div class="p1"><strong>On a call</strong><br><small>Pill reads "Maya, on a call"</small></div>
   </div>
 
-  <h2>4. Design system</h2>
-  <div class="box">
-    <p style="margin:0"><strong>Recommendation: decide at the hi-fi step, not now.</strong> The wireframes use a small kit of plain components, so the layout stays independent of any library. At hi-fi, use a free public system as a reference for sizes and behaviour, and build the brand layer (Maya, Panoramic Vision) on your own tokens. Candidates are Material 3 with the Android Automotive OS guidelines (free and public, includes in-car touch target and layout guidance). Adopting one whole would hide the decisions this exercise is meant to show.</p>
-  </div>
-
-  <h2>5. Screens</h2>
+  <h2>4. Screens</h2>
   <div id="screens"></div>
 
 
-  <h2>6. Secondary screen: Panoramic Vision</h2>
+  <h2>5. Secondary screen: Panoramic Vision</h2>
   <p>A passive, non-touchable Panoramic Vision at the base of the windscreen, ultrawide (drawn at 14:1). It carries nothing unique: everything here is also on the Central Display. The left half is automotive data, the right half is Maya's. Short text only, about 20 characters, and colour is never the only signal.</p>
   <div class="scr">
     <div class="sh"><h3>Strip layout</h3><span class="tag">Master</span></div>
@@ -268,15 +263,6 @@ tr:last-child td{border-bottom:0}
   </div>
   <div id="strips"></div>
 
-  <h2>7. Decisions made</h2>
-  <ol class="list">
-    <li>The plan panel opens on the left in every market.</li>
-    <li>The map is 2D.</li>
-    <li>The keyboard opens from below and takes roughly the lower half of the screen.</li>
-    <li>Only the latest ledger row has Undo; pressing it reveals Undo on the row before it. To validate in the prototype.</li>
-    <li>Maya does not suggest answers before the user has replied.</li>
-    <li>Pharmacy first: the first call is to a pharmacy on the route; the flowers offer comes after.</li>
-  </ol>
 </div>
 <script>
 var W='<span class="wave"><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:25%"></i></span>';
