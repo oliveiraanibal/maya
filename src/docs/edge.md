@@ -12,7 +12,7 @@ Seventeen edge cases and six tests, each tied to the assumptions (A1 to A16) in 
 | 4 | The chime is missed | Michael does not know the plan changed | The change stays on screen until dismissed, and in the ledger; Panoramic Vision repeats it once | A9 |
 | 5 | Florist cannot deliver before 19:00 | The gift is part of the on-time story | Try the next florist; otherwise offer a pickup stop | A4 |
 | 6 | Pharmacist refuses an AI caller | Depends on staff cooperation | Next pharmacy, with the refusal logged | A4 |
-| 7 | Child not at the pickup point | Safety and delay | Alert on the central display, wait window, school call | |
+| 7 | Child not at the pickup point | Safety and delay | Alert on the Central Display, wait window, school call | |
 | 8 | Connectivity loss | Everything backstage runs in the cloud | Keep the current plan, Panoramic Vision shows "Offline", edits queue | |
 | 9 | Dinner time or place changes by message | Same pattern as the wife's call | Ambient update from messages, same chime and Undo | A3 |
 | 10 | Several people speak | Whose voice counts? | Commands only from the signed-in user; other speech is context only | A3, A11 |
@@ -30,9 +30,9 @@ Cases 1, 3 and 4 appear in the prototype, and case 2 has its own screen (V2); th
 
 | Test | What it checks | Method | Success signal | Assumptions |
 |---|---|---|---|---|
-| Wizard of Oz briefing (if I had a month) | Questions needed, natural language | A person plays Maya's voice with a prototype central display, 5 participants | Completion without confusion; count of questions | A1, A6 |
+| Wizard of Oz briefing (if I had a month) | Questions needed, natural language | A person plays Maya's voice with a prototype Central Display, 5 participants | Completion without confusion; count of questions | A1, A6 |
 | **Ambient-intent false positives** | Trust and creepiness | Scripted audio clips (true changes and decoys), measure Undo and reaction | Few false positives; chime and heard phrase understood | A3, A9 |
-| Glance test | Panoramic Vision and central display readability | 5-second exposure: "What's next? How much spare time?" | 80% or more correct | A8, A10 |
+| Glance test | Panoramic Vision and Central Display readability | 5-second exposure: "What's next? How much spare time?" | 80% or more correct | A8, A10 |
 | Replan legibility | Before and after understanding | Show it, ask "what changed?" | Understood in under 5 seconds | A9 |
 | Touch-only run | Parity | Complete briefing and a plan edit without speaking | Same completion as voice | A11 |
 | **Courier trust test** | Willingness to send the empty car; trust in the report | Clickable courier flow (S18 to C3) with 5 participants: what would they send, and what would stop them? | 4 of 5 would send it for an everyday errand; the report is understood without help | A14 |

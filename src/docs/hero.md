@@ -106,7 +106,7 @@ Screen tags (S01 to S20, C1 to C5) refer to the Screen Specs. Anything not in qu
 
 **Scene 10: The courier run (from 18:58), car alone** [C1 to C3]
 
-- 18:58: cabin empty, nothing left behind. The central display and Panoramic Vision turn off, and the car leaves. Michael's phone shows the run live in the My BMW app, view only: to the dry cleaner, then charging nearby until he calls. [C2]
+- 18:58: cabin empty, nothing left behind. The Central Display and Panoramic Vision turn off, and the car leaves. Michael's phone shows the run live in the My BMW app, view only: to the dry cleaner, then charging nearby until he calls. [C2]
 - 19:20: at the dry cleaner, the car stops and flashes the rear right door. A member of staff types the code; only that door opens. They hang the suit and close the door. The cabin camera checks it: "1 garment bag, rear right". The door locks.
 - 19:24: a report on the phone with a photo, the receipt and the times. A notification, no voice. [C3]
 - The car drives to a charging station near the restaurant and charges. Charging is not an errand, so it isn't in the plan. The story ends here: the same car, with the suit inside, waits until Michael calls it.

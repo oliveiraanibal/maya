@@ -112,6 +112,7 @@ finish("flow", flow)
 finish("wireframes", (ROOT/"src/wireframes.html").read_text())
 
 # entry page
+FACES = ''.join("@font-face{font-family:'InterDoc';src:url('assets/fonts/Inter-%s.woff') format('woff');font-weight:%d;font-display:swap}" % (n, w) for n, w in (('ExtraLight', 200), ('Light', 300), ('Regular', 400), ('Medium', 500), ('SemiBold', 600)))
 ITEMS = [("docs/brief/", "Concept Foundations", "Problem, vision, hypothesis, scope, success metrics, assumptions, design principles, conversation rules and trade-offs."),
  ("docs/hero/", "The Scenario", "One evening in ten scenes: the day in numbers and the full script."),
  ("journey/", "Journey Map", "Ten beats from sign-in to the empty car charging, with what Maya does backstage."),
@@ -120,21 +121,21 @@ ITEMS = [("docs/brief/", "Concept Foundations", "Problem, vision, hypothesis, sc
  ("docs/matrix/", "Multimodal Matrix", "Voice, touch, Panoramic Vision, chime and phone: parity, outputs and stress tests."),
  ("docs/edge/", "Edge Cases and Validation Plan", "Seventeen edge cases and six tests tied to the assumptions."),
  ("wireframes/", "Central Display Wireframes", "Greyscale iteration 1: layout, patterns and components."),
- ("screens/", "UI Design Artboard", "Every screen at 1920 × 1200, the central display components and Panoramic Vision."),
+ ("screens/", "UI Design Artboard", "Every screen at 1920 × 1200, the Central Display components and Panoramic Vision."),
  ("prototype/", "Clickable Prototype", "The whole evening by touch or voice, with edge cases 1 to 4 as what-if branches.")]
 cards = "".join(f'<a class="item" href="{u}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for u, t, d in ITEMS)
 (ROOT/"index.html").write_text(f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Maya · AI trip concierge</title><meta name="description" content="Maya, an L5 trip concierge. A UX challenge by Aníbal Oliveira.">
 {FONT}<style>
 :root{{--paper:#F3F6F9;--ink:#0B1726;--mute:#4D6074;--line:#D3DCE5;--teal:#0A7896;--card:#fff}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}}
+{FACES}*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font-family:InterDoc,Inter,system-ui,sans-serif;line-height:1.6;padding:0 max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}}
 .hero{{background:url(assets/hero-bg.jpg) center/cover no-repeat,#020812;margin:0 calc(-1*max(16px,env(safe-area-inset-left)));padding:clamp(28px,6vw,72px) max(16px,env(safe-area-inset-left));min-height:min(62.5vw,820px);display:flex;align-items:center}}
 .w{{max-width:1040px;margin:0 auto;width:100%}}
 .glass{{max-width:660px;background:rgba(2,8,18,.74);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:clamp(22px,3.4vw,40px);color:#E6F1F8}}
-.kicker{{color:#5CD6F2;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}}
-h1{{font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin:12px 0 6px;letter-spacing:-.03em;font-weight:300}}
-.sub{{font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:300;margin:0 0 18px;color:#E6F1F8}}
-.glass p.intro{{color:#C3D1DD;margin:0 0 12px;font-size:16px}}
+.kicker{{color:#5CD6F2;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}}
+h1{{font-size:clamp(3.8rem,10vw,6.6rem);line-height:.92;margin:18px 0 14px;letter-spacing:-.05em;font-weight:200}}
+.sub{{font-size:clamp(1.35rem,3vw,1.9rem);font-weight:300;line-height:1.2;margin:0 0 20px;color:#E6F1F8}}
+.glass p.intro{{color:#C3D1DD;margin:0 0 12px;font-size:16.5px;line-height:1.55;font-weight:400}}
 .btns{{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}}
 .btn{{display:inline-flex;align-items:center;background:#5CD6F2;color:#020812;padding:12px 20px;font-weight:600;text-decoration:none;min-height:48px}}
 .btn.o{{background:rgba(2,8,18,.4);color:#5CD6F2;border:1px solid #5CD6F2}}
@@ -147,7 +148,7 @@ footer{{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:
 <div class="hero"><div class="w"><div class="glass"><div class="kicker">UX challenge · New AI assistant for infotainment</div>
 <h1>Maya</h1><p class="sub">L5 trip concierge</p>
 <p class="intro">A self-driving car frees your hands, not your agenda. Navigation handles routes, not commitments, so passengers still sequence the stops, phone businesses and replan whenever something changes.</p>
-<p class="intro">With Maya, you share your needs and goals and she plans the stops, confirms with the shops, pays from her wallet and adapts when conditions change. Everything is shown on your central display and Panoramic Vision.</p>
+<p class="intro">With Maya, you share your needs and goals and she plans the stops, confirms with the shops, pays from her wallet and adapts when conditions change. Everything is shown on your Central Display and Panoramic Vision.</p>
 <p class="intro">When the car is free, she becomes the courier that runs your errands.</p>
 <div class="btns"><a class="btn" href="Anibal-Oliveira_CTW-UX-Challenge_Maya.pdf" download target="_blank" rel="noopener" data-goatcounter-click="pdf-download" data-goatcounter-title="PDF download">Get the PDF</a><a class="btn o" href="prototype/">Open the prototype</a><a class="btn o" href="screens/">UI Design Artboard</a></div></div></div></div>
 <div class="w">

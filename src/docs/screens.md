@@ -1,15 +1,15 @@
 # Screen Specs and Mood Board
 
-Twenty screens on the central display in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive Panoramic Vision band: the central display holds everything interactive, Panoramic Vision only lets people glance.
+Twenty screens on the Central Display in story order (S01 to S20), five for courier mode (C1 to C5, two of them view only on Michael's phone), two variants (V1, V2), one system layer (F1) and a passive Panoramic Vision band: the Central Display holds everything interactive, Panoramic Vision only lets people glance.
 
 ## The two screens
 
-| | Central display | Panoramic Vision |
+| | Central Display | Panoramic Vision |
 |---|---|---|
 | Hardware | Large touchscreen, like today's infotainment | A band at the base of the windscreen, as in BMW Panoramic Vision |
 | Role | All detail and interaction | Passive, glanceable, secondary information |
 | Input | Touch | None (not touchable) |
-| Content rule | Everything | Nothing unique: a copy of what is on the central display |
+| Content rule | Everything | Nothing unique: a copy of what is on the Central Display |
 
 Panoramic Vision is split in half: one half is automotive data (speed, temperature, range), the other half belongs to Maya. A third surface, Michael's phone, appears only in courier mode, when nobody is in the car.
 
@@ -48,7 +48,7 @@ Priority **H** = needed for the hero scenario; *branch* = reached through a touc
 | **V2** | Running late | edge case 2 | Fixes, cheapest first: ask the restaurant to hold the table, take a faster road, ask the wife to wait at the corner | Variant |
 | **F1** | Maya presence | all | Listening, thinking, speaking, on a call; live captions; tap to type; mirrored on Panoramic Vision | **H** (system layer) |
 
-**Errands entry:** a box icon left of the settings cog on every central display screen. **The phone** is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). **Charging** is not an errand and never appears in the plan list.
+**Errands entry:** a box icon left of the settings cog on every Central Display screen. **The phone** is a third surface, for courier mode only and view only: two screens, the live run (C2) and the report (C3). **Charging** is not an errand and never appears in the plan list.
 
 **Supportive (later):** Maya settings beyond access, notifications tray, error and offline states.
 
@@ -94,7 +94,7 @@ Short text only (about 25 characters), always with text so colour is never the o
 
 ## Principles these screens follow
 
-1. The central display is for interaction, Panoramic Vision is for glances.
+1. The Central Display is for interaction, Panoramic Vision is for glances.
 2. The screen is the confirmation, so Maya does not read plans back.
 3. Spare time is always visible.
 4. Every change (world, conversation, user) shows what was removed and what is new: cancelled stops are crossed out, new stops are marked.
