@@ -464,23 +464,20 @@ const R = Object.fromEntries(run.map(r => [r.k, r]));
 const T_REROUTE = R.ph2.ta + (R.ph2.tb - R.ph2.ta) * .42;               // after the kindergarten, before the pharmacy
 const T_FLOWERS = R.dinner.ta + (R.dinner.tb - R.dinner.ta) * .75;
 const T_COU0 = R.dinner.td - .2, T_COU1 = T_COU0 + Math.max(1.8, COU.L / 55), T_END = T_COU1 + 1.9, TOTAL = T_END + 1.1;
-window.TOTAL = TOTAL;
+const START = 2.9;                                                           // the loop starts as the plan route begins to draw (the 'going home' default route is not shown)
+window.TOTAL = TOTAL; window.START = START;
 function carS(t) { for (const r of run) { if (t < r.ta) return r.s0; if (t < r.tb) return r.s0 + (r.s1 - r.s0) * sine((t - r.ta) / (r.tb - r.ta)); } return sDin; }
 
 // ---------- frame
 const carEl = document.getElementById('car'), carp = document.getElementById('carp');
 window.frame = function (t) {
   const G = 1 - seg(t, TOTAL - 1.0, TOTAL);                               // global fade at the end of the loop
-  const Gi = eo(seg(t, 0, .8));
-  const g = Math.min(G, Gi);
+  const g = G;
   // timings of the plan build
-  const tDef0 = .9, tDef1 = 2.2, tPlan0 = 3.0, tPlan1 = 5.0;
+  const tPlan0 = 3.0, tPlan1 = 5.0;
   const sCar = carS(t), moving = t >= T_GO, inCou = t >= T_COU0;
   const rerouted = t >= T_REROUTE;
-  // default "going home" route
-  const defA = g * (1 - seg(t, tPlan0 - .2, tPlan0 + .5));
-  const defD = HOME.sub(0, HOME.L * eo(seg(t, tDef0, tDef1)));
-  setG(gHome, defA > 0 ? defD : '', defA);
+  setG(gHome, '', 0);
   // plan route v1 (via home) draws in, then follows the car; after the reroute only its prefix to the pharmacy remains
   const v1Draw = V1.L * ease(seg(t, tPlan0, tPlan1));
   const dV = splitV1 - sPh2;                                                   // the prefix of both plans is the same road
@@ -508,7 +505,7 @@ window.frame = function (t) {
   // ----- pins
   const A = (t0, t1 = t0 + .45) => g * eo(seg(t, t0, t1));
   const doneAt = (r) => t >= r.tb + .25;
-  pin('work', { s: 'done', a: g * eo(seg(t, .3, .8)), tag: '17:15' }, t);
+  pin('work', { s: 'done', a: g, tag: '17:15' }, t);
   // school, kindergarten
   for (const k of ['school', 'kinder']) {
     const r = R[k], ap = A(k === 'school' ? 3.4 : 3.8);
@@ -541,7 +538,7 @@ window.frame = function (t) {
   if (inCou) { const s = COU.L * ease(seg(t, T_COU0, T_COU1)); cp = COU.at(s); ch = COU.head(s); hollow = true; }
   else { cp = FIN.at(sCar); ch = FIN.head(Math.max(sCar, 8)); }
   const px = Pm(cp[0], cp[1]);
-  carEl.style.cssText = `left:${px[0]}px;top:${px[1]}px;transform:translate(-50%,-50%) rotate(${ch}deg);opacity:${g * eo(seg(t, .35, .9))}`;
+  carEl.style.cssText = `left:${px[0]}px;top:${px[1]}px;transform:translate(-50%,-50%) rotate(${ch}deg);opacity:${g}`;
   carp.setAttribute('fill', hollow ? 'rgba(2,18,28,.85)' : '#FFFFFF');
   carp.setAttribute('stroke', hollow ? '#E6F1F8' : '#02121C');
 };
